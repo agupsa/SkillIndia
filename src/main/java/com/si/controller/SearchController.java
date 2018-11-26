@@ -25,10 +25,11 @@ public class SearchController {
 	public ModelAndView viewSingleList(HttpServletRequest request,HttpServletResponse response)
 	{   String establishmentName=request.getParameter("establishmentName");
 	    System.out.println(establishmentName);
-		ModelAndView mv=new ModelAndView("estDisplay");
+		//ModelAndView mv=new ModelAndView("estDisplay");
 		List<Establishment> estList=eService.getEstByName(establishmentName);
 		System.out.println(estList);
-		mv.addObject("estList", estList);
-		return mv;
+		//mv.addObject("elst", estList);
+		//return mv;
+		return new ModelAndView("estDisplay","elst",estList);  
 	}
 }
