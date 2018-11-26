@@ -48,7 +48,7 @@ public class EstablishmentDao {
 			Address tempaddr = e.getAddr();
 			tempaddr.setAddId(getSeq(fetchaPK));
 			e.setAddr(tempaddr);
-			String queryforAddress = "insert into address values (" + e.getAddr().getAddId() + ",'"
+			String queryforAddress = "insert into gr5_address values (" + e.getAddr().getAddId() + ",'"
 					+ e.getAddr().getAddr() + "','" + e.getAddr().getState() + "','" + e.getAddr().getCity() + "',"
 					+ e.getAddr().getPincode() + ",null," + e.getEstRegNo() + ")";
 			int x = jdbcTemplate.update(queryforAddress);

@@ -49,9 +49,9 @@ public class CandidateDao implements CandidateDaoInteface {
 				Address tempaddr = cr.getAddr();
 				tempaddr.setAddId(getSeq(fetchaPK));
 				cr.setAddr(tempaddr);
-				String queryforAddress = "insert into address values ("+cr.getAddr().getAddId()+",'"
+				String queryforAddress = "insert into gr5_address values ("+cr.getAddr().getAddId()+",'"
 						  + cr.getAddr().getAddr() + "','" + cr.getAddr().getState() + "','" +
-						  cr.getAddr().getCity() + "'," + cr.getAddr().getPincode() + "," + cr.getCanRegNo()+"null)"; 
+						  cr.getAddr().getCity() + "'," + cr.getAddr().getPincode() + "," + cr.getCanRegNo()+",null)"; 
 				int x = jdbcTemplate.update(queryforAddress);
 						 
 				

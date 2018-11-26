@@ -15,9 +15,7 @@ public class Course {
 	private String trainerName;
 	private String trainerContact;
 	private int estRegno;		//Foreign key
-	//private String estName;
-	
-	
+	private String estName;     
 	
 	
 	public int getCourseId() {
@@ -49,6 +47,12 @@ public class Course {
 	}
 	public void setEstRegno(int estRegno) {
 		this.estRegno = estRegno;
+	}
+	public String getEstName() {
+		return estName;
+	}
+	public void setEstName(String estName) {
+		this.estName = estName;
 	}
 
 }

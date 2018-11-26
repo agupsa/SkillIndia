@@ -49,7 +49,7 @@ public class EstablishmentSearchDao {
 	                e.setIFSC(rs.getString(11));
 	                e.setAccountNo(rs.getLong(12));
 	                e.setStatus(rs.getString(13));*/
-	               // e.setAddress((Address) rs.getObject(13));
+	              //e.setAddr(rs.getClass(Address));
 	               // e.setCourses((Courses) rs.getObject(14));
 	                lst.add(e);
 	            }
