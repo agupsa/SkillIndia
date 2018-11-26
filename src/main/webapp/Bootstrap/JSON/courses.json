@@ -1,0 +1,17 @@
+{
+
+	"Agriculture":[["8924","Animal Health Worker"],["7263","Aquaculture Worker"],["5773","Dairy Farmer Entrepreneur"],["1923","Gardener"],["4624","Green House Operator"]],
+	"Automotive":[["3263","Automotive Service Technician"],["7771","Auto E-Rickshaw Driver Service Technician"],["4463","Welding & Quality Technician"],["3729","Dealership Telecaller Sales Executive"],["5242","Showroom Hostess Customer Relationship Executive"]],
+	"Electronics":[["7876","Field Technician - Computing & Peripherals"],["8883","Field Technician - Networking & Storage"],["9039","Field Technician - Other Home Appliances"],["2228","LED Light Repair Technician"],["5522","Mobile Phone Hardware Repair Technician"]],
+	"Handicrafts":[["1908","Agarbatti Packer"],["1976","Bamboo Basket Maker"],["1865","Bamboo Mat Weaver"],["2871","Bamboo Utiliy Handicraft Assembler"],["4010","Hammering Artisan"]],
+	"Healthcare":[["5620","Diabetes Educator"],["4340","Diet Assistant"],["8475","Emergency Medical Technician - Basic"],["1764","Frontline Health Worker"],["1734","General Duty Assistant"]],
+	"IT":[["3333","Product Design Engineer Mechanical"],["9999","Management Trainee Marketing"],["8111","Engineer Trainee"],["8121","Junior Software Developer"],["1139","Domestic IT Helpdesk Attendant"]],
+	"Life Science":[["7757","Lab Technician Assistant"],["6666","Medical Sales Representative"],["9133","Production Machine Operator"],["1933","Store Assistant"]],
+	"Logistics":[["8861","Consignment Booking Assistant"],["8888","Consignment Tracking Executive"],["7744","Courier Delivery Executive"],["1122","Clearance Support Agent"],["7777","Courier Branch Sales Executive"]],
+	"Media and Entertainment":[["2015","Character Designer"],["2001","Editor"],["8080","Hairdresser"],["7727","Makeup Artist"],["1015","Modeller"]],
+	"Mining":[["3030","Mine Electrician"],["6665","Mine Welder"],["2020","Bulldozer Operator"],["1210","HEMM Mechanic"],["6400","Loader Operator"]],
+	"Plumbing":[["7717","Plumber General"],["1722","Plumber After-Sales Service"],["2009","Plumbing Products Sales Officer"]],
+	"Retail":[["2006","Distributor Salesman"],["6699","Retail Sales Associate"],["1171","Retail Trainee Associate"]],
+	"Telecom":[["7736","Customer Care Executive - Relationship Centre"],["1832","Customer Care Executive - Telecom Call Centre"],["2106","Distributor Sales Rep"],["1577","Field Sales Executive"],["3969","Handset Repair Engineer"]],
+	"Tourism":[["3949","Counter Sales Executive"],["1964","F & B Service Steward"],["8091","Front Office Associate"],["1625","Home Delivery Boy"],["1543","House-Keeping Attendant"]]
+}

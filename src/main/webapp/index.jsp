@@ -75,20 +75,7 @@
 
   <div class="container">
     <img  src="Bootstrap/img/Skill_India.png" width="100%">
-   <!-- <div class="centered">
-   
-    <p style="color: white; color: #fc2d2d; font-size: 25px"><b>
-      This is the most powerful scheme with hundreds of options that you have never seen before.</b>
-    </p>
-
-    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a class="btn btn-full" href="login.jsp">Login</a>
-  
-  </div>  -->
-</div>
+ 
 
 <!-- About -->
 

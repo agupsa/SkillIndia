@@ -49,7 +49,7 @@
           <li class="menu-has-children"><a href="">Registration</a>
             <ul>
               <li><a href="CandidateRegister.jsp">Candidate Registration Page</a></li>
-              <li><a href="InstituteRegistration.jsp">Institute Registration Page</a></li>
+              <li><a href="EstablishmentRegistration.jsp">Establishment Registration Page</a></li>
              </ul>
           </li>
           <li><a href="#contact">Contact Us</a></li>
@@ -101,7 +101,7 @@
             <span class="input-group-addon"><i class="fa fa-user-circle-o" aria-hidden="true"></i></span>
             <select name="loginAs" class="form-control">
               <option value="candidate">Candidate</option>
-              <option value="institute">Institute</option>
+              <option value="Establishment">Establishment</option>
             </select>
           </div>
         </div>
@@ -109,7 +109,7 @@
 	  <br/>
 	  <p style="text-align: center;">New User?</p>
       <p style="text-align: center;"><a href="CandidateRegister.jsp">Register as a Candidate</a></p>
-      <p style="text-align: center"><a href="InstituteRegistration.jsp">Register as an Institute</a></p>
+      <p style="text-align: center"><a href="EstablishmentRegistration.jsp">Register as an Establishment</a></p>
       
         <!-- Submit button -->
        <div class="form-group col-md-4" style="padding: 0;">
