@@ -14,7 +14,7 @@ public class EstablishmentRegService {
 
 
 	@Autowired
-	EstablishmentDao edao;
+	EstablishmentDao esdao;
 	
 
 	@Transactional
@@ -22,6 +22,6 @@ public class EstablishmentRegService {
 		System.out.println("in service");
 		/*e.setPath(saveFiles(e));
 		System.out.println("saved file and path");*/
-		edao.registerEstablishment(e);
+		esdao.registerEstablishment(e);
 	}
 }

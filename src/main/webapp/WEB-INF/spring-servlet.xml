@@ -38,6 +38,11 @@
 		</property>
 	</bean>
 	
+	<bean id="esdao" class="com.si.dao.EstablishmentSearchDao">
+		<property name="jdbcTemplate" ref="jdbcTemplate">
+		</property>
+	</bean>
+	
 	<bean id="ldao" class="com.si.dao.LoginDao">
 		<property name="jdbcTemplate" ref="jdbcTemplate">
 		</property>
