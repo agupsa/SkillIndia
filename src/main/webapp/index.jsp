@@ -51,15 +51,24 @@
         <ul class="nav-menu">
           <li><a href="#about">About Us</a></li>
         
-         <a href="login.jsp">Login</a>
-          <li class="menu-has-children"><a href="">Registraion</a>
+         
+        <li class="menu-has-children"><a href="">Candidate</a>
             <ul>
-              <li><a href="CandidateRegister.jsp">Candidate Registration Page</a></li>
-              <li><a href="EstablishmentRegistration.jsp">Establishment Registration Page</a></li>
+              <li><a href="CandidateRegister.jsp">Candidate Register</a></li>
+              <li><a href="login.jsp">Candidate Login</a></li>
              </ul>
           </li>
      
+     <li class="menu-has-children"><a href="">Establishment</a>
+            <ul>
+              <li><a href="EstablishmentRegistration.jsp">Establishment Register</a></li>
+              <li><a href="login.jsp">Establishment Login</a></li>
+             </ul>
+          </li>
         </ul>
+        <ul class="nav-menu">
+         <li><a href="search.jsp">Search</a></li>
+         </ul>
       </nav>
      <!-- #nav-menu-container -->
 

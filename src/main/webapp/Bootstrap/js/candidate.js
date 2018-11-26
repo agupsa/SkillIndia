@@ -1,4 +1,4 @@
-    updateList = function() {
+  updateList = function() {
       var input = document.getElementById('file');
       var output = document.getElementById('fileList');
 

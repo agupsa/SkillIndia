@@ -46,12 +46,12 @@
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li class="menu-has-children"><a href="">Registration</a>
+        <!--   <li class="menu-has-children"><a href="">Registration</a>
             <ul>
               <li><a href="CandidateRegister.jsp">Candidate Registration Page</a></li>
               <li><a href="EstablishmentRegistration.jsp">Establishment Registration Page</a></li>
              </ul>
-          </li>
+          </li> -->
           <li><a href="#contact">Contact Us</a></li>
         </ul>
       </nav>

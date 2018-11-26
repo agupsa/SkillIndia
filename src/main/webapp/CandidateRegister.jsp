@@ -99,7 +99,7 @@
           <div class="input-group" style="z-index: 0;">
             <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
             <input name="name" maxlength="30" placeholder="Full Name" required="required" class="form-control"  type="text"
-                title="Enter First Name">
+                title="Enter Full Name">
           </div>
         </div>
       </div>
@@ -139,7 +139,7 @@
         <label class="control-label">Candidate Email</label><font style= "color:red;">*</font>
         <div class="input-group" style="z-index: 0;">
           <span class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
-          <input maxlength="30" name="email" placeholder="email" class="form-control" required="required" type="email" title="Enter an e-Mail address of a valid format including the domain name.	">
+          <input maxlength="30" name="username" placeholder="email" class="form-control" required="required" type="email" title="Enter an e-Mail address of a valid format including the domain name.	">
         </div>
       </div>
       
@@ -154,14 +154,14 @@
                 title="Password Should be at least 8 characters long and must contain at least one character in Upper Case, Lower Case, Numerical Form, and a Special Character.">
           </div>
         </div>
-        <div class="col-md-6 form-group">
+<!--         <div class="col-md-6 form-group">
           <label class="control-label" >Confirm Password</label><font style= "color:red;">*</font>
           <div class="input-group" style="z-index: 0;">
             <span class="input-group-addon"><i class="fa fa-unlock-alt" aria-hidden="true"></i></span>
-            <input maxlength="30" id="confirmPassword" name="pass" placeholder="Confirm Password" class="form-control" required="required" type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" onkeyup="validate()" 
+            <input maxlength="30" id="confirmPassword" name="password" placeholder="Confirm Password" class="form-control" required="required" type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" onkeyup="validate()" 
                 title="Password Should be at least 8 characters long and must start with an Upper Case character, then Lower Case characters, spacial characters and numbers.">
           </div>
-        </div>
+        </div> -->
       </div>
 
    
@@ -198,7 +198,7 @@
         </div>
 
    
-
+<!-- Qualification details -->
       <div class="form-row">
         <div class="form-group col-md-6">
           <label class="control-label">Highest Qualification</label> <font style= "color:red;">*</font>
@@ -218,7 +218,7 @@
           <label class="control-label" >Institute Name</label> <font style= "color:red;">*</font>
           <div class="input-group" style="z-index: 0;">
             <span class="input-group-addon"><i class="fa fa-university" aria-hidden="true"></i></span>
-            <input maxlength="50" name="qualification" placeholder="Institute Name" class="form-control"  type="text">
+            <input maxlength="50" name="collegeName" placeholder="Institute Name" class="form-control"  type="text">
           </div>
         </div>
          <div class="form-group col-md-6">
