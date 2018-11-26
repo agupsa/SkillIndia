@@ -13,7 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.si.model.Candidate;
 import com.si.model.Login;
-import com.si.service.CandidateRegService;
+import com.si.service.CandidateRegServiceInterface;
 import com.si.dao.CandidateDaoInteface;
 import com.si.dao.LoginDaoInterface;
 
@@ -25,7 +25,7 @@ public class CandidateController {
 	LoginDaoInterface ldao;
 	
 	@Autowired
-	CandidateRegService cs;
+	CandidateRegServiceInterface cs;
 	
 	@RequestMapping(value="/registerCandidate", method=RequestMethod.POST)
 	public  ModelAndView candidateRegister(@ModelAttribute("CandidateRegistration") Candidate cr){

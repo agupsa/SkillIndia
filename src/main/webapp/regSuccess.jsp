@@ -10,7 +10,7 @@
 <body>
 <h1>You have completed your registration </h1>
 <a href="loginpage">click here to login</a>
-<a href="CanLogin">Directly to Login Page</a>
+<a href="CanLogin.jsp">Directly to Login Page</a>
 
 </body>
 </html>

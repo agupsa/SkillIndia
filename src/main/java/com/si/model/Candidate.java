@@ -13,7 +13,7 @@ import java.util.Date;*/
 public class Candidate {
 	
 	//TODO add address and education qualification
-	//private Address addr;
+
 
 	private int canRegNo;   // Primary key auto generated
 	private String name;
@@ -36,6 +36,7 @@ public class Candidate {
 	private String aadhar;
 	private String eduCert;
 	*/
+	private Address addr;
 	
 
 	/* Column mappings
@@ -57,6 +58,14 @@ public class Candidate {
 	gc_status VARCHAR2(30)*/
 	
 	
+
+	public Address getAddr() {
+		return addr;
+	}
+
+	public void setAddr(Address addr) {
+		this.addr = addr;
+	}
 
 	public int getCanRegNo() {
 		return canRegNo;

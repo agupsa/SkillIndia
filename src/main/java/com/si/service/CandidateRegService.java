@@ -14,11 +14,13 @@ import com.si.model.Candidate;
 
 @Service
 @Transactional
-public class CandidateRegService {
+public class CandidateRegService implements CandidateRegServiceInterface {
 	
 	@Autowired
 	CandidateDaoInteface cdao;
 	
+
+	@Override
 	@Transactional
 	public void registerCandidate(Candidate c) {
 		System.out.println("in service");
