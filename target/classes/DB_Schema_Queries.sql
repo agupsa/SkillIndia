@@ -172,9 +172,9 @@ start with 1
 increment by 1
 nocycle;*/
 
+insert into gr5_establishment values(gr5_establishment_seq.nextval,'abc','email','pass','it',500,5,'head',9876543210,'sbi','SBI0096',5566,'Awaiting verification');
 
-
-
+insert into gr5_establishment values(gr5_establishment_seq.nextval,'xyz','email1','pass','it',500,6,'head1',9976543210,'sbi','SBI0096',5567,'Awaiting verification');
 
 
 

@@ -14,9 +14,14 @@ import com.si.service.EstablishmentRegService;
 public class EstablishmentController {
 	@Autowired
 	EstablishmentRegService ers;
+	
+	
+	
+	
+	
 	@RequestMapping(value="/registerEstablishment", method=RequestMethod.POST)
-	public  ModelAndView candidateRegister(@ModelAttribute("Establishment") Establishment est){
-		ers.registerCandidate(est);
+	public  ModelAndView EstablishmentRegister(@ModelAttribute("Establishment") Establishment est){
+		ers.registerEstablishment(est);
 		return new ModelAndView("regSuccess");
 	}
 	

@@ -59,24 +59,6 @@ public class CandidateDao implements CandidateDaoInteface {
 				
 			}
 
-			/*
-			 * 
-			 * if (x > 0) { System.out.println("inserted in address table"); } else {
-			 * System.out.println("Error in address table"); }
-			 * 
-			 * String query_education_details =
-			 * "insert into education_details values(education_details_seq.nextval,'" +
-			 * cr.getEducation().getQualification() + "','" +
-			 * cr.getEducation().getInstituteName() + "','" + cr.getUserId() + "')";
-			 * 
-			 * int x1 = jdbcTemplate.update(query_education_details);
-			 * 
-			 * if (x1 > 0) {
-			 * 
-			 * System.out.println("inserted in education table"); } else {
-			 * System.out.println("Error in education table"); }
-			 */
-
 			System.out.println("INSERTED RECORD: "+ cr.getRegNo()+ "\t" + cr.getAadharNo() + " " + cr.getContactNo());
 			
 			return i;

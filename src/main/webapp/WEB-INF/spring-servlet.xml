@@ -33,6 +33,12 @@
 		<property name="jdbcTemplate" ref="jdbcTemplate">
 		</property>
 	</bean>
+	
+	<bean id="esdao" class="com.si.dao.EstablishmentSearchDao">
+		<property name="jdbcTemplate" ref="jdbcTemplate">
+		</property>
+	</bean>
+	
 	<bean id="edao" class="com.si.dao.EstablishmentDao">
 		<property name="jdbcTemplate" ref="jdbcTemplate">
 		</property>

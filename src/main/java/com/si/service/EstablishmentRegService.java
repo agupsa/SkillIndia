@@ -18,10 +18,10 @@ public class EstablishmentRegService {
 	
 
 	@Transactional
-	public void registerCandidate(Establishment e) {
+	public void registerEstablishment(Establishment e) {
 		System.out.println("in service");
 		/*e.setPath(saveFiles(e));
 		System.out.println("saved file and path");*/
-		edao.registerCandidate(e);
+		edao.registerEstablishment(e);
 	}
 }
