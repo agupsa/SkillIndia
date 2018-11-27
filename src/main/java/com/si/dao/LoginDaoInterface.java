@@ -4,5 +4,5 @@ import com.si.model.Login;
 
 public interface LoginDaoInterface {
 
-	public Object validate(Login login);
+	public Object userLoginValidation(Login login);
 }

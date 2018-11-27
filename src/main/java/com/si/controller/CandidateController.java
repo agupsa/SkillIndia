@@ -13,56 +13,54 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.si.model.Candidate;
 import com.si.model.Login;
+import com.si.service.CandidateLoginService;
 import com.si.service.CandidateRegServiceInterface;
-import com.si.dao.CandidateDaoInteface;
-import com.si.dao.LoginDaoInterface;
+
 
 @Controller
 public class CandidateController {
+
 	@Autowired
-	CandidateDaoInteface cdao;
-	@Autowired
-	LoginDaoInterface ldao;
-	
+	CandidateLoginService cls;
+
 	@Autowired
 	CandidateRegServiceInterface cs;
-	
-	@RequestMapping(value="/registerCandidate", method=RequestMethod.POST)
-	public  ModelAndView candidateRegister(@ModelAttribute("CandidateRegistration") Candidate cr){
+
+	@RequestMapping(value = "/registerCandidate", method = RequestMethod.POST)
+	public ModelAndView candidateRegister(@ModelAttribute("CandidateRegistration") Candidate cr) {
 		cs.registerCandidate(cr);
 		return new ModelAndView("regSuccess");
 	}
-	
+
 	@RequestMapping("/loginpage")
 	public ModelAndView loginPage() {
 		return new ModelAndView("CanLogin");
 	}
-	
-	@RequestMapping(value="/login", method=RequestMethod.POST)
-	public ModelAndView login(HttpServletRequest req, HttpServletResponse res, @ModelAttribute("login") Login login){
-		try{
-			Object o = ldao.validate(login);
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public ModelAndView login(HttpServletRequest req, HttpServletResponse res, @ModelAttribute("login") Login login) {
+		try {
+			Object o = cls.userLoginValidation(login);
 			System.out.println("Inside controller");
 			HttpSession s = req.getSession(true);
 			s.setAttribute("Object", o);
-			if(o!=null){
+			if (o != null) {
 				return new ModelAndView("loginSuccess");
-			}
-			else{
+			} else {
 				s.invalidate();
 			}
-		}catch(Exception e){
-			return new ModelAndView("temp","exception",e);
+		} catch (Exception e) {
+			return new ModelAndView("temp", "exception", e);
 		}
-		return new ModelAndView("login","message","UserName or Password is wrong");
+		return new ModelAndView("login", "message", "UserName or Password is wrong");
 	}
-	@RequestMapping(value="/logout")
-	public ModelAndView logout(HttpServletRequest req, HttpServletResponse res, @ModelAttribute("login") Login login){
-		
+
+	@RequestMapping(value = "/logout")
+	public ModelAndView logout(HttpServletRequest req, HttpServletResponse res, @ModelAttribute("login") Login login) {
+
 		HttpSession s = req.getSession();
 		s.invalidate();
-		return new ModelAndView("login","message","You have been successfully logged out");
+		return new ModelAndView("login", "message", "You have been successfully logged out");
 	}
-	
+
 
 }

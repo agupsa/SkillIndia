@@ -18,38 +18,37 @@ import com.si.model.Establishment;
 
 @Controller
 public class SearchController {
-	
+
 	@Autowired
 	private SearchEstService eService;
-	
+
 	@Autowired
 	private SearchCourseService cService;
 
-	
 	@RequestMapping("/searchEst{establishmentName}")
-	public ModelAndView viewSingleList(HttpServletRequest request,HttpServletResponse response)
-	{   String establishmentName=request.getParameter("establishmentName");
-	    System.out.println(establishmentName);
-		//ModelAndView mv=new ModelAndView("estDisplay");
-		List<Establishment> estList=eService.getEstByName(establishmentName);
+	public ModelAndView viewSingleList(HttpServletRequest request, HttpServletResponse response) {
+		String establishmentName = request.getParameter("establishmentName");
+		System.out.println(establishmentName);
+		// ModelAndView mv=new ModelAndView("estDisplay");
+		List<Establishment> estList = eService.getEstByName(establishmentName);
 		System.out.println(estList);
-		//mv.addObject("elst", estList);
-		//return mv;
-		return new ModelAndView("estDisplay","elst",estList);  
+		// mv.addObject("elst", estList);
+		// return mv;
+		return new ModelAndView("estDisplay", "elst", estList);
 	}
-	
+
 	@RequestMapping("/searchCourse/{estRegNo}")
-	public ModelAndView viewCourseList(@PathVariable int estRegNo,HttpServletRequest request,HttpServletResponse response)
-	{  
-		//String s1=request.getParameter("estRegNo");
-	//System.out.println(s1);
-		//int estRegNo=Integer.parseInt(s1);
-	    System.out.println(estRegNo);
-		//ModelAndView mv=new ModelAndView("estDisplay");
-		List<Course> clst=cService.getCourseById(estRegNo);
+	public ModelAndView viewCourseList(@PathVariable int estRegNo, HttpServletRequest request,
+			HttpServletResponse response) {
+		// String s1=request.getParameter("estRegNo");
+		// System.out.println(s1);
+		// int estRegNo=Integer.parseInt(s1);
+		System.out.println(estRegNo);
+		// ModelAndView mv=new ModelAndView("estDisplay");
+		List<Course> clst = cService.getCourseById(estRegNo);
 		System.out.println(clst);
-		//mv.addObject("elst", estList);
-		//return mv;
-		return new ModelAndView("courseDisplay","clst",clst);  
+		// mv.addObject("elst", estList);
+		// return mv;
+		return new ModelAndView("courseDisplay", "clst", clst);
 	}
 }

@@ -24,27 +24,39 @@ public class LoginDao implements LoginDaoInterface {
 		this.jdbcTemplate = jdbcTemplate;
 	}
 
-	public Object validate(Login login) {
+	public Object userLoginValidation(Login login) {
 		System.out.println("Inside validate");
 		List<Map<String, Object>> lst;
-			lst = jdbcTemplate.queryForList("select * from gr5_candidate where gc_reg_no='" + login.getUsername() + "'");
-			if (lst.size() > 0) {
+		lst = jdbcTemplate.queryForList("select * from gr5_candidate where gc_username='" + login.getUsername() + "'");
+		if (lst.size() > 0) {
+			for (Map<String, Object> canMap : lst) {
 				Candidate c = new Candidate();
-				String RegNo = (String) lst.get(0).get("user_id");
-				String name = (String) lst.get(0).get("first_name");
-				String email = (String) lst.get(0).get("email");
-				String pass = (String) lst.get(0).get("password");
-
-				c.setRegNo(Integer.parseInt(RegNo));
-				c.setName(name);
-				c.setUsername(email);
-
+				String pass = (String) lst.get(0).get("pass");
 				if (login.getPass().equals(pass)) {
 					System.out.println("Password is same");
+					c.setStatus((String) canMap.get("gc_status"));
+					c.setName((String) canMap.get("gc_name"));
+					c.setUsername((String) canMap.get("gc_username"));
+					switch (c.getStatus().toLowerCase()) {
+					case "awaiting verification":
+						break;
+					case "apprenticeship confirm":
+					case "awaiting contract verification":
+					case "accepted offer letter":
+					case "offer recieved":
+					case "applied":
+					case "verified": c.setCanRegNo((Integer)canMap.get("gc_reg_no"));
+
+					}
 					return c;
 				}
+				
+
 			}
-		
+
+		}
+
 		return null;
 	}
+
 }
