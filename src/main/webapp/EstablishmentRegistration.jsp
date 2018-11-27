@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Institute Registration</title>
+  <title>Skill India</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
@@ -50,7 +50,7 @@
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">           
-          <li class="menu-has-children"><a href="login.jsp">Login</a></li>
+          <li class="menu-has-children"><a href="CandidateLogin.jsp">Login</a></li>
           <li><a href="#contact">Contact Us</a></li>
         </ul>
       </nav>
@@ -94,14 +94,14 @@
                 title="Password Should be at least 8 characters long and must contain at least one character in Upper Case, Lower Case, Numerical Form, and a Special Character.">
           </div>
         </div>
-        <div class="col-md-6 form-group">
+     <!--    <div class="col-md-6 form-group">
           <label class="control-label" >Confirm Password</label><font style= "color:red;">*</font>
           <div class="input-group" style="z-index: 0;">
             <span class="input-group-addon"><i class="fa fa-unlock-alt" aria-hidden="true"></i></span>
             <input id="confirmPassword" name="Password" placeholder="Confirm Password" class="form-control" required="required" type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" onkeyup="validate()" 
                 title="Password Should be at least 8 characters long and must contain at least one character in Upper Case, Lower Case, Numerical Form, and a Special Character.">
           </div>
-        </div>
+        </div> -->
       </div>
       
 <div class="form-row">
@@ -109,13 +109,11 @@
           <label class="control-label">Industry Type</label> <font style= "color:red;">*</font>
           <div class="input-group" style="z-index: 0;">
             <span class="input-group-addon"><i class="fa fa-graduation-cap" aria-hidden="true"></i></span>
-            <select name="indtype" class="form-control">
-            <option >-Select-</option>
-		<option >Industry Type</option>
-              <option >Manufacturing</option>
-              <option >Services</option>
-              <option >Trading</option>
-              <option >Other</option>
+            <select name="indtype" class="form-control" placeholder="Industry Type">
+              <option values="Manufacturing" >Manufacturing</option>
+              <option  values="Services" >Services</option>
+              <option  values="Trading" >Trading</option>
+              <option  values="Other">Other</option>
             </select>
           </div>
         </div>
@@ -139,8 +137,8 @@
             <span class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
             <select name="workdays" class="form-control">
 		<option >-Select-</option>
-              <option >5 Days a week</option>
-              <option >6 Days a week</option>
+              <option  values="5" >5 Days a week</option>
+              <option values="6">6 Days a week</option>
                </select>
           </div>
         </div>
@@ -180,7 +178,7 @@
           <label class="control-label">IFSC Number</label><font style= "color:red;">*</font>
           <div class="input-group" style="z-index: 0;">
             <span class="input-group-addon"><i class="fa fa-id-card-o" aria-hidden="true"></i></span>
-            <input name="IFSC" placeholder="IFSC Number" maxlength="10" class="form-control" required="required" type="text" pattern="^([A-Za-z]){5}([0-9]){4}([a-zA-Z]){1}?$" title="Enter IFSC Number.">
+            <input name="IFSC" placeholder="IFSC Number" maxlength="10" class="form-control" required="required" type="text" pattern="^[A-Za-z]{4}[a-zA-Z0-9]{7}$"title="Enter IFSC Number.">
           </div>
         </div>
 

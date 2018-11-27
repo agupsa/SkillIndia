@@ -38,9 +38,12 @@ public class SearchController {
 		return new ModelAndView("estDisplay","elst",estList);  
 	}
 	
-	@RequestMapping("/searchCourse{estRegNo}")
-	public ModelAndView viewCourseList(HttpServletRequest request,HttpServletResponse response)
-	{   int estRegNo=Integer.parseInt(request.getParameter("estRegNo"));
+	@RequestMapping("/searchCourse/{estRegNo}")
+	public ModelAndView viewCourseList(@PathVariable int estRegNo,HttpServletRequest request,HttpServletResponse response)
+	{  
+		//String s1=request.getParameter("estRegNo");
+	//System.out.println(s1);
+		//int estRegNo=Integer.parseInt(s1);
 	    System.out.println(estRegNo);
 		//ModelAndView mv=new ModelAndView("estDisplay");
 		List<Course> clst=cService.getCourseById(estRegNo);

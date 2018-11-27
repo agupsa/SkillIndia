@@ -47,7 +47,12 @@
         
       </div>
 
-      <nav id="nav-menu-container ">
+      <nav id="nav-menu-container">
+      
+      <ul class="nav-menu">
+         <li><a href="index.jsp">Home</a></li>
+         </ul>
+         
         <ul class="nav-menu">
           <li><a href="#about">About Us</a></li>
         
@@ -55,14 +60,14 @@
         <li class="menu-has-children"><a href="">Candidate</a>
             <ul>
               <li><a href="CandidateRegister.jsp">Candidate Register</a></li>
-              <li><a href="login.jsp">Candidate Login</a></li>
+              <li><a href="CandidateLogin.jsp">Candidate Login</a></li>
              </ul>
           </li>
      
      <li class="menu-has-children"><a href="">Establishment</a>
             <ul>
               <li><a href="EstablishmentRegistration.jsp">Establishment Register</a></li>
-              <li><a href="login.jsp">Establishment Login</a></li>
+              <li><a href="EstablishmentLogin.jsp">Establishment Login</a></li>
              </ul>
           </li>
         </ul>
@@ -89,7 +94,7 @@
 <!-- About -->
 
   <section class="about" id="about">
-    <div class="block bg-primary block-pd-lg block-bg-overlay text-center" data-bg-img="Bootstrap/img/bg.png" width="100" data-settings='{"stellar-background-ratio": 0.2}' data-toggle="parallax-bg">
+    <div class="block bg-primary block-pd-lg block-bg-overlay text-center" data-bg-img="Bootstrap/img/backg.png" width="200" data-settings='{"stellar-background-ratio": 0.2}' data-toggle="parallax-bg">
     <h2>
         Welcome to Skill India
       </h2>

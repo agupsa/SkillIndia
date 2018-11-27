@@ -5,7 +5,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Candidate Registration</title>
+  <title>Skill india</title>
 <!--   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
@@ -48,8 +48,9 @@
 </head>
 
 <body>
+<br>
 <!-- Form Heading -->
-      <center><h1><b><mark>Candidate Registration Form</mark></b></h1></center><br>
+      <center><h2><b><mark>Candidate Registration Form</mark></b></h2></center><br>
 
   <!-- Header -->
  <header id="header">
@@ -72,7 +73,7 @@
       
       <nav id="nav-menu-container" class="navbar-right">
         <ul class="nav-menu">
-          <li><a href="login.jsp">Login</a></li>
+          <li><a href="CandidateLogin.jsp">Login</a></li>
         </ul>
       </nav>
       

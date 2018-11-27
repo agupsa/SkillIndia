@@ -48,6 +48,11 @@
 		</property>
 	</bean>
 	
+	<bean id="cadao" class="com.si.dao.CourseApplicationDao">
+		<property name="jdbcTemplate" ref="jdbcTemplate">
+		</property>
+	</bean>
+	
 	<bean id="ldao" class="com.si.dao.LoginDao">
 		<property name="jdbcTemplate" ref="jdbcTemplate">
 		</property>

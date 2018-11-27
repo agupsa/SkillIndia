@@ -8,19 +8,29 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Skill India</title>
+
+
 </head>
 <body>
+
+  <br><br>
+<center>
+<!-- Displaying selected establishment information in table -->
 <h2>Table of establishment</h2>
 <table border="2" width="70%" cellpadding="2">  
-<tr><th>Reg_no</th><th>Est Name</th><th>Industry type</th><th>name of head</th></tr>  
+<tr><th>Reg_no</th><th>Est Name</th><th>Email</th><th>Industry type</th><th>Name of head</th><th>Contact Number</th><th>Display Course</th></tr>  
    <c:forEach items="${elst}" var="temp">   
    <tr>  
    <td>${temp.estRegNo}</td>  
    <td>${temp.name}</td>
-   <td><a href="editemp/${temp.estRegNo}">Display</a></td>  
-     
+   <td>${temp.email}</td>
+   <td>${temp.indtype}</td>
+   <td>${temp.nameOfHead}</td>
+   <td>${temp.contactNo}</td>
+   <td><a href="searchCourse/${temp.estRegNo}">Display</a></td>      
    </tr>  
    </c:forEach>  
    </table>  
+   </center>
 </body>
 </html>

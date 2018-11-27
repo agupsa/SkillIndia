@@ -11,7 +11,7 @@ package com.si.model;
 public class Course {
 	
 	private int courseId;		//Primary key auto generated
-	private String Name;
+	private String courseName;
 	private String trainerName;
 	private String trainerContact;
 	private int estRegno;		//Foreign key
@@ -24,11 +24,12 @@ public class Course {
 	public void setCourseId(int courseId) {
 		this.courseId = courseId;
 	}
-	public String getName() {
-		return Name;
+	
+	public String getCourseName() {
+		return courseName;
 	}
-	public void setName(String name) {
-		Name = name;
+	public void setCourseName(String courseName) {
+		this.courseName = courseName;
 	}
 	public String getTrainerName() {
 		return trainerName;
