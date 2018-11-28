@@ -1,13 +1,15 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="java.util.*"%>
+<%@ page import="java.lang.*" %>
 <%@ page import="com.si.model.Candidate"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" isELIgnored="false"%>
+<%@ page errorPage="error.jsp" %>
 
 
-<!DOCTYPE html PUBLIC >
+<!DOCTYPE html  >
 <html lang="en">
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <body>
 <head>
@@ -44,6 +46,13 @@
 </head>
 
 <body>
+
+
+	<%
+	if(session.getAttribute("can")==null)
+	throw new Exception("error logging in");
+	%>
+
 	<!-- Form Heading -->
 	<div class="form-row" >	
 		<div class="col-md-12">

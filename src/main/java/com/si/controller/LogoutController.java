@@ -16,14 +16,13 @@ public class LogoutController {
 	
 	
 	@RequestMapping(value = "/logout")
-	public ModelAndView logout(HttpServletRequest req, HttpServletResponse res, @ModelAttribute("login") Login login) {
+	public ModelAndView logout(HttpServletRequest req, HttpServletResponse res, @ModelAttribute("login") Login login, HttpSession ses) {
 
-		
-		HttpSession s = req.getSession();
-		if(s.getAttribute("can")!=null||s.getAttribute("est")!=null) {
+		System.out.println("Logging out");
+		if(ses.getAttribute("can")!=null||ses.getAttribute("est")!=null) {
 			System.out.println("got object from session");
 		}
-		s.invalidate();
+		ses.invalidate();
 		return new ModelAndView("index", "message", "You have been successfully logged out");
 	}
 
