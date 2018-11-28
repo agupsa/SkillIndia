@@ -3,7 +3,7 @@
 <%@ page import="com.si.model.Candidate"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" isELIgnored="false"%>
-<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -82,7 +82,9 @@
 
 		<nav class="nav social-nav pull-right d-none d-lg-inline">
 		<ul class="nav navbar-nav navbar-right">
-			<li style="font-size: 14px; color: white;">Welcome, ${can.name}  ${can.canRegNo } </li>
+			<li style="font-size: 14px; color: white;">Welcome, ${can.name}   </li>
+			<li style="font-size: 14px; color: white;">Account Status: ${can.status }</li>
+			<li style="font-size: 14px; color: white;"><c:if test="${ can.canRegNo !=0}">Registration Number: ${can.canRegNo } </c:if>     </li>
 			<li><a href="logout">Logout</a></li>
 		</ul>
 		</nav>

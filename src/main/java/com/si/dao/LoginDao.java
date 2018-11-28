@@ -42,13 +42,11 @@ public class LoginDao implements LoginDaoInterface {
 					c.setUsername((String) canMap.get("gc_username"));
 					System.out.println(c.getStatus());
 					if(!(c.getStatus().equalsIgnoreCase("awaiting verification"))) {
-						System.out.println("What");
+
+						//objects return big decimal, need to get string from to string method instead of type casting directly to string or int or INTEGER
 						Object obj=canMap.get("gc_reg_no");
-						String str=obj.toString();
-						int reg=Integer.parseInt(str);
-						c.setCanRegNo(reg);
-						//c.setCanRegNo((Integer)canMap.get("gc_reg_no"));
-						System.out.println("test2");
+						c.setCanRegNo(Integer.parseInt(obj.toString()));
+						
 					}
 					
 					System.out.println("test1");

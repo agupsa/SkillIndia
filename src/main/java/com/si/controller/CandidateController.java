@@ -43,7 +43,7 @@ public class CandidateController {
 			sess.setAttribute("can", can);
 			System.out.println("back to controller");
 			if (can != null) {
-				return new ModelAndView("CandidateDashboard");
+				return new ModelAndView("CandidateDash");
 			} 
 		} catch (Exception e) {
 			return new ModelAndView("temp", "exception", e);
