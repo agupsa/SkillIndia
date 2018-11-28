@@ -9,13 +9,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<%
+<%-- <%
 	Candidate can = (Candidate) session.getAttribute("can");
 
 	/* if(can==null){
 		throw new Exception("You are not logged in. Please log in.");
 	} */
-%>
+%> --%>
 <body>
 <head>
 <meta charset="utf-8">
@@ -82,7 +82,7 @@
 
 		<nav class="nav social-nav pull-right d-none d-lg-inline">
 		<ul class="nav navbar-nav navbar-right">
-			<li style="font-size: 14px; color: white;">Welcome, ${candidate.name} </li>
+			<li style="font-size: 14px; color: white;">Welcome, ${can.name}  ${can.canRegNo } </li>
 			<li><a href="logout">Logout</a></li>
 		</ul>
 		</nav>

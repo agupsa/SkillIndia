@@ -41,6 +41,7 @@ public class CandidateController {
 			Candidate can = (Candidate) o;
 			System.out.println(can);
 			sess.setAttribute("can", can);
+			System.out.println("back to controller");
 			if (can != null) {
 				return new ModelAndView("CandidateDashboard");
 			} 

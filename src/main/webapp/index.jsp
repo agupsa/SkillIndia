@@ -70,6 +70,9 @@
         <ul class="nav-menu">
          <li><a href="search.jsp">Search</a></li>
          </ul>
+          <ul class="nav-menu">
+         <li><a href="courseApply.jsp">Course Form</a></li>
+         </ul>
       </nav>
      <!-- #nav-menu-container -->
 
@@ -79,6 +82,7 @@
     </div>
   </header>
   <!-- #header -->
+
 
   
   <!-- Parallax -->
