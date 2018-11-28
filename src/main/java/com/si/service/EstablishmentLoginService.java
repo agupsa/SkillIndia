@@ -14,7 +14,7 @@ public class EstablishmentLoginService {
 	LoginDaoInterface ldao;
 
 	public Object EstablishmentLoginValidation(Login login) {
-		return ldao.userLoginValidation(login);
+		return ldao.estLoginValidation(login);
 	}
 
 }

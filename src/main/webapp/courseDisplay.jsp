@@ -4,39 +4,46 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  
 <%@ page errorPage="error.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html lang="en">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+
 <head>
-  <meta charset="utf-8">
-  <title>Skill india</title>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta content="" name="keywords">
-  <meta content="" name="description">
+<meta charset="utf-8">
+<title>Establishment Display</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="" name="keywords">
+<meta content="" name="description">
 
+<!-- Favicon -->
+<link href="Bootstrap/img/favicon.ico" rel="icon">
 
-  <!-- Favicon -->
-  <link href="Bootstrap/img/favicon.ico" rel="icon">
+<!-- Google Fonts -->
+<link
+	href="https://fonts.googleapis.com/css?family=Raleway:400,500,700|Roboto:400,900"
+	rel="stylesheet">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700|Roboto:400,900" rel="stylesheet">
+<!-- Bootstrap CSS File -->
+<link href="Bootstrap/lib/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet">
 
-  <!-- Bootstrap CSS File -->
-  <link href="Bootstrap/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!-- Libraries CSS Files -->
+<link href="Bootstrap/lib/font-awesome/css/font-awesome.min.css"
+	rel="stylesheet">
 
-  <!-- Libraries CSS Files -->
-  <link href="Bootstrap/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="Bootstrap/lib/jquery-ui/jquery-ui.css" rel="stylesheet">
+<link href="Bootstrap/lib/jquery-ui/jquery-ui.structure.css" rel="stylesheet">
+<link href="Bootstrap/lib/jquery-ui/jquery-ui.theme.css" rel="stylesheet">
 
-  <link href="Bootstrap/lib/jquery-ui/jquery-ui.css" rel="stylesheet">
-  <link href="Bootstrap/lib/jquery-ui/jquery-ui.structure.css" rel="stylesheet">
-  <link href="Bootstrap/lib/jquery-ui/jquery-ui.theme.css" rel="stylesheet">
+<!-- Main Stylesheet File -->
+<link href="Bootstrap/css/style.css" rel="stylesheet">
 
-  <!-- Main Stylesheet File -->
-  <link href="Bootstrap/css/style.css" rel="stylesheet">
-
-  <link href="Bootstrap/css/prettyrc.css" rel="stylesheet">
+<link href="Bootstrap/css/prettyrc.css" rel="stylesheet">
 </head>
+
 <body>
 <!-- Form Heading -->
-      <center><h2><b><mark>Candidate Registration Form</mark></b></h2></center><br>
+      <center><h2><b><mark> Establishment Courses</mark></b></h2></center><br>
 
    <!-- Header -->
   <header id="header">
@@ -52,7 +59,7 @@
           <li><a href="#about">About Us</a></li>
         
          
-        <li class="menu-has-children"><a href="">Candidate</a>
+        <li class="menu-has-children"><a>Candidate</a>
             <ul>
               <li><a href="CandidateRegister.jsp">Candidate Register</a></li>
               <li><a href="CandidateLogin.jsp">Candidate Login</a></li>

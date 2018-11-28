@@ -34,9 +34,9 @@ public class CandidateDao implements CandidateDaoInteface {
 	public int registerCandidate(Candidate cr) {
 
 			String fetchcPK = "select gr5_candidate_seq.nextval from dual";
-			cr.setRegNo(getSeq(fetchcPK));
+			cr.setCanRegNo(getSeq(fetchcPK));
 			cr.setStatus(new String("Awaiting Verification"));
-			String query_candidate = "insert into gr5_candidate values" + "(" + cr.getRegNo() + ",'" + cr.getName() + "','"
+			String query_candidate = "insert into gr5_candidate values" + "(" + cr.getCanRegNo() + ",'" + cr.getName() + "','"
 					+ cr.getGender() + "', null,'" + /* TODO Add dob here */ cr.getUsername() + "','" + cr.getPass()
 					+ "'," + cr.getContactNo() + "," + cr.getAadharNo() + ",'" + cr.getFatherName() + "','"
 					+ cr.getQualification() + "','" + cr.getCollegeName() + "'," + cr.getMarks()
@@ -59,7 +59,7 @@ public class CandidateDao implements CandidateDaoInteface {
 				
 			}
 
-			System.out.println("INSERTED RECORD: "+ cr.getRegNo()+ "\t" + cr.getAadharNo() + " " + cr.getContactNo());
+			System.out.println("INSERTED RECORD: "+ cr.getCanRegNo()+ "\t" + cr.getAadharNo() + " " + cr.getContactNo());
 			
 			return i;
 
