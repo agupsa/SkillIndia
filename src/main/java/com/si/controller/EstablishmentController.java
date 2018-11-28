@@ -26,7 +26,7 @@ public class EstablishmentController {
 	@RequestMapping(value = "/registerEstablishment", method = RequestMethod.POST)
 	public ModelAndView EstablishmentRegister(@ModelAttribute("Establishment") Establishment est) {
 		ers.registerEstablishment(est);
-		return new ModelAndView("regSuccess");
+		return new ModelAndView("index");
 	}
 	
 	@RequestMapping(value = "/establishmentlogin", method = RequestMethod.POST)
@@ -38,7 +38,7 @@ public class EstablishmentController {
 			HttpSession s = req.getSession(true);
 			s.setAttribute("est", est);
 			if (o != null) {
-				return new ModelAndView("loginSuccess");
+				return new ModelAndView("EstablishmentDash");
 			} else {
 				s.invalidate();
 			}
@@ -48,3 +48,6 @@ public class EstablishmentController {
 		return new ModelAndView("EstablishmentLogin", "message", "UserName or Password is wrong");
 	}
 }
+
+
+//

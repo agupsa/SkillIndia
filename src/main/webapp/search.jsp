@@ -46,16 +46,49 @@
 		<br><br>
 		</div>	
 		
-		<header id="header">
+	 <!-- Header -->
+  <header id="header">
     <div class="container">
 
       <div id="logo" class="pull-left">
-        <a href="index.html"><img src="Bootstrap/img/National.png" alt="" title="" /></img></a>
-        <!-- Uncomment below if you prefer to use a text image -->
-        <!--<h1><a href="#hero">Bell</a></h1>-->
+        <a href="index.jsp"><img src="Bootstrap/img/National.png" width="200" height="150" alt="" title="" /></img></a>
+        
       </div>
-      </div>
-      </header>
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li><a href="#about">About Us</a></li>
+        
+         
+        <li class="menu-has-children"><a href="">Candidate</a>
+            <ul>
+              <li><a href="CandidateRegister.jsp">Candidate Register</a></li>
+              <li><a href="CandidateLogin.jsp">Candidate Login</a></li>
+             </ul>
+          </li>
+     
+     <li class="menu-has-children"><a href="">Establishment</a>
+            <ul>
+              <li><a href="EstablishmentRegistration.jsp">Establishment Register</a></li>
+              <li><a href="EstablishmentLogin.jsp">Establishment Login</a></li>
+             </ul>
+          </li>
+        </ul>
+        <ul class="nav-menu">
+         <li><a href="search.jsp">Search</a></li>
+         </ul>
+          <ul class="nav-menu">
+         <li><a href="courseApply.jsp">Course Form</a></li>
+         </ul>
+      </nav>
+     <!-- #nav-menu-container -->
+
+      <nav class="nav social-nav pull-right d-none d-lg-inline">
+        <!-- <a href="https://www.twitter.com"><i class="fa fa-twitter"></i></a> <a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a> <a href="https://www.linkedin.com"><i class="fa fa-linkedin"></i></a> <a href="https://www.outlook.com"><i class="fa fa-envelope"></i></a> -->
+      </nav>
+    </div>
+  </header>
+  <!-- #header -->
       <br></br>
       
       <!-- <div class="form-group col-md-4" >

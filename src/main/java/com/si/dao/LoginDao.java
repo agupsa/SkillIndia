@@ -43,9 +43,9 @@ public class LoginDao implements LoginDaoInterface {
 					System.out.println(c.getStatus());
 					if(!(c.getStatus().equalsIgnoreCase("awaiting verification"))) {
 
-						//objects return big decimal, need to get string from to string method instead of type casting directly to string or int or INTEGER
-						Object obj=canMap.get("gc_reg_no");
-						c.setCanRegNo(Integer.parseInt(obj.toString()));
+						//objects return big decimal, need to get string from to string method 
+						//instead of type casting directly to string or int or INTEGER
+						c.setCanRegNo(Integer.parseInt(canMap.get("gc_reg_no").toString()));
 						
 					}
 					
@@ -91,19 +91,19 @@ public class LoginDao implements LoginDaoInterface {
 					e.setName((String) estMap.get("ge_est_name"));
 					e.setEmail((String) estMap.get("ge_email"));
 					e.setIndtype((String) estMap.get("ge_industry_type"));
-					e.setNoOfEmp((Integer) estMap.get("ge_no_of_emp"));
+					e.setNoOfEmp(Integer.parseInt(estMap.get("ge_no_of_emp").toString()));
 					e.setNameOfHead((String) estMap.get("ge_name_of_head"));
-					e.setContactNo((long) estMap.get("ge_contact_no"));
+					e.setContactNo(Long.parseLong(estMap.get("ge_contact_no").toString()));
 					if(e.getStatus().toLowerCase()!="awaiting verification") {
-						 e.setEstRegNo((Integer)estMap.get("ge_regno"));
+						 e.setEstRegNo(Integer.parseInt(estMap.get("ge_regno").toString()));
 							e.setBankName((String) estMap.get("ge_bank_name"));
 							e.setIFSC((String) estMap.get("ge_IFSC_code"));
-							e.setAccountNo((Long) estMap.get("ge_account_no"));
+							e.setAccountNo(Long.parseLong(estMap.get("ge_account_no").toString()));
 						
 					}
 					
 					
-					switch (e.getStatus().toLowerCase()) {
+					/*switch (e.getStatus().toLowerCase()) {
 					case "awaiting verification":
 						break;
 					case "apprenticeship confirm":
@@ -116,7 +116,7 @@ public class LoginDao implements LoginDaoInterface {
 					e.setIFSC((String) estMap.get("ge_IFSC_code"));
 					e.setAccountNo((Long) estMap.get("ge_account_no"));
 
-					}
+					}*/
 					return e;
 				}
 				

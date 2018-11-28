@@ -1,6 +1,12 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import="java.util.*"%>
+<%@ page import="java.lang.*" %>
+<%@ page import="com.si.model.Candidate"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <%@ page errorPage="error.jsp" %>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -8,7 +14,7 @@
 <body>
 <head>
 <meta charset="utf-8">
-<title>Candidate Dashboard</title>
+<title>Establishment Dashboard</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta content="" name="keywords">
 <meta content="" name="description">
@@ -40,6 +46,10 @@
 </head>
 
 <body>
+<%
+	if (session.getAttribute("est") == null)
+		throw new Exception("error logging in");
+%>
 	<!-- Form Heading -->
 	<div class="form-row" >	
 		<div class="col-md-12">
@@ -53,60 +63,60 @@
 		<br>
 	</div>	
 	
-	<!-- Header -->
- <header id="header">
+	 <!-- Header -->
+  <header id="header">
     <div class="container">
 
       <div id="logo" class="pull-left">
-        <a href="index.html"><img src="Bootstrap/img/National.png" alt="" title="" /></img></a>
-        <!-- Uncomment below if you prefer to use a text image -->
-        <!--<h1><a href="#hero">Bell</a></h1>-->
+        <a href="index.jsp"><img src="Bootstrap/img/National.png" width="200" height="150" alt="" title="" /></img></a>
+        
       </div>
 
-      <!-- #nav-menu-container -->
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li><a href="#about">About Us</a></li>
+        
+         
+        <li class="menu-has-children"><a href="">Candidate</a>
+            <ul>
+              <li><a href="CandidateRegister.jsp">Candidate Register</a></li>
+              <li><a href="CandidateLogin.jsp">Candidate Login</a></li>
+             </ul>
+          </li>
+     
+     <li class="menu-has-children"><a href="">Establishment</a>
+            <ul>
+              <li><a href="EstablishmentRegistration.jsp">Establishment Register</a></li>
+              <li><a href="EstablishmentLogin.jsp">Establishment Login</a></li>
+             </ul>
+          </li>
+        </ul>
+        <ul class="nav-menu">
+         <li><a href="search.jsp">Search</a></li>
+         </ul>
+          <ul class="nav-menu">
+         <li><a href="courseApply.jsp">Course Form</a></li>
+         </ul>
+      </nav>
+     <!-- #nav-menu-container -->
 
-		<nav class="nav social-nav pull-right d-none d-lg-inline"> 
-			<ul class="nav navbar-nav navbar-right">
-				<li style="font-size:14px; color:white;">Welcome, ${Object.firstName}</li>
-				<li><a href="index.jsp">Logout</a></li>
-			</ul>
-		</nav>
-	</div>
-	</header>
-	<!-- #header -->
+      <nav class="nav social-nav pull-right d-none d-lg-inline">
+        <!-- <a href="https://www.twitter.com"><i class="fa fa-twitter"></i></a> <a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a> <a href="https://www.linkedin.com"><i class="fa fa-linkedin"></i></a> <a href="https://www.outlook.com"><i class="fa fa-envelope"></i></a> -->
+      </nav>
+    </div>
+  </header>
+  <!-- #header -->
 
 	<!-- About -->
 
 	<section class="container" style="padding-top: 20px;">
 	<form class="container">
-	
 
-		<!-- <center><div style="margin: 0 auto;">
-				<div style="margin: 0 auto;">	
-					<a style="margin: 0 auto;" href="CandidateHistory" class="btn">History
-						<i class="fa fa-clock-o" aria-hidden="true"></i>
-					</a>
-				</div>
-			</div>
-			
-		</div></center> -->
-
-		<br />
-
-		<%-- <c:if test="${requestScope.message!=null}">
-			<div class="alert alert-success" role="alert">
-				<button type="button" class="close" data-dismiss="alert"
-					aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-				${message}
-			</div>
-		</c:if>
- --%>
- 
 <br>
 <div class="form-group">
-        <label class="control-label" >Profile Status</label>
+        <label class="control-label" >${est.name}</label><br>
+        <label class="control-label" >Profile Status: ${est.status }</label><br>
+        <label class="control-label" ><c:if test="${ est.estRegNo !=0}">Registration Number: ${can.canRegNo }</c:if></label>
       </div>
 
 		<br />

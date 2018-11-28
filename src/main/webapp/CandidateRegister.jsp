@@ -7,24 +7,11 @@
 <head>
   <meta charset="utf-8">
   <title>Skill india</title>
-<!--   <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
 
-  Facebook Opengraph integration: https://developers.facebook.com/docs/sharing/opengraph
-  <meta property="og:title" content="">
-  <meta property="og:image" content="">
-  <meta property="og:url" content="">
-  <meta property="og:site_name" content="">
-  <meta property="og:description" content="">
 
-  Twitter Cards integration: https://dev.twitter.com/cards/ 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:site" content="">
-  <meta name="twitter:title" content="">
-  <meta name="twitter:description" content="">
-  <meta name="twitter:image" content="">
- -->
   <!-- Favicon -->
   <link href="Bootstrap/img/favicon.ico" rel="icon">
 
@@ -53,33 +40,46 @@
 <!-- Form Heading -->
       <center><h2><b><mark>Candidate Registration Form</mark></b></h2></center><br>
 
-  <!-- Header -->
- <header id="header">
+   <!-- Header -->
+  <header id="header">
     <div class="container">
 
       <div id="logo" class="pull-left">
-        <a href="index.jsp"><img src="Bootstrap/img/National.png" alt="" title="" /></img></a>
+        <a href="index.jsp"><img src="Bootstrap/img/National.png" width="200" height="150" alt="" title="" /></img></a>
+        
       </div>
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-         <!--  <li class="menu-has-children"><a href="">Pages</a>
+          <li><a href="#about">About Us</a></li>
+        
+         
+        <li class="menu-has-children"><a href="">Candidate</a>
             <ul>
-              <li><a href="login.jsp">Login Page</a></li>
+              <li><a href="CandidateRegister.jsp">Candidate Register</a></li>
+              <li><a href="CandidateLogin.jsp">Candidate Login</a></li>
              </ul>
-          </li> -->
-          <li><a href="#contact">Contact Us</a></li>
-        </ul>
-      </nav>
-      
-      <nav id="nav-menu-container" class="navbar-right">
-        <ul class="nav-menu">
-          <li><a href="CandidateLogin.jsp">Login</a></li>
-        </ul>
-      </nav>
-      
+          </li>
      
-  
+     <li class="menu-has-children"><a href="">Establishment</a>
+            <ul>
+              <li><a href="EstablishmentRegistration.jsp">Establishment Register</a></li>
+              <li><a href="EstablishmentLogin.jsp">Establishment Login</a></li>
+             </ul>
+          </li>
+        </ul>
+        <ul class="nav-menu">
+         <li><a href="search.jsp">Search</a></li>
+         </ul>
+          <ul class="nav-menu">
+         <li><a href="courseApply.jsp">Course Form</a></li>
+         </ul>
+      </nav>
+     <!-- #nav-menu-container -->
+
+      <nav class="nav social-nav pull-right d-none d-lg-inline">
+        <!-- <a href="https://www.twitter.com"><i class="fa fa-twitter"></i></a> <a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a> <a href="https://www.linkedin.com"><i class="fa fa-linkedin"></i></a> <a href="https://www.outlook.com"><i class="fa fa-envelope"></i></a> -->
+      </nav>
     </div>
   </header>
   <!-- #header -->

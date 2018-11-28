@@ -28,12 +28,6 @@
   <!-- Main Stylesheet File -->
   <link href="Bootstrap/css/style.css" rel="stylesheet">
 
-  <!-- =======================================================
-    Theme Name: Bell
-    Theme URL: https://bootstrapmade.com/bell-free-bootstrap-4-template/
-    Author: BootstrapMade.com
-    Author URL: https://bootstrapmade.com
-  ======================================================= -->
 </head>
 
 <body>

@@ -34,7 +34,7 @@
       
        <section class="bcg" class="container" style="padding-top: 20px;">
   
-    <form class="container" modelAttribute="contract" action="registerCourse" method="get">
+    <form class="container" modelAttribute="contract" action="registerCourse" method="post">
       <!-- Form Heading -->
 
       <!-- Form Fields -->

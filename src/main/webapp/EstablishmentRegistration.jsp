@@ -45,16 +45,41 @@
     <div class="container">
 
       <div id="logo" class="pull-left">
-        <a href="index.html"><img src="Bootstrap/img/National.png" alt="" title="" /></img></a>
+        <a href="index.jsp"><img src="Bootstrap/img/National.png" width="200" height="150" alt="" title="" /></img></a>
+        
       </div>
 
       <nav id="nav-menu-container">
-        <ul class="nav-menu">           
-          <li class="menu-has-children"><a href="CandidateLogin.jsp">Login</a></li>
-          <li><a href="#contact">Contact Us</a></li>
+        <ul class="nav-menu">
+          <li><a href="#about">About Us</a></li>
+        
+         
+        <li class="menu-has-children"><a href="">Candidate</a>
+            <ul>
+              <li><a href="CandidateRegister.jsp">Candidate Register</a></li>
+              <li><a href="CandidateLogin.jsp">Candidate Login</a></li>
+             </ul>
+          </li>
+     
+     <li class="menu-has-children"><a href="">Establishment</a>
+            <ul>
+              <li><a href="EstablishmentRegistration.jsp">Establishment Register</a></li>
+              <li><a href="EstablishmentLogin.jsp">Establishment Login</a></li>
+             </ul>
+          </li>
         </ul>
+        <ul class="nav-menu">
+         <li><a href="search.jsp">Search</a></li>
+         </ul>
+          <ul class="nav-menu">
+         <li><a href="courseApply.jsp">Course Form</a></li>
+         </ul>
       </nav>
-      <!-- #nav-menu-container -->
+     <!-- #nav-menu-container -->
+
+      <nav class="nav social-nav pull-right d-none d-lg-inline">
+        <!-- <a href="https://www.twitter.com"><i class="fa fa-twitter"></i></a> <a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a> <a href="https://www.linkedin.com"><i class="fa fa-linkedin"></i></a> <a href="https://www.outlook.com"><i class="fa fa-envelope"></i></a> -->
+      </nav>
     </div>
   </header>
   <!-- #header -->

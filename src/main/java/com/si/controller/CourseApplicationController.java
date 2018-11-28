@@ -21,7 +21,7 @@ public class CourseApplicationController {
 	CourseApplicationService courseapply;
 	
 	
-	@RequestMapping(value="/registerCourse", method= RequestMethod.GET)
+	@RequestMapping(value="/registerCourse", method= RequestMethod.POST)
     public ModelAndView courseApply(HttpServletRequest request,HttpServletResponse response, @ModelAttribute("contract") Contract contract)
 	{  
        courseapply.saveApplication(contract); 
