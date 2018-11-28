@@ -70,7 +70,7 @@
   </c:if>
  --%>
   <section class="bcg" class="container" style="padding-top: 20px;">
-    <form action="login" class="container" method="post" >
+    <form action="establishmentlogin" class="container" method="post" >
   <div  align="center">
       <!-- Form Fields -->
       

@@ -32,35 +32,25 @@ public class CandidateController {
 		return new ModelAndView("regSuccess");
 	}
 
-	@RequestMapping("/loginpage")
-	public ModelAndView loginPage() {
-		return new ModelAndView("CanLogin");
-	}
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public ModelAndView login(HttpServletRequest req, HttpServletResponse res, @ModelAttribute("login") Login login) {
+	
+	@RequestMapping(value = "/candidatelogin", method = RequestMethod.POST)
+	public ModelAndView login(HttpServletRequest req, HttpServletResponse res, @ModelAttribute("login") Login login,HttpSession sess) {
 		try {
+			ModelAndView mv = new ModelAndView();
 			Object o = cls.userLoginValidation(login);
-			System.out.println("Inside controller");
-			HttpSession s = req.getSession(true);
-			s.setAttribute("Object", o);
-			if (o != null) {
-				return new ModelAndView("loginSuccess");
-			} else {
-				s.invalidate();
-			}
+			Candidate can = (Candidate) o;
+			System.out.println(can);
+			sess.setAttribute("can", can);
+			if (can != null) {
+				return new ModelAndView("CandidateDashboard");
+			} 
 		} catch (Exception e) {
 			return new ModelAndView("temp", "exception", e);
 		}
-		return new ModelAndView("login", "message", "UserName or Password is wrong");
+		return new ModelAndView("CandidateLogin", "message", "UserName or Password is wrong");
 	}
 
-	@RequestMapping(value = "/logout")
-	public ModelAndView logout(HttpServletRequest req, HttpServletResponse res, @ModelAttribute("login") Login login) {
-
-		HttpSession s = req.getSession();
-		s.invalidate();
-		return new ModelAndView("login", "message", "You have been successfully logged out");
-	}
+	
 
 
 }

@@ -36,7 +36,7 @@ public class EstablishmentDao {
 		String fetchcPK = "select gr5_establishment_seq.nextval from dual";
 		e.setEstRegNo(getSeq(fetchcPK));
 		e.setStatus(new String("Awaiting Verification"));
-		String query_candidate = "insert into gr5_candidate values" + "(" + e.getEstRegNo() + ",'" + e.getName() + "','"
+		String query_candidate = "insert into gr5_establishment values" + "(" + e.getEstRegNo() + ",'" + e.getName() + "','"
 				+ e.getEmail() + "','" + e.getPass() + "','" + e.getIndtype() + "'," + e.getNoOfEmp() + ","
 				+ e.getWorkdays() + ",'" + e.getNameOfHead() + "'," + e.getContactNo() + ",'" + e.getBankName()
 				+"','" + e.getIFSC() + "'," + e.getAccountNo() + ",'" + e.getStatus() + "')";

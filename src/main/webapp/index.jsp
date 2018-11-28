@@ -36,8 +36,9 @@
 <body>
   <!-- Page Content
     ================================================== -->
-<h1>Skill India</h1>
-
+<div>
+<h1 ><img src="Bootstrap/img/emblem.jpg" alt="logo" width="60" height="80" />Skill India</h1>
+</div>
   <!-- Header -->
   <header id="header">
     <div class="container">
@@ -48,11 +49,6 @@
       </div>
 
       <nav id="nav-menu-container">
-      
-      <ul class="nav-menu">
-         <li><a href="index.jsp">Home</a></li>
-         </ul>
-         
         <ul class="nav-menu">
           <li><a href="#about">About Us</a></li>
         

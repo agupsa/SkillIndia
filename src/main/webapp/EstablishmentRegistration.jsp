@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Skill India</title>
+  <title>Institute Registration</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
@@ -109,11 +109,11 @@
           <label class="control-label">Industry Type</label> <font style= "color:red;">*</font>
           <div class="input-group" style="z-index: 0;">
             <span class="input-group-addon"><i class="fa fa-graduation-cap" aria-hidden="true"></i></span>
-            <select name="indtype" class="form-control" placeholder="Industry Type">
-              <option values="Manufacturing" >Manufacturing</option>
-              <option  values="Services" >Services</option>
-              <option  values="Trading" >Trading</option>
-              <option  values="Other">Other</option>
+            <select name="indtype" class="form-control" >
+              <option  >Manufacturing</option>
+              <option >Services</option>
+              <option  >Trading</option>
+              <option>Other</option>
             </select>
           </div>
         </div>
@@ -137,8 +137,8 @@
             <span class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
             <select name="workdays" class="form-control">
 		<option >-Select-</option>
-              <option  values="5" >5 Days a week</option>
-              <option values="6">6 Days a week</option>
+              <option value="5" >5 Days a week</option>
+              <option value="6">6 Days a week</option>
                </select>
           </div>
         </div>
@@ -178,7 +178,7 @@
           <label class="control-label">IFSC Number</label><font style= "color:red;">*</font>
           <div class="input-group" style="z-index: 0;">
             <span class="input-group-addon"><i class="fa fa-id-card-o" aria-hidden="true"></i></span>
-            <input name="IFSC" placeholder="IFSC Number" maxlength="10" class="form-control" required="required" type="text" pattern="^[A-Za-z]{4}[a-zA-Z0-9]{7}$"title="Enter IFSC Number.">
+            <input name="IFSC" placeholder="IFSC Number" maxlength="11" class="form-control" required="required" type="text" pattern="^[A-Za-z]{4}[a-zA-Z0-9]{7}$"title="Enter IFSC Number.">
           </div>
         </div>
 
@@ -191,6 +191,51 @@
           </div>
         </div>
       </div>
+      
+       <div class="form-group">
+          <label class="control-label" >Address</label><font style= "color:red;">*</font>
+          <div class="input-group" style="z-index: 0;">
+            <span class="input-group-addon"><i class="fa fa-location-arrow" aria-hidden="true"></i></span>
+            <input name="addr.addr" maxlength="30" placeholder="Establishment Address" class="form-control"  type="text" title="Enter Street Name with a minimum of 10 words.">
+          </div>
+        </div>
+
+
+      <div class="form-row">
+               
+         <!-- State -->
+       <!-- <div class="form-group col-md-4">
+          <label class="control-label">State</label> <font style= "color:red;">*</font>
+          <div class="input-group" style="z-index: 0;">
+            <span class="input-group-addon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+            <select name="addr.state" class="form-control" id="state-select">
+    			
+            </select>
+          </div>
+        </div> -->
+
+        <!-- City -->
+   <!--    <div class="form-group col-md-4">
+          <label class="control-label">City</label> <font style= "color:red;">*</font>
+          <div class="input-group" style="z-index: 0;">
+            <span class="input-group-addon"><i class="fa fa-building" aria-hidden="true"></i></span>
+			<select name="addr.city" class="form-control" id="city-select">
+    			
+            </select>
+          </div>
+        </div> 
+ -->
+
+        <!-- Zip -->
+        <div class="form-group col-md-4">
+          <label class="control-label">Pincode</label> <font style= "color:red;">*</font>
+          <div class="input-group" style="z-index: 0;">
+            <span class="input-group-addon"><i class="fa fa-envelope-open-o" aria-hidden="true"></i></span>
+            <input name="addr.pincode" maxlength="6" placeholder="Pincode" class="form-control"  type="text" required="required" title="Pincode of 6 digits">
+          </div>
+        </div>
+      </div>  
+      
 
     <hr style="margin: 50px 0px;">
 
