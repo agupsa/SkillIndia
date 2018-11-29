@@ -16,6 +16,13 @@ import com.si.model.Login;
 import com.si.service.EstablishmentLoginService;
 import com.si.service.EstablishmentRegService;
 
+
+/**
+ * 
+ * @author GR5 LTI
+ * Controller to Handle Establishment Requests
+ *
+ */
 @Controller
 public class EstablishmentController {
 	@Autowired

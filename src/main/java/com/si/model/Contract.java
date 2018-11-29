@@ -22,7 +22,7 @@ public class Contract {
 	//private Date endDate;
 	private String status;
 	//private String contractPath;
-	
+	public Contract() {}
 	
 	
 	public int getLetterNo() {

@@ -40,6 +40,13 @@ public class LoginDao implements LoginDaoInterface {
 					c.setStatus((String) canMap.get("gc_status"));
 					c.setName((String) canMap.get("gc_name"));
 					c.setUsername((String) canMap.get("gc_username"));
+					/*String[] str = {"gc_photo","gc_aadhar_card","gc_edu_certi"};
+					String[] paths= new String[3];
+					for(int i=0;i<3;++i) {
+						paths[i] = canMap.get(str[i]).toString();
+					}
+					c.setFilePath(paths);
+					System.out.println(paths);*/
 					System.out.println(c.getStatus());
 					if(!(c.getStatus().equalsIgnoreCase("awaiting verification"))) {
 

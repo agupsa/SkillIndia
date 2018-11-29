@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@ page errorPage="error.jsp" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -108,7 +108,7 @@
           <label class="control-label" >Password</label> 
           <div class="input-group" style="z-index: 0;">
             <span class="input-group-addon"><i class="fa fa-unlock-alt" aria-hidden="true"></i></span>
-            <input id="password" name="password" placeholder="Password" class="form-control"  required="required" type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            <input id="password" name="pass" placeholder="Password" class="form-control"  required="required" type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                 title="Password Should be at least 8 characters long and must contain at least one character in Upper Case, Lower Case, Numerical Form, and a Special Character.">
           </div>
         </div>

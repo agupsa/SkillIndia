@@ -15,7 +15,12 @@ import com.si.service.SearchCourseService;
 import com.si.service.SearchEstService;
 import com.si.model.Course;
 import com.si.model.Establishment;
-
+/**
+ * 
+ * @author GR5 LTI
+ * Controller to search for Establishments to apply to.
+ *
+ */
 @Controller
 public class SearchController {
 

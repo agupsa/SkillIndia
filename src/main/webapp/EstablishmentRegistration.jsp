@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@page errorPage="error.jsp" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html >
 
 <html lang="en">
 
@@ -54,7 +54,7 @@
           <li><a href="#about">About Us</a></li>
         
          
-        <li class="menu-has-children"><a href="">Candidate</a>
+        <li class="menu-has-children"><a href="#">Candidate</a>
             <ul>
               <li><a href="CandidateRegister.jsp">Candidate Register</a></li>
               <li><a href="CandidateLogin.jsp">Candidate Login</a></li>
@@ -96,7 +96,7 @@
         <label class="control-label" >Establishment Name</label><font style= "color:red;">*</font>
         <div class="input-group">
           <span class="input-group-addon"><i class="fa fa-university" aria-hidden="true"></i></span>
-          <input name="name" placeholder="Establishment Name" class="form-control" maxlength="30" pattern="[a-zA-Z]+" type="text" required="required" title="Enter the Establishment name">
+          <input name="name" placeholder="Establishment Name" class="form-control" maxlength="30"  type="text" required="required" title="Enter the Establishment name">
         </div>
       </div>
     
@@ -149,7 +149,7 @@
           <label class="control-label">Number of Employees</label><font style= "color:red;">*</font>
           <div class="input-group" style="z-index: 0;">
             <span class="input-group-addon"><i class="fa fa-users" aria-hidden="true"></i></span>
-            <input name="noOfEmp" placeholder="Number of Employees" class="form-control" pattern="[0-9]{3}" type="number" title="Enter value">
+            <input name="noOfEmp" placeholder="Number of Employees" class="form-control" pattern="[0-9]{3}" type="tel" title="Enter value">
           </div>
         </div>
      </div>
@@ -161,7 +161,6 @@
           <div class="input-group" style="z-index: 0;">
             <span class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
             <select name="workdays" class="form-control">
-		<option >-Select-</option>
               <option value="5" >5 Days a week</option>
               <option value="6">6 Days a week</option>
                </select>
@@ -188,14 +187,20 @@
       </div>
 
         <!--BANK Name -->
-      <div class="form-group">
-        <label class="control-label" >Bank Name</label><font style= "color:red;">*</font>
-        <div class="input-group">
-          <span class="input-group-addon"><i class="fa fa-university" aria-hidden="true"></i></span>
-          <input name="bankName" placeholder="Bank Name" class="form-control" maxlength="30" pattern="[a-zA-Z]+" type="text" required="required" title="Enter the Bank name">
+   
+ <div class="form-group">
+          <label class="control-label">Bank Name</label> <font style= "color:red;">*</font>
+          <div class="input-group" style="z-index: 0;">
+            <span class="input-group-addon"><i class="fa fa-university" aria-hidden="true"></i></span>
+            <select name="bankName" class="form-control" required="required" title="Enter the Bank name">
+		<option >SBI</option>
+              <option >HDFC</option>
+              <option >Standard Chartered</option>
+              <option >PMC</option>
+              <option >SBBI</option>
+            </select>
+          </div>
         </div>
-      </div>
-
 
          <div class="form-row">
         <!-- IFSC Details -->
@@ -212,7 +217,7 @@
           <label class="control-label"> Account No.</label><font style= "color:red;">*</font>
           <div class="input-group" style="z-index: 0;">
             <span class="input-group-addon"><i class="fa fa-id-card-o" aria-hidden="true"></i></span>
-            <input name="accountNo" placeholder=" Account No." maxlength="10" class="form-control" type="number" pattern="^[A-Za-z0-9]{9}$" title=" Account No.">
+            <input name="accountNo" placeholder=" Account No." maxlength="10" class="form-control" type="tel"  title=" Account No.">
           </div>
         </div>
       </div>

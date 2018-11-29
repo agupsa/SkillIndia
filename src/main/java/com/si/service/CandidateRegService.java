@@ -20,27 +20,27 @@ import com.si.model.Candidate;
 @Service
 @Transactional
 public class CandidateRegService implements CandidateRegServiceInterface {
-	
+
 	@Autowired
 	CandidateDaoInteface cdao;
-	
 
 	@Override
 	@Transactional
-	public void registerCandidate(Candidate c) {
-		/*System.out.println("in service");
-		c.setPhoto(saveFiles(c,photo,1));
-		if(c.getPhoto()==null) {
-			//TODO Exception handling here
-		}
-		System.out.println("saved file and path: "+c.getPhoto());*/
+	public void registerCandidate(Candidate c, MultipartFile... files) {
+		System.out.println("in service");
+		String fetchcPK = "select gr5_candidate_seq.nextval from dual";
+		c.setCanRegNo(cdao.getSeq(fetchcPK));
+		c.setFilePath(saveFiles(c, files));
+
 		cdao.registerCandidate(c);
 	}
 
-	
-	public String saveFiles(Candidate c,MultipartFile file, int i) {
-		
-		
+	public String[] saveFiles(Candidate c, MultipartFile[] files) {
+		int i = 0;
+		String[] paths = new String[3];
+		for (MultipartFile file : files) {
+			
+
 			try {
 				byte[] bytes = file.getBytes();
 
@@ -51,34 +51,36 @@ public class CandidateRegService implements CandidateRegServiceInterface {
 					dir.mkdirs();
 
 				// Create the file on server
-			
-				File serverFile = null; 
-				switch(i) {
-				case 1:serverFile = new File(dir.getAbsolutePath()
-						+ File.separator + c.getName().toLowerCase()+".jpg");
+
+				File serverFile = null;
+				switch (i) {
+				case 0:
+					serverFile = new File(dir.getAbsolutePath() + File.separator + c.getName().toLowerCase() + ".jpg");
 					break;
-				case 2:serverFile = new File(dir.getAbsolutePath()
-						+ File.separator + c.getAadharNo()+".pdf");
+				case 1:
+					serverFile = new File(dir.getAbsolutePath() + File.separator + c.getAadharNo() + ".pdf");
 					break;
-				case 3:serverFile = new File(dir.getAbsolutePath()
-						+ File.separator + c.getName().toLowerCase() +c.getQualification().toLowerCase() + "Certificate.pdf");
+				case 2:
+					serverFile = new File(dir.getAbsolutePath() + File.separator + c.getQualification().toLowerCase() + ".pdf");
 					break;
 				}
-				BufferedOutputStream stream = new BufferedOutputStream(
-						new FileOutputStream(serverFile));
+				BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(serverFile));
 				stream.write(bytes);
 				stream.close();
 
-				System.out.println("Server File Location="
-						+ serverFile.getAbsolutePath());
-				
-				String path = serverFile.getAbsolutePath();
-				return path;
+				System.out.println("Server File Location=" + serverFile.getAbsolutePath());
+
+				paths[i] =serverFile.getAbsolutePath();
+
 			} catch (Exception e) {
-				//return "You failed to upload " + name + " => " + e.getMessage();
+				System.out.println("You failed to upload  => " + e.getMessage());
 				return null;
 			}
+			finally {
+					++i;
+			}
 
-		
+		}
+		return paths; // TODO return paths
 	}
 }

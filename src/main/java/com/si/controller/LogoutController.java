@@ -11,6 +11,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.si.model.Login;
 
+/**
+ * 
+ * @author GR5 LTI
+ * This Controller Logs everyone out and destroys session object so that data is not leaked
+ *
+ */
+
+
 @Controller
 public class LogoutController {
 	

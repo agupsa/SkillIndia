@@ -19,13 +19,20 @@ public class CourseApplicationService {
 		
 	}
 		
-/*	public void saveApplication(Contract contract) {
+public void saveApplication(Contract contract) {
 		 cadao.saveApplication(contract);
 		
-	}*/
+	}
 
 	public void saveCourseApply(Contract contract) {
 		cadao.saveCourseApply(contract);		
+	}
+
+	
+
+	public int checkCourse(Contract contract) {
+		
+		return cadao.checkCourse(contract);
 	}
 
 }

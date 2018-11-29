@@ -15,7 +15,7 @@ public class Course {
 	private String trainerName;
 	private long trainerContact;
 	private int domainId;
-	private int estRegno;		//Foreign key
+	private int estRegno;		
 	private String estName;     
 	
 	
@@ -39,7 +39,6 @@ public class Course {
 		this.trainerName = trainerName;
 	}
 
-	
 	
 	public long getTrainerContact() {
 		return trainerContact;
@@ -65,6 +64,13 @@ public class Course {
 	public void setEstName(String estName) {
 		this.estName = estName;
 	}
+	@Override
+	public String toString() {
+		return "Course [courseId=" + courseId + ", courseName=" + courseName + ", trainerName=" + trainerName
+				+ ", trainerContact=" + trainerContact + ", domainId=" + domainId + ", estRegno=" + estRegno
+				+ ", estName=" + estName + "]";
+	}
+	
 	
 
 }

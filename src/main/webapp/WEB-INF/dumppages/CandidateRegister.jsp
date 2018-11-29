@@ -224,7 +224,7 @@
           <label class="control-label" >Percentage</label> <font style= "color:red;">*</font>
           <div class="input-group" style="z-index: 0;">
             <span class="input-group-addon"><i class="fa fa-graduation-cap" aria-hidden="true"></i></span>
-            <input maxlength="4" name="marks" placeholder="Obtained Marks" class="form-control"  type="tel">
+            <input maxlength="4" name="marks" placeholder="Obtained Marks" class="form-control"  type="number">
           </div>
         </div>
         
@@ -278,32 +278,32 @@
       
       <!--Document Upload -->
             <div class="form-group">
-          <label class="control-label">Photo Upload</label> <font style= "color:red;">*</font>
+          <label class="control-label">Photo Upload</label> 
           <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-files-o" aria-hidden="true"></i></span>
-            <input class="form-control" name="files" type="file" required="required" id="file">
+            <input class="form-control" name="files" type="file" id="photo">
           </div>
           <div id="fileList"></div>
         </div>
 
 		<div class="form-group">
-          <label class="control-label">Upload AadharCard</label><font style= "color:red;">*</font>
+          <label class="control-label">Upload AadharCard</label>
           <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-files-o" aria-hidden="true"></i></span>
-            <input class="form-control" name="files" type="file" required="required" onchange="javascript:updateList();">
+            <input class="form-control" name="files" type="file" onchange="javascript:updateList();">
           </div>
         </div>
 
 
 
    <div class="form-group">
-          <label class="control-label">Education Certificate</label> <font style= "color:red;">*</font>
+          <label class="control-label">Education Certificate</label> 
           <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-files-o" aria-hidden="true"></i></span>
-            <input class="form-control" name="files" type="file" required="required" id="file"  onchange="javascript:updateList();">
+            <input class="form-control" name="files" type="file" id="file"  onchange="javascript:updateList();">
           </div>
           <div id="fileList"></div>
-        </div>
+        </div> 
 
         <!-- Submit button -->
         <div class="form-group col-md-4" style="padding: 0;">

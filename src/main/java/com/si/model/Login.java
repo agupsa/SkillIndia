@@ -12,7 +12,10 @@ public class Login {
 	public String getPass() {
 		return pass;
 	}
-	public void setPassword(String pass) {
+	public void setPass(String pass) {
 		this.pass = pass;
 	}
+
+
 }
+

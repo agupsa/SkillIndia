@@ -120,7 +120,28 @@
             SUBMIT <i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
           </div>
         </div></center>
+        
+        
 
+  <!-- Required JavaScript Libraries -->
+  <script src="Bootstrap/lib/jquery/jquery.min.js"></script>
+  <script src="Bootstrap/lib/jquery/jquery-migrate.min.js"></script>
+  <script src="Bootstrap/lib/superfish/hoverIntent.js"></script>
+  <script src="Bootstrap/lib/superfish/superfish.min.js"></script>
+  <script src="Bootstrap/lib/tether/js/tether.min.js"></script>
+  <script src="Bootstrap/lib/stellar/stellar.min.js"></script>
+  <script src="Bootstrap/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="Bootstrap/lib/counterup/counterup.min.js"></script>
+  <script src="Bootstrap/lib/waypoints/waypoints.min.js"></script>
+  <script src="Bootstrap/lib/easing/easing.js"></script>
+  <script src="Bootstrap/lib/stickyjs/sticky.js"></script>
+  <script src="Bootstrap/lib/parallax/parallax.js"></script>
+  <script src="Bootstrap/lib/lockfixed/lockfixed.min.js"></script>
+        
+  <!-- Template Specisifc Custom Javascript File -->
+  <script src="js/custom.js"></script>
+  <script src="Bootstrap/js/script.js"></script>
+  <script src="Bootstrap/js/custom.js"></script>
 </form>
 </body>
 </html>
