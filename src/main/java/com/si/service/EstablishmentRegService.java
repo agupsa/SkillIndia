@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.si.dao.EstablishmentDao;
-import com.si.model.Candidate;
 import com.si.model.Establishment;
 
 @Service

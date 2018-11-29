@@ -7,13 +7,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.si.service.SearchCourseService;
 import com.si.service.SearchEstService;
-import com.si.model.Course;
 import com.si.model.Establishment;
 /**
  * 
@@ -26,11 +23,7 @@ public class SearchController {
 
 	@Autowired
 	private SearchEstService eService;
-
-	@Autowired
-	private SearchCourseService cService;
-
-	@RequestMapping("/searchEst{establishmentName}")
+@RequestMapping("/searchEst{establishmentName}")
 	public ModelAndView viewSingleList(HttpServletRequest request, HttpServletResponse response) {
 		String establishmentName = request.getParameter("establishmentName");
 		System.out.println(establishmentName);
@@ -42,18 +35,4 @@ public class SearchController {
 		return new ModelAndView("estDisplay", "elst", estList);
 	}
 
-	/*@RequestMapping("/searchCourse/{estRegNo}")
-	public ModelAndView viewCourseList(@PathVariable int estRegNo, HttpServletRequest request,
-			HttpServletResponse response) {
-		// String s1=request.getParameter("estRegNo");
-		// System.out.println(s1);
-		// int estRegNo=Integer.parseInt(s1);
-		System.out.println(estRegNo);
-		// ModelAndView mv=new ModelAndView("estDisplay");
-		List<Course> clst = cService.getCourseById(estRegNo);
-		System.out.println(clst);
-		// mv.addObject("elst", estList);
-		// return mv;
-		return new ModelAndView("courseDisplay", "clst", clst);
-	}*/
 }
