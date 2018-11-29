@@ -11,7 +11,7 @@
 <html lang="en">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<body>
+
 <head>
 <meta charset="utf-8">
 <title>Candidate Dashboard</title>
@@ -102,6 +102,13 @@
         <!-- <a href="https://www.twitter.com"><i class="fa fa-twitter"></i></a> <a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a> <a href="https://www.linkedin.com"><i class="fa fa-linkedin"></i></a> <a href="https://www.outlook.com"><i class="fa fa-envelope"></i></a> -->
       </nav>
     </div>
+    
+    <nav class="nav social-nav pull-right d-none d-lg-inline"> 
+			<ul class="nav navbar-nav navbar-right">
+		
+				<li><a href="logout">Logout</a></li>
+			</ul>
+		</nav>
   </header>
   <!-- #header -->
 	<!-- About -->
@@ -127,15 +134,15 @@
         <label class="control-label" >Profile Status: ${can.status }</label><br>
         <label class="control-label" ><c:if test="${ can.canRegNo !=0}">Registration Number: ${can.canRegNo }</c:if></label>
       </div>
-
+		<c:if
+					test="${(contract!=null and not empty contract)}">
 		<br />
 		<p>Application Status:</p>
 		<!-- TO BE FILLED BY DB VALUES -->
 		<div class="form-row" style="margin: 0 auto;">
 			<div class="form-group col-md-12" style="padding: 0;">
 				<label class="control-label"></label>
-				<c:if
-					test="${(contract!=null and not empty contract)}">
+		
 
 					<table class="table table-striped table-bordered table-hover">
 						<thead>
@@ -164,13 +171,13 @@
 						</tbody>
 					</table>
 
-				</c:if>
+			
 			</div>
 			<br />
 
 
 		</div>
-
+	</c:if>
 
 
 	</form>

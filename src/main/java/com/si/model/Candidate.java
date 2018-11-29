@@ -28,15 +28,12 @@ public class Candidate {
 	private String collegeName;
 	private float marks;
 	private String status;
+	private Address addr;
 	
 	
-	/*
-	private Address addr;
-	private String photo;
-	private String aadhar;
-	private String eduCert;
-	*/
-	private Address addr;
+	private String[] filePath;
+
+
 	
 
 	/* Column mappings
@@ -179,6 +176,14 @@ public class Candidate {
 
 	public void setDob(String dob) {
 		this.dob = dob;
+	}
+
+	public String[] getFilePath() {
+		return filePath;
+	}
+
+	public void setFilePath(String[] filePath) {
+		this.filePath = filePath;
 	}
 	
 	
