@@ -11,7 +11,7 @@ package com.si.model;
 //Entity object for gr5_contract
 public class Contract {
 	
-	private int letter_no;  //primary key Auto generated
+	private int letterNo;  //primary key Auto generated
 	private int canRegNo;
 	//private Date dob;
 	private int estRegNo;
@@ -25,11 +25,11 @@ public class Contract {
 	
 	
 	
-	public int getLetter_no() {
-		return letter_no;
+	public int getLetterNo() {
+		return letterNo;
 	}
-	public void setLetter_no(int letter_no) {
-		this.letter_no = letter_no;
+	public void setLetterNo(int letterNo) {
+		this.letterNo = letterNo;
 	}
 	public int getCanRegNo() {
 		return canRegNo;

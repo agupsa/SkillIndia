@@ -13,7 +13,8 @@ public class Course {
 	private int courseId;		//Primary key auto generated
 	private String courseName;
 	private String trainerName;
-	private String trainerContact;
+	private long trainerContact;
+	private int domainId;
 	private int estRegno;		//Foreign key
 	private String estName;     
 	
@@ -37,11 +38,20 @@ public class Course {
 	public void setTrainerName(String trainerName) {
 		this.trainerName = trainerName;
 	}
-	public String getTrainerContact() {
+
+	
+	
+	public long getTrainerContact() {
 		return trainerContact;
 	}
-	public void setTrainerContact(String trainerContact) {
+	public void setTrainerContact(long trainerContact) {
 		this.trainerContact = trainerContact;
+	}
+	public int getDomainId() {
+		return domainId;
+	}
+	public void setDomainId(int domainId) {
+		this.domainId = domainId;
 	}
 	public int getEstRegno() {
 		return estRegno;
@@ -55,5 +65,6 @@ public class Course {
 	public void setEstName(String estName) {
 		this.estName = estName;
 	}
+	
 
 }

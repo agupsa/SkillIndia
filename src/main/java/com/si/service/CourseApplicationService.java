@@ -13,9 +13,19 @@ public class CourseApplicationService {
 	@Autowired
     CourseApplicationDao cadao;
 	
-	public void saveApplication(Contract contract) {
-	
-	 cadao.saveApplication(contract);
+	public Course getCourse(int courseId){
+		
+		return cadao.getCourse(courseId);  
+		
+	}
+		
+/*	public void saveApplication(Contract contract) {
+		 cadao.saveApplication(contract);
+		
+	}*/
+
+	public void saveCourseApply(Contract contract) {
+		cadao.saveCourseApply(contract);		
 	}
 
 }

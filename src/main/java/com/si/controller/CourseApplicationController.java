@@ -16,15 +16,30 @@ import com.si.model.Course;
 import com.si.service.CourseApplicationService;
 
 @Controller
+@RequestMapping(value="/applicationSave", method= RequestMethod.POST)
 public class CourseApplicationController {
+
+
 	@Autowired
 	CourseApplicationService courseapply;
 	
+	@RequestMapping(value="/applicationSave", method= RequestMethod.POST)
+    public ModelAndView courseApplication(HttpServletRequest request,HttpServletResponse response, @ModelAttribute("contract") Contract contract)
+	{  
+		System.out.println("1");
+       courseapply.saveCourseApply(contract); 
+       System.out.println("2");
+        return new ModelAndView("courseRegister"); //will redirect to courseRegister request mapping  
+    }  
 	
-	@RequestMapping(value="/registerCourse", method= RequestMethod.POST)
+	
+	/*@RequestMapping(value="/registerCourse", method= RequestMethod.GET)
     public ModelAndView courseApply(HttpServletRequest request,HttpServletResponse response, @ModelAttribute("contract") Contract contract)
 	{  
        courseapply.saveApplication(contract); 
         return new ModelAndView("courseRegister");//will redirect to courseRegister request mapping  
-    }  
+    }  */
+	
+	
+
 }
