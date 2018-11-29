@@ -117,7 +117,7 @@
             <label for="inlineRadio2">Female</label>
           </div>
           <div class="radio radio-inline col-md-4">
-            <input type="radio" id="inlineRadio3" value="others" name="gender">
+            <input type="radio" id="inlineRadio3" value="others" name="gender"></input>
             <label for="inlineRadio3">Others</label>
           </div>
         </div>

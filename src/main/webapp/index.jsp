@@ -98,10 +98,10 @@
 
     <p>
       Skill India is an initiative of the Government of India which has been launched to empower the youth of the country with skill sets which make them more employable and more productive in their work environment. 
-      Our National Skill Mission is chaired by the Hon’ble Prime Minister, Shri Narendra Modi himself.<br/>
-      India is a country today with 65% of its youth in the working age group. If ever there is a way to reap this demographic advantage, it has to be through skill development of the youth so that they add not only to their personal growth, but to the country’s economic growth as well. <br/>
+      Our National Skill Mission is chaired by the honourable Prime Minister, Shri Narendra Modi himself.<br/>
+      India is a country today with 65% of its youth in the working age group. If ever there is a way to reap this demographic advantage, it has to be through skill development of the youth so that they add not only to their personal growth, but to the country economic growth as well. <br/>
       Skill India offers courses across 40 sectors in the country which are aligned to the standards recognised by both, the industry and the government under the National Skill Qualification Framework. <br/>
-      The courses help a person focus on practical delivery of work and help him enhance his technical expertise so that he is ready for day one of his job and companies don’t have to invest into training him for his job profile. 
+      The courses help a person focus on practical delivery of work and help him enhance his technical expertise so that he is ready for day one of his job and companies do not have to invest into training him for his job profile. 
     </p>
     </div>
   </section>
@@ -110,8 +110,7 @@
 
   
 
-
-  <!-- Required JavaScript Libraries -->
+<!-- Required JavaScript Libraries -->
   <script src="Bootstrap/lib/jquery/jquery.min.js"></script>
   <script src="Bootstrap/lib/jquery/jquery-migrate.min.js"></script>
   <script src="Bootstrap/lib/superfish/hoverIntent.js"></script>
@@ -125,9 +124,16 @@
   <script src="Bootstrap/lib/stickyjs/sticky.js"></script>
   <script src="Bootstrap/lib/parallax/parallax.js"></script>
   <script src="Bootstrap/lib/lockfixed/lockfixed.min.js"></script>
+  <script src="Bootstrap/lib/jquery-ui/jquery-ui.js"></script>
+  <script src="Bootstrap/JSON/script.js"></script>
 
   <!-- Template Specisifc Custom Javascript File -->
-  <script src="js/custom.js"></script>
+  <script src="Bootstrap/js/custom.js"></script>
+  <script src="Bootstrap/js/script.js"></script>
+  <script src="Bootstrap/js/candidate.js"></script>
+
+  <script src="Bootstrap/contactform/contactform.js"></script>
+
 
   <script src="Bootstrap/contactform/contactform.js"></script>
 

@@ -17,7 +17,6 @@ import com.si.model.Candidate;
 import com.si.model.Login;
 import com.si.service.CandidateLoginService;
 import com.si.service.CandidateRegServiceInterface;
-
 /**
  * 
  * @author GR5 LTI
@@ -48,6 +47,7 @@ public class CandidateController {
 	public ModelAndView login(HttpServletRequest req, HttpServletResponse res, @ModelAttribute("login") Login login,HttpSession sess) {
 		try {
 			//ModelAndView mv = new ModelAndView();
+			System.out.println(login.getPass());
 			Object o = cls.userLoginValidation(login);
 			Candidate can = (Candidate) o;
 			System.out.println(can);
