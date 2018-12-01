@@ -52,7 +52,7 @@ public class EnterCourseDao {
 
 	public void saveContractDetails(Contract contract) {
 				
-			String sql = "update gr5_contract set GOF_STIPEND='"+contract.getStipend()+"',GOF_START_DATE=TO_DATE('"+contract.getStartId()+"', 'YYYY-MM-DD'),GOF_END_DATE=TO_DATE('"+contract.getEndDate()+"', 'YYYY-MM-DD'),GOF_STATUS='Offered' where GOF_LETTER_NO='"+contract.getLetterNo()+"'";
+			String sql = "update gr5_contract set GOF_STIPEND='"+contract.getStipend()+"',GOF_START_DATE=TO_DATE('"+contract.getStartDate()+"', 'YYYY-MM-DD'),GOF_END_DATE=TO_DATE('"+contract.getEndDate()+"', 'YYYY-MM-DD'),GOF_STATUS='Offered' where GOF_LETTER_NO='"+contract.getLetterNo()+"'";
 			jdbcTemplate.update(sql);
 
 		}

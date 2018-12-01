@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.si.dao.AdminEstFetchDao;
+import com.si.dao.AdminEstSetStatusDao;
 import com.si.model.Establishment;
 
 @Service
@@ -14,6 +15,9 @@ import com.si.model.Establishment;
 public class AdminVerifyEstService {
 	@Autowired
 	AdminEstFetchDao aefDao;
+	
+	@Autowired
+	AdminEstSetStatusDao aessDao;
 
 	public List<Establishment> getUnverifiedEst() {
 		
@@ -21,8 +25,8 @@ public class AdminVerifyEstService {
 	}
 
 	public int setEstVerification(int estRegno, int action) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return aessDao.setEstStatus(estRegno, action);
 	}
 	
 	

@@ -18,7 +18,7 @@ public class Contract {
 	private String estName;
 	private int courseId;
 	private float stipend;
-	private String startId;
+	private String startDate;
 	private String endDate;
 	private String status;
 	//private String contractPath;
@@ -68,12 +68,12 @@ public class Contract {
 		this.status = status;
 	}
 
-	public String getStartId() {
-		return startId;
+	public String getStartDate() {
+		return startDate;
 	}
 
-	public void setStartId(String startId) {
-		this.startId = startId;
+	public void setStartDate(String startDate) {
+		this.startDate = startDate;
 	}
 
 	public String getEndDate() {

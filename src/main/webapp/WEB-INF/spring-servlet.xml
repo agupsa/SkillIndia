@@ -79,9 +79,17 @@
 		<property name="jdbcTemplate" ref="jdbcTemplate">
 		</property>
 	</bean>
+	<bean id="aessDao" class="com.si.dao.AdminEstSetStatusDao">
+		<property name="jdbcTemplate" ref="jdbcTemplate">
+		</property>
+	</bean>
 
-	
 	<bean id="ecdao" class="com.si.dao.EnterCourseDao">
+		<property name="jdbcTemplate" ref="jdbcTemplate">
+		</property>
+	</bean>
+
+	<bean id="actrfDao" class="com.si.dao.AdminContrFetchDao">
 		<property name="jdbcTemplate" ref="jdbcTemplate">
 		</property>
 	</bean>

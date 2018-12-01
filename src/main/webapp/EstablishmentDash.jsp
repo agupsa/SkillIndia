@@ -124,7 +124,7 @@
 <div class="form-group">
         <label class="control-label" >${est.name}</label><br>
         <label class="control-label" >Profile Status: ${est.status }</label><br>
-       <label class="control-label" ><c:if test="${ est.estRegNo !=0}">Registration Number: ${est.estRegNo }</c:if></label>
+      <c:if test="${ est.estRegNo !=0}"> <label class="control-label" >Registration Number: ${est.estRegNo }</label></c:if>
       </div>
 
 		<br />

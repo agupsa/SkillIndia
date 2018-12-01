@@ -2,7 +2,7 @@ package com.si.dao;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 
-public class AdminEstSetStatus {
+public class AdminEstSetStatusDao {
 	JdbcTemplate jdbcTemplate;
 
 	public JdbcTemplate getJdbcTemplate() {
@@ -13,7 +13,7 @@ public class AdminEstSetStatus {
 		this.jdbcTemplate = jdbcTemplate;
 	}
 
-	public AdminEstSetStatus() {
+	public AdminEstSetStatusDao() {
 		super();
 	}
 	

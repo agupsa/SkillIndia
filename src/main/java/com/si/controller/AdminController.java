@@ -23,9 +23,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.si.model.Candidate;
+import com.si.model.Contract;
 import com.si.model.Establishment;
 import com.si.model.Login;
 import com.si.service.AdminVerifyCanService;
+import com.si.service.AdminVerifyContrService;
 import com.si.service.AdminVerifyEstService;
 import com.si.service.AdminloginService;
 /**
@@ -54,6 +56,12 @@ public class AdminController {
 	 */
 	@Autowired
 	AdminVerifyEstService aveService;
+	
+	/*
+	 * Service to handle Contract Data
+	 */
+	@Autowired
+	AdminVerifyContrService avctrService;
 
 	
 	@RequestMapping("/adminLogin")
@@ -152,9 +160,9 @@ public class AdminController {
 			}
 		return new ModelAndView("error","msg","No Establishment for verification");
 	}
-	@RequestMapping(value="/cverify/{estRegNo}/{action}", method=RequestMethod.GET)
+	@RequestMapping(value="/everify/{estRegNo}/{action}", method=RequestMethod.GET)
 	public ModelAndView verifyEstablishment(@PathVariable("estRegNo") int estRegno, @PathVariable("action") int action,HttpServletRequest req){
-		ModelAndView mv = new ModelAndView("redirect:../../canver");
+		ModelAndView mv = new ModelAndView("redirect:../../estver");
 		System.out.println(estRegno+"\t"+action);
 		int i=0;
 		try {
@@ -171,5 +179,26 @@ public class AdminController {
 		return mv;
 	}
 	
+	
+	@RequestMapping("/contrver")
+	public ModelAndView verifyContract() {
+		ModelAndView mv = new ModelAndView("ContractVerification");
+		System.out.println("in controller for contract verify list");
+		List<Contract> uContr = null;
+		try {
+			uContr = avctrService.getUnverifiedContr();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			return new ModelAndView("error","msg","Error"+e.getMessage());
+		}
+		if(uContr!=null) {
+			mv.addObject("uContr",uContr);
+			System.out.println("got unverified Est list");
+			return mv;
+			}
+		return new ModelAndView("error","msg","No Contract for verification");
+		
+
+	}
 	
 }

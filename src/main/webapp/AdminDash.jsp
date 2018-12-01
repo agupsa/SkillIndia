@@ -66,7 +66,7 @@
              </ul> --></li>
 				</ul>
 				<ul class="nav-menu">
-					<li><a href="conver">Contract Verification</a></li>
+					<li><a href="contrver">Contract Verification</a></li>
 				</ul>
 				<!--  <ul class="nav-menu">
          <li><a href="courseApply.jsp">Course Form</a></li>
