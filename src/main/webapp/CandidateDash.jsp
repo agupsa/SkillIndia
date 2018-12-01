@@ -132,7 +132,7 @@
 <div class="form-group">
         <label class="control-label" >${can.name}</label><br>
         <label class="control-label" >Profile Status: ${can.status }</label><br>
-        <label class="control-label" ><c:if test="${ can.canRegNo !=0}">Registration Number: ${can.canRegNo }</c:if></label>
+        <c:if test="${ can.canRegNo !=0}"><label class="control-label" >Registration Number: ${can.canRegNo }</label></c:if>
       </div>
 		<c:if
 					test="${(contract!=null and not empty contract)}">

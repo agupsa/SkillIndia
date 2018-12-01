@@ -68,7 +68,7 @@ public class CourseApplicationDao {
 		String fetchcPK = "select gr5_contract_seq.nextval from dual";
 		System.out.println(fetchcPK);
 		contract.setLetterNo(getSeq(fetchcPK));
-		String sql = "insert into gr5_contract(GOF_LETTER_NO,GOF_GC_REG_NO, GOF_GE_REGNO, GOF_GE_EST_NAME, GOF_GCO_COURSE_ID) values('"+ contract.getLetterNo() + "','"+ contract.getCanRegNo()+"'," + contract.getEstRegNo() + ",'" + contract.getEstName() + "','"+ contract.getCourseId() + "')";
+		String sql = "insert into gr5_contract(GOF_LETTER_NO,GOF_GC_REG_NO, GOF_GE_REGNO, GOF_GE_EST_NAME, GOF_GCO_COURSE_ID,GOF_STATUS) values('"+ contract.getLetterNo() + "','"+ contract.getCanRegNo()+"'," + contract.getEstRegNo() + ",'" + contract.getEstName() + "','"+ contract.getCourseId() + "','Applied')";
 		jdbcTemplate.update(sql);
 	}
 
@@ -80,6 +80,7 @@ public class CourseApplicationDao {
 
 	}
 
+	//check candidate has already applied or not
 	public int checkCourse(Contract contract) {
 		System.out.println("check dao");
 		List<Map<String, Object>> lst;

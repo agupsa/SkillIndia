@@ -79,6 +79,10 @@
 		<servlet-name>default</servlet-name>
 		<url-pattern>*.woff2</url-pattern>
 	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.pdf</url-pattern>
+	</servlet-mapping>
 
 	 <error-page>
 		<error-code>500</error-code>

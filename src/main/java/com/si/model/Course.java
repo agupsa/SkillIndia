@@ -14,7 +14,7 @@ public class Course {
 	private String courseName;
 	private String trainerName;
 	private long trainerContact;
-	private int domainId;
+	private String domainName;
 	private int estRegno;		
 	private String estName;     
 	
@@ -46,11 +46,11 @@ public class Course {
 	public void setTrainerContact(long trainerContact) {
 		this.trainerContact = trainerContact;
 	}
-	public int getDomainId() {
-		return domainId;
+	public String getDomainName() {
+		return domainName;
 	}
-	public void setDomainId(int domainId) {
-		this.domainId = domainId;
+	public void setDomainName(String domainName) {
+		this.domainName = domainName;
 	}
 	public int getEstRegno() {
 		return estRegno;
@@ -67,7 +67,7 @@ public class Course {
 	@Override
 	public String toString() {
 		return "Course [courseId=" + courseId + ", courseName=" + courseName + ", trainerName=" + trainerName
-				+ ", trainerContact=" + trainerContact + ", domainId=" + domainId + ", estRegno=" + estRegno
+				+ ", trainerContact=" + trainerContact + ", domainName=" + domainName + ", estRegno=" + estRegno
 				+ ", estName=" + estName + "]";
 	}
 	

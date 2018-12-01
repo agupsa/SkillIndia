@@ -4,6 +4,8 @@
 <%@ page import="com.si.model.Candidate"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" isELIgnored="false"%>
+	<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  
 <%@ page errorPage="error.jsp" %>
 
 
@@ -72,7 +74,7 @@
         
       </div>
 
-      <nav id="nav-menu-container">
+     <!-- <nav id="nav-menu-container">
         <ul class="nav-menu">
           <li><a href="#about">About Us</a></li>
         
@@ -84,7 +86,7 @@
              </ul>
           </li>
      
-     <li class="menu-has-children"><a href="">Establishment</a>
+      <li class="menu-has-children"><a href="">Establishment</a>
             <ul>
               <li><a href="EstablishmentRegistration.jsp">Establishment Register</a></li>
               <li><a href="EstablishmentLogin.jsp">Establishment Login</a></li>
@@ -96,12 +98,18 @@
          </ul>
           <ul class="nav-menu">
          <li><a href="courseApply.jsp">Course Form</a></li>
+         </ul> -->
+         <ul class="nav-menu">
+         <li><a href="EnterCourse.jsp">Enter Course</a></li>
          </ul>
       </nav>
      <!-- #nav-menu-container -->
 
       <nav class="nav social-nav pull-right d-none d-lg-inline">
-        <!-- <a href="https://www.twitter.com"><i class="fa fa-twitter"></i></a> <a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a> <a href="https://www.linkedin.com"><i class="fa fa-linkedin"></i></a> <a href="https://www.outlook.com"><i class="fa fa-envelope"></i></a> -->
+        <ul class="nav navbar-nav navbar-right">
+		
+				<li><a href="logout">Logout</a></li>
+			</ul>
       </nav>
     </div>
   </header>
@@ -116,7 +124,7 @@
 <div class="form-group">
         <label class="control-label" >${est.name}</label><br>
         <label class="control-label" >Profile Status: ${est.status }</label><br>
-        <label class="control-label" ><c:if test="${ est.estRegNo !=0}">Registration Number: ${can.canRegNo }</c:if></label>
+       <label class="control-label" ><c:if test="${ est.estRegNo !=0}">Registration Number: ${est.estRegNo }</c:if></label>
       </div>
 
 		<br />
@@ -125,39 +133,63 @@
 		<div class="form-row" style="margin: 0 auto;">
 			<div class="form-group col-md-12" style="padding: 0;">
 				<label class="control-label"></label>
-				<c:if
-					test="${sessionScope.courseList !=null and not empty sessionScope.courseList}">
-
+				
 					<table class="table table-striped table-bordered table-hover">
 						<thead>
 							<tr>
-							   <th>Course Name</th>
-							   <th>Candidate Name</th>
-							    <th>Candidate Address</th>
-							    <th>Candidate Contact</th>
-							    <th>Accept or Reject</th>
+							   <th>Contract Number</th>
+							   <th>Candidate Registration Number</th>
+							    <th>Candidate Name</th>
+							    <th>Candidate Gender</th>
+							    <th>Candidate DOB</th>
+							    <th>Candidate Contact Number</th>
+							    <th>Candidate Qualification</th>
+							    <th>Candidate Marks</th>
+							    <th>Course Id</th>
+							    <th>Course Name</th>
+							    <th>Stipend</th>
+							    <th>Start Date</th>
+							    <th>End Date</th>
+							    <th>Status</th>
+							    <th>Send Offer</th>
+							    <th>Reject Application</th>
 							</tr>
 						</thead>
 						</thead>
 						<tbody>
 
-							<c:forEach items="${sessionScope.courseList}" var="e">
+							<c:forEach items="${drm}" var="drm">
 
 								<tr>
-									<td scope="row"></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-								<%-- 	<td><a href="DetailedCourse?cId=${e.cId}">More Details</a>
+									<td>${drm.letterNo}</td>
+									<td>${drm.canRegNo}</td>
+									<td>${drm.name}</td>
+									<td>${drm.gender}</td>
+									<td>${drm.dob}</td>
+									<td>${drm.contactNo}</td>
+									<td>${drm.qualification}</td>
+									<td>${drm.marks}</td>
+									<td>${drm.courseId}</td>
+									<td>${drm.courseName}</td>
+								    <td>${drm.stipend}</td>
+								    <td>${drm.startId}</td>
+								    <td>${drm.endDate}</td>
+								    <td>${drm.status}</td>
+								    
+							 	<td><a href="sendOffer.jsp">Fill Offer letter</a></td>
+							 	<td><a href="reject/${drm.letterNo}">Reject</a></td>
+						
+								    
+								    
+						
 								</tr>
- --%>
+
 							</c:forEach>
 
 						</tbody>
 					</table>
 
-				</c:if>
+				
 			</div>
 			<br />
 

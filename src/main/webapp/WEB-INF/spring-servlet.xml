@@ -3,14 +3,14 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
-	
-	
+
+
 	<context:component-scan base-package="com.si"></context:component-scan>
-	 	<bean id="multipartResolver"
+	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 
 		<!-- setting maximum upload size -->
-		<property name="maxUploadSize" value="5242880"  />
+		<property name="maxUploadSize" value="5242880" />
 	</bean>
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -24,12 +24,12 @@
 	<bean id="ds"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="oracle.jdbc.OracleDriver" />
-		
+
 		<property name="url" value="jdbc:oracle:thin:@infva05803:1521:xe" />
 		<property name="username" value="system" />
 		<property name="password" value="Newuser123" />
 	</bean>
-	
+
 
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
 		<property name="dataSource" ref="ds"></property>
@@ -43,22 +43,22 @@
 		<property name="jdbcTemplate" ref="jdbcTemplate">
 		</property>
 	</bean>
-	
+
 	<bean id="esdao" class="com.si.dao.EstablishmentSearchDao">
 		<property name="jdbcTemplate" ref="jdbcTemplate">
 		</property>
 	</bean>
-	
+
 	<bean id="csdao" class="com.si.dao.CourseSearchDao">
 		<property name="jdbcTemplate" ref="jdbcTemplate">
 		</property>
 	</bean>
-	
+
 	<bean id="cadao" class="com.si.dao.CourseApplicationDao">
 		<property name="jdbcTemplate" ref="jdbcTemplate">
 		</property>
 	</bean>
-	
+
 	<bean id="ldao" class="com.si.dao.LoginDao">
 		<property name="jdbcTemplate" ref="jdbcTemplate">
 		</property>
@@ -67,6 +67,24 @@
 		<property name="jdbcTemplate" ref="jdbcTemplate">
 		</property>
 	</bean>
+	<bean id="acfDao" class="com.si.dao.AdminCanFetchDao">
+		<property name="jdbcTemplate" ref="jdbcTemplate">
+		</property>
+	</bean>
+	<bean id="acssDao" class="com.si.dao.AdminCanSetStatusDao">
+		<property name="jdbcTemplate" ref="jdbcTemplate">
+		</property>
+	</bean>
+	<bean id="aefDao" class="com.si.dao.AdminEstFetchDao">
+		<property name="jdbcTemplate" ref="jdbcTemplate">
+		</property>
+	</bean>
+
 	
-	
+	<bean id="ecdao" class="com.si.dao.EnterCourseDao">
+		<property name="jdbcTemplate" ref="jdbcTemplate">
+		</property>
+	</bean>
+
+
 </beans>

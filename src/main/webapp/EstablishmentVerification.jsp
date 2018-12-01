@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1" isELIgnored="false"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,7 +32,7 @@
   <!-- Main Stylesheet File -->
   <link href="Bootstrap/css/style.css" rel="stylesheet">
 
-  <link href="Bootstrap/css/prettyrc.css" rel="stylesheet">
+  <link href="Bootstrap/css/prettyre.css" rel="stylesheet">
 
 </head>
 <body>
@@ -90,8 +92,61 @@
 
 <div  class="bcg">
     <br><br>
-</head>
-<body>
+    <center>
+		<div class="bcg">
+			<br> <br>
+			<section>
+
+				<!-- Displaying selected establishment information in table -->
+				<h2>Establishment Application</h2>
+				<c:set var="accept" value="1" />
+				<c:set var="reject" value="0" />
+				<table border="2" width="70%" cellpadding="2">
+					<tr>
+						<th>Registration No.</th>
+						<th>Establishment Name</th>
+						<th>Email</th>
+						<th>Industry Type</th>
+						<th>No of Employees</th>
+						<th>Workdays</th>
+						<th>Name  of Head of Establishment</th>
+						<th>Contact No</th>
+						<th>Address</th>
+						<th>Bank Name</th>
+						<th>IFSC code</th>
+						<th>Account No</th>
+						<th>Status</th>
+						<th>Action</th>
+					</tr>
+					<c:forEach items="${uEst}" var="e">
+
+						<tr>
+							<td>${e.estRegNo}</td>
+							<td>${e.name}</td>
+							<td>${e.email}</td>
+							<td>${e.indtype}</td>
+							<td>${e.noOfEmp}</td>
+							<td>${e.workdays}</td>
+							<td>${e.nameOfHead}</td>
+							<td>${e.contactNo}</td>
+							<td>${e.addr.state}<br>${e.addr.city }<br>${e.addr.pincode}</td>
+							<td>${e.bankName}</td>
+							<td>${e.IFSC}</td>
+							<td>${e.accountNo }</td>
+							<%-- <td><a href="dispfile/${e.canRegNo}/${1}">Photo</a></td>
+							<td><a href="dispfile/${e.canRegNo}/${2}">Aadhar Card</a></td>
+							<td><a href="dispfile/${e.canRegNo}/${3}">Marksheet</a></td> --%>
+							<td>${e.status}</td>
+							<td><a href="everify/${e.estRegNo}/${accept}">Accept</a><br>
+								<a href="everify/${e.estRegNo}/${reject}">Reject</a></td>
+						</tr>
+					</c:forEach>
+				</table>
+			</section>
+		</div>
+	</center>
+    </div>
+
 
 </body>
 </html>
