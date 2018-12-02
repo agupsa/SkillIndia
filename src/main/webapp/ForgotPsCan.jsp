@@ -39,7 +39,7 @@
 <body>
 
 <!-- Form Heading -->
-      <center><h2><b><mark>Candidate Registration Form</mark></b></h2></center><br>
+      <center><h2><b><mark>Set New password for candidate</mark></b></h2></center><br>
       
  <section class="bcg" class="container" style="padding-top: 20px;">
   
@@ -72,10 +72,10 @@
       <!--New Password-->
       <font size="0.2px" color="grey">&nbsp (Password Should be at least 8 characters long and must contain at least one character in Upper Case, Lower Case, Numerical Form, and a Special Character.)</font>
         <div class="col-md-6 form-group">
-          <label class="control-label" >Password</label><font style= "color:red;">*</font>
+          <label class="control-label" >New Password</label><font style= "color:red;">*</font>
           <div class="input-group" style="z-index: 0;">
             <span class="input-group-addon"><i class="fa fa-unlock-alt" aria-hidden="true"></i></span>
-            <input maxlength="30" id="password" name="pass" placeholder="Password" class="form-control"  required="required" type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            <input maxlength="30" id="password" name="pass" placeholder="New Password" class="form-control"  required="required" type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                 title="Password Should be at least 8 characters long and must contain at least one character in Upper Case, Lower Case, Numerical Form, and a Special Character.">
           </div>
         </div>
@@ -85,7 +85,7 @@
         <div class="form-group col-md-4" style="padding: 0;">
           <label class="control-label"></label>
           <div>
-            <button id="submit-button" type="submit" name="CandidateRegistration" class="btn btn-primary form-control" style="border-radius:10px;">
+            <button id="submit-button" type="submit" name="ForgotPs" class="btn btn-primary form-control" style="border-radius:10px;">
             SUBMIT <i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
           </div>
         </div>

@@ -53,7 +53,7 @@ public class LoginDao implements LoginDaoInterface {
 					c.setFilePath(paths);
 					System.out.println(paths);*/
 					System.out.println(c.getStatus());
-					if(!(c.getStatus().equalsIgnoreCase("awaiting verification"))) {
+					if(!(c.getStatus().equalsIgnoreCase("awaiting verification")||c.getStatus().equalsIgnoreCase("rejected"))) {
 
 						//objects return big decimal, need to get string from to string method 
 						//instead of type casting directly to string or int or INTEGER
@@ -106,7 +106,7 @@ public class LoginDao implements LoginDaoInterface {
 					e.setNoOfEmp(Integer.parseInt(estMap.get("ge_no_of_emp").toString()));
 					e.setNameOfHead((String) estMap.get("ge_name_of_head"));
 					e.setContactNo(Long.parseLong(estMap.get("ge_contact_no").toString()));
-					if(e.getStatus().toLowerCase()!="awaiting verification") {
+					if(!(e.getStatus().equalsIgnoreCase("awaiting verification")||e.getStatus().equalsIgnoreCase("rejected"))) {
 						 e.setEstRegNo(Integer.parseInt(estMap.get("ge_regno").toString()));
 							e.setBankName((String) estMap.get("ge_bank_name"));
 							e.setIFSC((String) estMap.get("ge_IFSC_code"));

@@ -96,7 +96,7 @@
 	<!-- #header -->
 
 	<section class="bcg" class="container" style="padding-top: 20px;">
-		<form class="container" action="registerEstablishment" method="post">
+		<form class="container" action="registerEstablishment" method="post" enctype="multipart/form-data">
 
 			<!-- Form Fields -->
 
@@ -163,6 +163,19 @@
 							<option>Trading</option>
 							<option>Other</option>
 						</select>
+					</div>
+				</div>
+
+				<!-- Tax Identification Number -->
+				<div class="form-group col-md-6">
+					<label class="control-label">Tax Identification Number</label> <font
+						style="color: red;">*</font>
+					<div class="input-group" style="z-index: 0;">
+						<span class="input-group-addon"><i class="fa fa-id-card-o"
+							aria-hidden="true"></i></span> <input name="tin" maxlength="12"
+							placeholder="Tax Identification Number" class="form-control"
+							required="required" type="text" pattern="[0-9]{09}"
+							title="Enter Tax Identification Number containing 09 digits.">
 					</div>
 				</div>
 
@@ -359,6 +372,15 @@
           <br/>Selected files:
           <div id="fileList"></div>
         </div>-->
+
+		<!--Document Upload -->
+		<div class="form-group">
+          <label class="control-label">Upload Proof</label><font style= "color:red;">*</font>
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-files-o" aria-hidden="true"></i></span>
+            <input class="form-control" name="files" type="file" required="required" onchange="javascript:updateList();">
+          </div>
+        </div>
 
 			<!-- Submit button -->
 			<div class="form-group col-md-4" style="padding: 0;">

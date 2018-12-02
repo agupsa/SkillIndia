@@ -79,7 +79,7 @@
         <label class="control-label">Start Date </label><font style= "color:red;">*</font>
         <div class="input-group" style="z-index: 0;">
           <span class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
-          <input id="dob" type="date" name="startId">         
+          <input id="dob" type="date" name="startDate">         
       </div>
       </div>
       

@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.si.dao.ForgotPsDao;
 import com.si.model.Candidate;
+import com.si.model.Establishment;
 
 @Service
 @Transactional
@@ -18,6 +19,11 @@ public class ForgotPsService {
 	
 		fpd.forgotPassword(can);
 			
+	}
+
+	public void forgotPasswordEst(Establishment est) {
+	
+		fpd.forgotPasswordEst(est);
 	}
 
 	

@@ -50,7 +50,7 @@ public class CandidateDao implements CandidateDaoInteface {
 			
 			c.setStatus(new String("Awaiting Verification"));
 			String query_candidate = "insert into gr5_candidate values" + "(" + c.getCanRegNo() + ",'" + c.getName() + "','"
-					+ c.getGender() + "', null,'" + /* TODO Add dob here */ c.getUsername() + "','" + c.getPass()
+					+ c.getGender() + "',TO_DATE('" +c.getDob()+ "', 'YYYY-MM-DD'),'"+ c.getUsername() + "','" + c.getPass()
 					+ "'," + c.getContactNo() + "," + c.getAadharNo() + ",'" + c.getFatherName() + "','"
 					+ c.getQualification() + "','" + c.getCollegeName() + "'," + c.getMarks()
 					+ ",'" + paths[0] + "','" + paths[1] + "','" + paths[2] + "','" + c.getStatus() + "')";

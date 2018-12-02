@@ -22,7 +22,11 @@ public class Establishment {
 	private String IFSC;
 	private long accountNo;
 	private String status;
+	private long tin;
+	
 	private Address addr;
+	
+	private String filePath;
 
 	/*
 	 * 
@@ -63,7 +67,7 @@ public class Establishment {
 	}
 
 	public void setPass(String pass) {
-		this.pass = pass;
+		this.pass = MD5.getMd5(pass);
 	}
 
 	public String getIndtype() {
@@ -146,4 +150,19 @@ public class Establishment {
 		this.addr = addr;
 	}
 
+	public long getTin() {
+		return tin;
+	}
+
+	public void setTin(long tin) {
+		this.tin = tin;
+	}
+	
+	public String getFilePath() {
+		return filePath;
+	}
+
+	public void setFilePath(String filePath) {
+		this.filePath = filePath;
+	}
 }

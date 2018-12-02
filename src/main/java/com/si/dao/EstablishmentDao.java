@@ -33,14 +33,16 @@ public class EstablishmentDao {
 
 	public void registerEstablishment(Establishment e) {
 		
+		String paths = e.getFilePath();		
+		
 		String fetchcPK = "select gr5_establishment_seq.nextval from dual";
 		e.setEstRegNo(getSeq(fetchcPK));
 		e.setStatus(new String("Awaiting Verification"));
-		String query_candidate = "insert into gr5_establishment values" + "(" + e.getEstRegNo() + ",'" + e.getName() + "','"
+		String query_establishment = "insert into gr5_establishment values" + "(" + e.getEstRegNo() + ",'" + e.getName() + "','"
 				+ e.getEmail() + "','" + e.getPass() + "','" + e.getIndtype() + "'," + e.getNoOfEmp() + ","
 				+ e.getWorkdays() + ",'" + e.getNameOfHead() + "'," + e.getContactNo() + ",'" + e.getBankName()
-				+"','" + e.getIFSC() + "'," + e.getAccountNo() + ",'" + e.getStatus() + "')";
-		int i = jdbcTemplate.update(query_candidate);
+				+"','" + e.getIFSC() + "'," + e.getAccountNo() + ",'" + e.getStatus() + "','"+e.getTin()+"','" + paths+ "')";
+		int i = jdbcTemplate.update(query_establishment);
 
 		if (i > 0) {
 

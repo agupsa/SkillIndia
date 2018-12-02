@@ -13,25 +13,33 @@ import com.si.model.Login;
 
 /**
  * 
- * @author GR5 LTI
- * This Controller Logs everyone out and destroys session object so that data is not leaked
+ * @author GR5 LTI This Controller Logs everyone out and destroys session object
+ *         so that data is not leaked
  *
  */
 
-
 @Controller
 public class LogoutController {
-	
-	
+
 	@RequestMapping(value = "/logout")
-	public ModelAndView logout(HttpServletRequest req, HttpServletResponse res, @ModelAttribute("login") Login login, HttpSession ses) {
+	public ModelAndView logout(HttpServletRequest req, HttpServletResponse res, @ModelAttribute("login") Login login,
+			HttpSession ses) {
 
 		System.out.println("Logging out");
-		if(ses.getAttribute("can")!=null||ses.getAttribute("est")!=null) {
+		if (ses.getAttribute("can") != null || ses.getAttribute("est") != null) {
 			System.out.println("got object from session");
+			ses.invalidate();
 		}
-		ses.invalidate();
-		return new ModelAndView("index", "message", "You have been successfully logged out");
+		else
+		{
+			ModelAndView mv = new ModelAndView("index","msg", "You have been successfully logged out");
+			ses.setAttribute("can", null);
+			ses.setAttribute("est", null);		
+			return mv;
+		}
+
+			return new ModelAndView("redirect:/logout", "msg", "You have been successfully logged out");
+		
 	}
 
 }

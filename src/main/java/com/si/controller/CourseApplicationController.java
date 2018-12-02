@@ -44,21 +44,19 @@ public class CourseApplicationController {
 		 *If not he can apply for the course
 		 */	
 			
-			int i = courseapply.checkCourse(contract);
+			boolean i = courseapply.checkCourse(contract);
 	
 			System.out.println(i);
-			if (i==0) {
+			if (i==false) {
 				//if new registration
 				courseapply.saveApplication(contract);
 				return new ModelAndView("courseRegister","message", "Course Application is Successful!");
 			} 
-			else if(i==1)
+			else 
 			{   //if already registered
 				return new ModelAndView("courseRegister", "message", "Already registered for course..Cannot apply again");
 				
 			}
-			return null;
-	
 	}
 
 	

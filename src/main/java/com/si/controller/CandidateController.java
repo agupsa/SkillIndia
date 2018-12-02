@@ -1,10 +1,5 @@
 package com.si.controller;
 
-import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,9 +11,6 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.si.model.Candidate;
-import com.si.model.DisplayRecordModel;
-import com.si.model.Login;
-import com.si.service.CandidateLoginService;
 import com.si.service.CandidateRegServiceInterface;
 /**
  * 
@@ -29,9 +21,7 @@ import com.si.service.CandidateRegServiceInterface;
 @Controller
 public class CandidateController {
 
-	@Autowired
-	CandidateLoginService cls;
-
+	
 	@Autowired
 	CandidateRegServiceInterface cs;
 
@@ -44,30 +34,6 @@ public class CandidateController {
 		
 		return new ModelAndView("index","msg","Successfully Registered");
 	}
-
-	
-	@RequestMapping(value = "/candidatelogin", method =  { RequestMethod.POST, RequestMethod.GET })
-	public ModelAndView login(HttpServletRequest req, HttpServletResponse res, @ModelAttribute("login") Login login,HttpSession sess) {
-		try {
-			//ModelAndView mv = new ModelAndView();
-			System.out.println(login.getPass());
-			Object o = cls.userLoginValidation(login);
-			Candidate can = (Candidate) o;
-			System.out.println(can);
-			sess.setAttribute("can", can);
-			System.out.println("back to controller");
-			if (can != null) {
-				List<DisplayRecordModel> drm=cls.getDrmForCan(can);
-				System.out.println(drm);
-				return new ModelAndView("CandidateDash","drm",drm);
-			} 
-		} catch (Exception e) {
-			return new ModelAndView("error", "exception", e);
-		}
-		return new ModelAndView("CandidateLogin", "message", "UserName or Password is wrong");
-	}
-
-	
 
 
 }

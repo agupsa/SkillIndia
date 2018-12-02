@@ -25,12 +25,12 @@ public void saveApplication(Contract contract) {
 	}
 
 	public void saveCourseApply(Contract contract) {
-		cadao.saveCourseApply(contract);		
+		cadao.saveApplication(contract);		
 	}
 
 	
 
-	public int checkCourse(Contract contract) {
+	public boolean checkCourse(Contract contract) {
 		
 		return cadao.checkCourse(contract);
 	}

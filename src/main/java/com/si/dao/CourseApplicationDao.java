@@ -44,7 +44,8 @@ public class CourseApplicationDao {
 					Course cou = new Course();
 					cou.setCourseId(rs.getInt(1));
 					cou.setCourseName(rs.getString(2));
-
+					cou.setTrainerName(rs.getString(3));
+					cou.setTrainerContact(rs.getLong(4));
 					cou.setEstRegno(rs.getInt(6));
 					cou.setEstName(rs.getString(7));
 					System.out.println(cou);
@@ -72,24 +73,17 @@ public class CourseApplicationDao {
 		jdbcTemplate.update(sql);
 	}
 
-	public void saveCourseApply(Contract contract) {
-		String sql = "insert into gr5_contract(GOF_GC_REG_NO, GOF_GE_REGNO, GOF_GE_EST_NAME, GOF_GCO_COURSE_ID) values('"
-				+ contract.getCanRegNo() + "'," + contract.getEstRegNo() + ",'" + contract.getEstName() + "','"
-				+ contract.getCourseId() + "')";
-		jdbcTemplate.update(sql);
-
-	}
 
 	//check candidate has already applied or not
-	public int checkCourse(Contract contract) {
+	public boolean checkCourse(Contract contract) {
 		System.out.println("check dao");
 		List<Map<String, Object>> lst;
 		lst = jdbcTemplate.queryForList("select * from gr5_contract where GOF_GC_REG_NO='" + contract.getCanRegNo()
 				+ "' and GOF_GCO_COURSE_ID='" + contract.getCourseId() + "'");
 		if (lst.size() > 0) {
-			return 1;
+			return true;
 		} else {
-			return 0;
+			return false;
 		}
 
 	}

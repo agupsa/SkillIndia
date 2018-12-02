@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1" isELIgnored = "false"%>
+<%@page errorPage="error.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,19 +28,14 @@
   <!-- Main Stylesheet File -->
   <link href="Bootstrap/css/style.css" rel="stylesheet">
 
-  <!-- =======================================================
-    Theme Name: Bell
-    Theme URL: https://bootstrapmade.com/bell-free-bootstrap-4-template/
-    Author: BootstrapMade.com
-    Author URL: https://bootstrapmade.com
-  ======================================================= -->
 </head>
 
 <body>
   <!-- Page Content
     ================================================== -->
-<h1>Skill India</h1>
-
+<div>
+<h1 ><img src="Bootstrap/img/emblem.jpg" alt="logo" width="60" height="80" />Skill India</h1>
+</div>
   <!-- Header -->
   <header id="header">
     <div class="container">
@@ -47,7 +45,7 @@
         
       </div>
 
-      <nav id="nav-menu-container ">
+      <nav id="nav-menu-container">
         <ul class="nav-menu">
           <li><a href="#about">About Us</a></li>
         
@@ -55,19 +53,26 @@
         <li class="menu-has-children"><a href="">Candidate</a>
             <ul>
               <li><a href="CandidateRegister.jsp">Candidate Register</a></li>
-              <li><a href="login.jsp">Candidate Login</a></li>
+              <li><a href="CandidateLogin.jsp">Candidate Login</a></li>
              </ul>
           </li>
      
      <li class="menu-has-children"><a href="">Establishment</a>
             <ul>
               <li><a href="EstablishmentRegistration.jsp">Establishment Register</a></li>
-              <li><a href="login.jsp">Establishment Login</a></li>
+              <li><a href="EstablishmentLogin.jsp">Establishment Login</a></li>
              </ul>
           </li>
         </ul>
         <ul class="nav-menu">
          <li><a href="search.jsp">Search</a></li>
+         </ul>
+          <ul class="nav-menu">
+         <li><a href="courseApply.jsp">Course Form</a></li>
+         </ul>
+        <ul class="nav-menu"> <li><span class="icon help"></span>
+          <a id="hlnkFAQ" href="Bootstrap/img/Apprenticeship_FAQ.pdf" target="_blank">FAQ</a>
+                </li>
          </ul>
       </nav>
      <!-- #nav-menu-container -->
@@ -79,6 +84,7 @@
   </header>
   <!-- #header -->
 
+
   
   <!-- Parallax -->
 
@@ -89,23 +95,21 @@
 <!-- About -->
 
   <section class="about" id="about">
-    <div class="block bg-primary block-pd-lg block-bg-overlay text-center" data-bg-img="Bootstrap/img/bg.png" width="100" data-settings='{"stellar-background-ratio": 0.2}' data-toggle="parallax-bg">
+    <div class="block bg-primary block-pd-lg block-bg-overlay text-center" data-bg-img="Bootstrap/img/backg.png" width="200" data-settings='{"stellar-background-ratio": 0.2}' data-toggle="parallax-bg">
     <h2>
         Welcome to Skill India
       </h2>
 
     <p>
       Skill India is an initiative of the Government of India which has been launched to empower the youth of the country with skill sets which make them more employable and more productive in their work environment. 
-      Our National Skill Mission is chaired by the Hon’ble Prime Minister, Shri Narendra Modi himself.<br/>
-      India is a country today with 65% of its youth in the working age group. If ever there is a way to reap this demographic advantage, it has to be through skill development of the youth so that they add not only to their personal growth, but to the country’s economic growth as well. <br/>
+      Our National Skill Mission is chaired by the Honourable Prime Minister, Shri Narendra Modi himself.<br/>
+      India is a country today with 65% of its youth in the working age group. If ever there is a way to reap this demographic advantage, it has to be through skill development of the youth so that they add not only to their personal growth, but to the country economic growth as well. <br/>
       Skill India offers courses across 40 sectors in the country which are aligned to the standards recognised by both, the industry and the government under the National Skill Qualification Framework. <br/>
-      The courses help a person focus on practical delivery of work and help him enhance his technical expertise so that he is ready for day one of his job and companies don’t have to invest into training him for his job profile. 
+      The courses help a person focus on practical delivery of work and help him enhance his technical expertise so that he is ready for day one of his job and companies do not have to invest into training him for his job profile. 
     </p>
     </div>
   </section>
   <!-- /About -->
-  
-
   
 
 
@@ -123,11 +127,39 @@
   <script src="Bootstrap/lib/stickyjs/sticky.js"></script>
   <script src="Bootstrap/lib/parallax/parallax.js"></script>
   <script src="Bootstrap/lib/lockfixed/lockfixed.min.js"></script>
+  <script src="Bootstrap/lib/jquery-ui/jquery-ui.js"></script>
 
   <!-- Template Specisifc Custom Javascript File -->
-  <script src="js/custom.js"></script>
+  <script src="Bootstrap/js/custom.js"></script>
 
   <script src="Bootstrap/contactform/contactform.js"></script>
+  
+ <!-- State Drop Down List Scripts -->
+    <script type="text/JavaScript" src='js/state.js'></script>
+   <script>
+    updateList = function() {
+      var input = document.getElementById('file');
+      var output = document.getElementById('fileList');
+
+      output.innerHTML = '<ul>';
+      for (var i = 0; i < input.files.length; ++i) {
+        output.innerHTML += '<li>' + input.files.item(i).name + '</li>';
+      }
+      output.innerHTML += '</ul>';
+    }
+    $( document ).ready(function() {
+        console.log( "document loaded" );
+         $( "#datepicker" ).datepicker();
+    });
+    
+    window.setTimeout(function() {
+	    $(".alert").fadeTo(500, 0).slideUp(500, function(){
+	        $(this).remove(); 
+	    });
+	}, 4000);
+      
+  </script>
+
 
 </body>
 </html>

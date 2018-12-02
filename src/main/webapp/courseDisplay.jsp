@@ -42,6 +42,8 @@
 </head>
 
 <body>
+
+<c:if test="${clst==null }"><c:out value="4684894"></c:out></c:if>
 <!-- Form Heading -->
       <center><h2><b><mark> Establishment Courses</mark></b></h2></center><br>
 

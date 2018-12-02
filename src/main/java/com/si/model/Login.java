@@ -13,7 +13,7 @@ public class Login {
 		return pass;
 	}
 	public void setPass(String pass) {
-		this.pass = pass;
+		this.pass = MD5.getMd5(pass);
 	}
 
 

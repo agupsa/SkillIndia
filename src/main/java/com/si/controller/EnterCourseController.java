@@ -39,7 +39,7 @@ public class EnterCourseController {
 		 *If registered enter details and send to candidate
 		 *If not error
 		 */	
-			
+			System.out.println(contract.getStartDate());
 			int i = ecservice.checkContractNo(contract);
 	
 			System.out.println(i);

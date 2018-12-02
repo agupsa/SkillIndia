@@ -2,15 +2,13 @@ package com.si.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.si.model.Contract;
@@ -19,48 +17,49 @@ import com.si.service.CourseApplicationService;
 import com.si.service.SearchCourseService;
 
 @Controller
-@RequestMapping("/searchCourse")
+@SessionAttributes({"clst","course"})
 public class CourseApplyController {
 
 	@Autowired
 	SearchCourseService scService;
 	@Autowired
 	CourseApplicationService caService;
-	
-	//search course by establishment reg no
-	@RequestMapping("/{estRegNo}")
-	public ModelAndView viewCourseList(@PathVariable int estRegNo, HttpServletRequest request,
-			HttpServletResponse response) {
-		// String s1=request.getParameter("estRegNo");
-		// System.out.println(s1);
-		// int estRegNo=Integer.parseInt(s1);
+
+	// search course by establishment reg no
+	@RequestMapping("/searchCourse/{estRegNo}")
+	public ModelAndView viewCourseList(@PathVariable("estRegNo") int estRegNo) {
+
 		System.out.println(estRegNo);
-		// ModelAndView mv=new ModelAndView("estDisplay");
+		ModelAndView mv = new ModelAndView("redirect:../courseDisplay.jsp");
 		List<Course> clst = scService.getCourseById(estRegNo);
 		System.out.println(clst);
-		// mv.addObject("elst", estList);
-		// return mv;
-		return new ModelAndView("courseDisplay", "clst", clst);
+		mv.addObject("clst", clst);
+		return mv;
 	}
 
-	
 	@RequestMapping("/apply/{courseId}")
-	public ModelAndView applyCourse(@PathVariable int courseId, HttpServletRequest req, HttpServletResponse res) {
+	public ModelAndView applyCourse(@PathVariable("courseId") int courseId) {
 		System.out.println(courseId);
-		Course course=caService.getCourse(courseId);
+		Course course = caService.getCourse(courseId);
 		System.out.println(course);
-		return new ModelAndView("courseApplication","course",course);
+		return new ModelAndView("redirect:../courseApplication.jsp", "course", course);
 	}
-	
-	@RequestMapping(value="/applicationSave", method= RequestMethod.POST)
-    public ModelAndView courseApplication(@ModelAttribute("cont") Contract contract)
-	{  System.out.println("cont");
-		System.out.println("1");
-		caService.saveCourseApply(contract); 
-       System.out.println("2");
-        return new ModelAndView("courseRegister"); //will redirect to courseRegister request mapping  
-    }  
-	
 
-	
+	@RequestMapping(value = "/applicationSave", method = RequestMethod.POST)
+	public ModelAndView courseApplication(@ModelAttribute("cont") Contract contract) {
+		boolean check = caService.checkCourse(contract);
+		
+		System.out.println(check);
+		if (check==false) {
+			//if new registration
+			caService.saveApplication(contract);
+			return new ModelAndView("courseRegister","message", "Course Application is Successful!");
+		} 
+		else
+		{   //if already registered
+			return new ModelAndView("courseRegister", "message", "Already registered for course..Cannot apply again");
+			
+		}
+	}
+
 }

@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.si.model.Contract;
@@ -36,9 +38,9 @@ public class EstablishmentController {
 	EstablishmentLoginService els;
 
 	@RequestMapping(value = "/registerEstablishment", method = RequestMethod.POST)
-	public ModelAndView EstablishmentRegister(@ModelAttribute("Establishment") Establishment est) {
-		ers.registerEstablishment(est);
-		return new ModelAndView("index");
+	public ModelAndView EstablishmentRegister(@RequestParam("files") MultipartFile files, @ModelAttribute("Establishment") Establishment est) {
+		ers.registerEstablishment(est,files);
+		return new ModelAndView("index","msg","suceesfully registered");
 	}
 	
 	@RequestMapping(value = "/establishmentlogin", method =  { RequestMethod.POST, RequestMethod.GET })
