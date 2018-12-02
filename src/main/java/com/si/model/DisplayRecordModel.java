@@ -3,6 +3,7 @@ package com.si.model;
 public class DisplayRecordModel {
 
 	private int estRegno;	//primary key of establishment
+	private String estName;
 	private int letterNo;   //primary key of contract
 	private int canRegNo;   // Primary key of candidate
 	private String name;
@@ -11,7 +12,7 @@ public class DisplayRecordModel {
 	private long contactNo;
 	private String qualification;
 	private float marks;
-	//private Address addr;
+
 	private int courseId;		//Primary key of course
 	private String courseName;
 	private float stipend;
@@ -118,6 +119,14 @@ public class DisplayRecordModel {
 	}
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public String getEstName() {
+		return estName;
+	}
+
+	public void setEstName(String estName) {
+		this.estName = estName;
 	}  
 	
 }

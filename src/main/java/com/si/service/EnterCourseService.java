@@ -35,6 +35,16 @@ public class EnterCourseService {
 		
 	}
 
+	public void acceptOffer(int letterNo) {
+		
+		ecdao.acceptOffer(letterNo);
+	}
+
+	public void rejectOffer(int letterNo) {
+				
+		ecdao.rejectOffer(letterNo);
+	}
+
 
 
 

@@ -59,9 +59,21 @@ public class EnterCourseDao {
 
 	public void rejectApply(int letterNo) {
 	
-		String sql="update gr5_contract set GOF_STATUS='Rejected' where GOF_LETTER_NO="+letterNo+"";    
+		String sql="update gr5_contract set GOF_STATUS='Rejected by Est' where GOF_LETTER_NO='"+letterNo+"'";    
 	     jdbcTemplate.update(sql); 
 		
+	}
+
+	public void acceptOffer(int letterNo) {
+		String sql="update gr5_contract set GOF_STATUS='Accepted' where GOF_LETTER_NO='"+letterNo+"'";    
+	     jdbcTemplate.update(sql); 
+		
+	}
+
+	public void rejectOffer(int letterNo) {
+		String sql="update gr5_contract set GOF_STATUS='Not Accepted' where GOF_LETTER_NO='"+letterNo+"'";    
+	     jdbcTemplate.update(sql); 
+				
 	}
 		
 }

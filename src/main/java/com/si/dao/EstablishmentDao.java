@@ -32,7 +32,7 @@ public class EstablishmentDao {
 	}
 
 	public void registerEstablishment(Establishment e) {
-		// TODO Auto-generated method stub
+		
 		String fetchcPK = "select gr5_establishment_seq.nextval from dual";
 		e.setEstRegNo(getSeq(fetchcPK));
 		e.setStatus(new String("Awaiting Verification"));

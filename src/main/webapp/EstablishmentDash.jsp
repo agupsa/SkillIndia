@@ -123,8 +123,8 @@
 <br>
 <div class="form-group">
         <label class="control-label" >${est.name}</label><br>
-        <label class="control-label" >Profile Status: ${est.status }</label><br>
-      <c:if test="${ est.estRegNo !=0}"> <label class="control-label" >Registration Number: ${est.estRegNo }</label></c:if>
+        <label class="control-label" >Profile Status: ${est.status}</label><br>
+        <c:if test="${ est.estRegNo !=0}"><label class="control-label" >Registration Number: ${est.estRegNo}</label></c:if>
       </div>
 
 		<br />
@@ -178,21 +178,16 @@
 								    
 							 	<td><a href="sendOffer.jsp">Fill Offer letter</a></td>
 							 	<td><a href="reject/${drm.letterNo}">Reject</a></td>
-						
-								    
-								    
-						
+							
 								</tr>
 
 							</c:forEach>
 
 						</tbody>
 					</table>
-
 				
 			</div>
 			<br />
-
 
 		</div>
 

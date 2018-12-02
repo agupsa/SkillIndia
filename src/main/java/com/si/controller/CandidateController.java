@@ -1,5 +1,7 @@
 package com.si.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -14,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.si.model.Candidate;
+import com.si.model.DisplayRecordModel;
 import com.si.model.Login;
 import com.si.service.CandidateLoginService;
 import com.si.service.CandidateRegServiceInterface;
@@ -43,7 +46,7 @@ public class CandidateController {
 	}
 
 	
-	@RequestMapping(value = "/candidatelogin", method = RequestMethod.POST)
+	@RequestMapping(value = "/candidatelogin", method =  { RequestMethod.POST, RequestMethod.GET })
 	public ModelAndView login(HttpServletRequest req, HttpServletResponse res, @ModelAttribute("login") Login login,HttpSession sess) {
 		try {
 			//ModelAndView mv = new ModelAndView();
@@ -54,7 +57,9 @@ public class CandidateController {
 			sess.setAttribute("can", can);
 			System.out.println("back to controller");
 			if (can != null) {
-				return new ModelAndView("CandidateDash","can",can);
+				List<DisplayRecordModel> drm=cls.getDrmForCan(can);
+				System.out.println(drm);
+				return new ModelAndView("CandidateDash","drm",drm);
 			} 
 		} catch (Exception e) {
 			return new ModelAndView("error", "exception", e);

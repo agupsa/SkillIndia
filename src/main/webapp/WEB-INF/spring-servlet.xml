@@ -93,6 +93,14 @@
 		<property name="jdbcTemplate" ref="jdbcTemplate">
 		</property>
 	</bean>
+	<bean id="actrssDao" class="com.si.dao.AdminContrSetStatusDao">
+		<property name="jdbcTemplate" ref="jdbcTemplate">
+		</property>
+	</bean>
+	<bean id="fpd" class="com.si.dao.ForgotPsDao">
+		<property name="jdbcTemplate" ref="jdbcTemplate">
+		</property>
+	</bean>
 
 
 </beans>

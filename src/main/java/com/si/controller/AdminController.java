@@ -189,16 +189,34 @@ public class AdminController {
 			uContr = avctrService.getUnverifiedContr();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			return new ModelAndView("error","msg","Error"+e.getMessage());
+			return new ModelAndView("error","msg","Error: "+e.getMessage());
 		}
 		if(uContr!=null) {
 			mv.addObject("uContr",uContr);
-			System.out.println("got unverified Est list");
+			System.out.println("got unverified contract list: " );
 			return mv;
 			}
 		return new ModelAndView("error","msg","No Contract for verification");
 		
 
+	}
+	@RequestMapping(value="/coverify/{letterNo}/{action}", method=RequestMethod.GET)
+	public ModelAndView verifyContract(@PathVariable("letterNo") int letterNo, @PathVariable("action") int action,HttpServletRequest req){
+		ModelAndView mv = new ModelAndView("redirect:../../contrver");
+		System.out.println(letterNo+"\t"+action);
+		int i=0;
+		try {
+			i = avctrService.setContrVerification(letterNo, action);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(i>0) {
+			mv.addObject("msg","Action Succesfull");
+		}else {
+			mv.addObject("msg", "Action Failed");
+		}
+		return mv;
 	}
 	
 }

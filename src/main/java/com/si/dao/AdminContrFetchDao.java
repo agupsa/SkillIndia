@@ -28,7 +28,7 @@ public class AdminContrFetchDao {
 	}
 
 	public List<Contract> getUnverifiedContr() {
-		String queryuContr = "select * from gr5_contract where gco_status='Awaiting Verification'";
+		String queryuContr = "select * from gr5_contract  left join gr5_candidate  on gr5_candidate.gc_reg_no=gr5_Contract.gof_gc_reg_no left join gr5_courses on gr5_courses.gco_course_id=gr5_contract.gof_gco_course_id where gr5_contract.gof_status='Accepted'";
 		List<Contract> uclst = jdbcTemplate.query(queryuContr, new ResultSetExtractor<List<Contract>>() {
 
 			public List<Contract> extractData(ResultSet rs) throws SQLException, DataAccessException {
@@ -44,6 +44,8 @@ public class AdminContrFetchDao {
 					c.setStartDate(rs.getString(7));
 					c.setEndDate(rs.getString(8));
 					c.setStatus(rs.getString(9));
+					c.setCanName(rs.getString(12));
+					c.setCourseName(rs.getString(28));
 					lst.add(c);
 				}
 
@@ -51,6 +53,7 @@ public class AdminContrFetchDao {
 			}
 
 		});	
+		System.out.println("Got list");
 		return uclst;
 	}
 

@@ -4,12 +4,13 @@
 <%@ page import="com.si.model.Candidate"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" isELIgnored="false"%>
+	<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  
 <%@ page errorPage="error.jsp" %>
-
 
 <!DOCTYPE html  >
 <html lang="en">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 
 <head>
@@ -70,39 +71,7 @@
         
       </div>
 
-      <nav id="nav-menu-container">
-        <ul class="nav-menu">
-          <li><a href="#about">About Us</a></li>
-        
-         
-        <li class="menu-has-children"><a href="">Candidate</a>
-            <ul>
-              <li><a href="CandidateRegister.jsp">Candidate Register</a></li>
-              <li><a href="CandidateLogin.jsp">Candidate Login</a></li>
-             </ul>
-          </li>
      
-     <li class="menu-has-children"><a href="">Establishment</a>
-            <ul>
-              <li><a href="EstablishmentRegistration.jsp">Establishment Register</a></li>
-              <li><a href="EstablishmentLogin.jsp">Establishment Login</a></li>
-             </ul>
-          </li>
-        </ul>
-        <ul class="nav-menu">
-         <li><a href="search.jsp">Search</a></li>
-         </ul>
-          <ul class="nav-menu">
-         <li><a href="courseApply.jsp">Course Form</a></li>
-         </ul>
-      </nav>
-     <!-- #nav-menu-container -->
-
-      <nav class="nav social-nav pull-right d-none d-lg-inline">
-        <!-- <a href="https://www.twitter.com"><i class="fa fa-twitter"></i></a> <a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a> <a href="https://www.linkedin.com"><i class="fa fa-linkedin"></i></a> <a href="https://www.outlook.com"><i class="fa fa-envelope"></i></a> -->
-      </nav>
-    </div>
-    
     <nav class="nav social-nav pull-right d-none d-lg-inline"> 
 			<ul class="nav navbar-nav navbar-right">
 		
@@ -134,8 +103,7 @@
         <label class="control-label" >Profile Status: ${can.status }</label><br>
         <c:if test="${ can.canRegNo !=0}"><label class="control-label" >Registration Number: ${can.canRegNo }</label></c:if>
       </div>
-		<c:if
-					test="${(contract!=null and not empty contract)}">
+		
 		<br />
 		<p>Application Status:</p>
 		<!-- TO BE FILLED BY DB VALUES -->
@@ -147,38 +115,45 @@
 					<table class="table table-striped table-bordered table-hover">
 						<thead>
 							<tr>
-							   <th>Establishment Name</th>
-							   <th>Domain Name</th>
+							    <th>Contract Number</th>
+							    <th>Establishment Registration Number</th>
+							    <th>Establishment Name</th>
+							    <th>Course Id</th>
 							    <th>Course Name</th>
+							    <th>Stipend</th>
+							    <th>Start Date</th>
+							    <th>End Date</th>
 							    <th>Status</th>
 							</tr>
 						</thead>
 						</thead>
 						<tbody>
 
-							<c:forEach items="${contract}" var="c">
-
+							<c:forEach items="${drm}" var="drm">
+						
 								<tr>
-									<td scope="row">${c.courseName}</td>
-									<td>${c.institute.instituteName}</td>
-									<td>${c.course.domain.domainName}</td>
-									<td></td>
-								<%-- 	<td><a href="DetailedCourse?cId=${e.cId}">More Details</a>
+									<td>${drm.letterNo}</td>
+									<td>${drm.estRegno}</td>
+									<td>${drm.estName}</td>
+									<td>${drm.courseId}</td>
+									<td>${drm.courseName}</td>
+								    <td>${drm.stipend}</td>
+								    <td>${drm.startId}</td>
+								    <td>${drm.endDate}</td>
+								    <td>${drm.status}</td>
+								<td><a href="accept/${drm.letterNo}">Accept</a></td>
+								<td><a href="reject/${drm.letterNo}">Reject</a></td>
 								</tr>
- --%>
 							</c:forEach>
 
 						</tbody>
 					</table>
-
 			
 			</div>
 			<br />
 
 
 		</div>
-	</c:if>
-
 
 	</form>
 	</section>

@@ -13,10 +13,11 @@ public class Contract {
 	
 	private int letterNo;  //primary key Auto generated
 	private int canRegNo;
-	//private Date dob;
+	private String canName;
 	private int estRegNo;
 	private String estName;
 	private int courseId;
+	private String courseName;
 	private float stipend;
 	private String startDate;
 	private String endDate;
@@ -82,6 +83,26 @@ public class Contract {
 
 	public void setEndDate(String endDate) {
 		this.endDate = endDate;
+	}
+
+
+	public String getCanName() {
+		return canName;
+	}
+
+
+	public void setCanName(String canName) {
+		this.canName = canName;
+	}
+
+
+	public String getCourseName() {
+		return courseName;
+	}
+
+
+	public void setCourseName(String courseName) {
+		this.courseName = courseName;
 	}
 	
 	

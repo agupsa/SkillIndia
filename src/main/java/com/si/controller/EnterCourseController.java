@@ -56,11 +56,24 @@ public class EnterCourseController {
 			return null;	
 	}
 	
-	/* It will reject the candidate application*/    
+	/* It will reject the candidate application by establishment*/    
     @RequestMapping(value="/reject/{letterNo}",method = RequestMethod.GET)    
     public ModelAndView rejectApply(@PathVariable int letterNo){    
     	ecservice.rejectApply(letterNo);    
     	return new ModelAndView("redirect:../establishmentlogin");  
     }     
 	
+    /* Candidate will accept the offer letter*/    
+    @RequestMapping(value="/accept/{letterNo}",method = RequestMethod.GET)    
+    public ModelAndView acceptOffer(@PathVariable int letterNo){    
+    	ecservice.acceptOffer(letterNo);    
+    	return new ModelAndView("redirect:../candidatelogin");  
+    }    
+    
+    /* Candidate will  not accept the offer letter*/    
+    @RequestMapping(value="/reject/{letterNo}",method = RequestMethod.GET)    
+    public ModelAndView rejectOffer(@PathVariable int letterNo){    
+    	ecservice.rejectOffer(letterNo);    
+    	return new ModelAndView("redirect:../candidatelogin");  
+    }    
 }

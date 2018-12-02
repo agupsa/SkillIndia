@@ -124,7 +124,7 @@
             </select>
           </div>
         </div> -->
-	  <a href="#">Forgot Password</a>
+	  <a href="ForgotPsCan.jsp">Forgot Password</a>
 	  <br/>
 	  <p style="text-align: center;">New User?</p>
       <p style="text-align: center;"><a href="CandidateRegister.jsp">Register as a Candidate</a></p>
