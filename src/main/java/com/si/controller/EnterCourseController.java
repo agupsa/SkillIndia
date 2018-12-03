@@ -22,12 +22,7 @@ public class EnterCourseController {
 	@Autowired
 	EnterCourseService ecservice;
 	
-	//Enter Course controller by establishment
-	@RequestMapping(value = "/enterCourse", method = RequestMethod.POST)
-	public ModelAndView EstablishmentRegister(@ModelAttribute("course") Course course) {
-		ecservice.enterCourse(course);
-		return new ModelAndView("EstablishmentDash");
-	}
+	
 	
 
 	//Enter contract details controller

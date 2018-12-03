@@ -41,7 +41,7 @@
 <body>
  <h3>Send Offer to candiadte by filling following details</h3>  
   <section class="bcg" class="container" style="padding-top: 20px;">
-       <form class="container" modelAttribute="contract" action="sendOffer" method="post">
+       <form class="container" modelAttribute="contract" action="establishmentlogin" method="post">
       <!-- Form Heading -->
 
       <!-- Form Fields -->

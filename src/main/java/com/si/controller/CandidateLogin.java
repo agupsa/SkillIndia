@@ -12,15 +12,19 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.si.model.Candidate;
+import com.si.model.Course;
 import com.si.model.DisplayRecordModel;
 import com.si.model.Login;
 import com.si.service.CandidateLoginService;
+import com.si.service.EnterCourseService;
 
 @Controller
-@SessionAttributes("can")
+@SessionAttributes({"can","drm"})
 public class CandidateLogin {
 	@Autowired
 	CandidateLoginService cls;
+	@Autowired
+	EnterCourseService ecservice;
 
 	@RequestMapping(value = "/candidatelogin", method = { RequestMethod.POST, RequestMethod.GET })
 	public ModelAndView login(@SessionAttribute("can") Candidate c,	@ModelAttribute("login") Login login) {
@@ -48,5 +52,11 @@ public class CandidateLogin {
 			}
 
 	}
+	//Enter Course controller by establishment
+		@RequestMapping(value = "/enterCourse", method = RequestMethod.POST)
+		public ModelAndView EstablishmentRegister(@ModelAttribute("course") Course course) {
+			ecservice.enterCourse(course);
+			return new ModelAndView("EstablishmentDash");
+		}
 
 }

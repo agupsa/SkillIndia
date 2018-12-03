@@ -86,13 +86,16 @@
 <!-- Displaying selected establishment information in table -->
 <h2>Table of establishment</h2>
 <table border="2" width="70%" cellpadding="2">  
-<tr><th>Reg_no</th><th>Est Name</th><th>Email</th><th>Industry type</th><th>Name of head</th><th>Contact Number</th><th>Display Course</th></tr>  
+<tr><th>Reg_no</th><th>Est Name</th><th>Email</th><th>Industry type</th><th>street</th><th>city</th><th>state</th><th>Name of head</th><th>Contact Number</th><th>Display Course</th></tr>  
    <c:forEach items="${elst}" var="temp">   
    <tr>  
    <td>${temp.estRegNo}</td>  
    <td>${temp.name}</td>
    <td>${temp.email}</td>
    <td>${temp.indtype}</td>
+   <td>${temp.addr.addr}</td>
+   <td>${temp.addr.city}</td>
+   <td>${temp.addr.state}</td>
    <td>${temp.nameOfHead}</td>
    <td>${temp.contactNo}</td>
    <td><a href="searchCourse/${temp.estRegNo}">Display</a></td>      

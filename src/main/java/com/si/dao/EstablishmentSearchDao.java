@@ -9,6 +9,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 
+import com.si.model.Address;
 import com.si.model.Establishment;
 
 public class EstablishmentSearchDao {
@@ -26,7 +27,7 @@ public class EstablishmentSearchDao {
 	}
 	
 	public List<Establishment> getEstByName(String establishmentName) {
-		String sql = "select * from gr5_establishment where ge_est_name='"+establishmentName+"'";
+		String sql = "select * from gr5_establishment left join gr5_address on gr5_establishment.ge_regno=gr5_address.ga_ge_regno where ge_est_name='"+establishmentName+"'";
 	   List<Establishment> est=jdbcTemplate.query(sql, new ResultSetExtractor<List<Establishment>>() {
 	 
 	     public List<Establishment> extractData(ResultSet rs) throws SQLException,
@@ -34,23 +35,23 @@ public class EstablishmentSearchDao {
 	        	 List<Establishment> lst = new ArrayList<Establishment>();
 	            while(rs.next()) {
 	               Establishment e=new Establishment();
-	                //contact.setId(rs.getInt("contact_id"));
+	               Address addr = new Address();
+	              
 	             
 	                e.setEstRegNo(rs.getInt(1));
 	                e.setName(rs.getString(2));
 	                e.setEmail(rs.getString(3));
-	                /*e.setPass(rs.getString(4));*/
+	               
 	                e.setIndtype(rs.getString(5));
 	                e.setNoOfEmp(rs.getInt(6));
 	                e.setWorkdays(rs.getInt(7));
 	                e.setNameOfHead(rs.getString(8));
 	                e.setContactNo(rs.getLong(9));
-	                /*e.setBankName(rs.getString(10));
-	                e.setIFSC(rs.getString(11));
-	                e.setAccountNo(rs.getLong(12));
-	                e.setStatus(rs.getString(13));*/
-	              //e.setAddr(rs.getClass(Address));
-	               // e.setCourses((Courses) rs.getObject(14));
+	                addr.setAddr(rs.getString(15));
+	                addr.setCity(rs.getString(16));
+	                addr.setState(rs.getString(17));
+	         
+	            	e.setAddr(addr);
 	                lst.add(e);
 	            }
 	 
