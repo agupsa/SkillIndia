@@ -5,6 +5,9 @@
 <web-app>
 	<display-name>Archetype Created Web Application</display-name>
 
+
+	<!-- Spring Servlet Mapping (Servlet name should be same as first part of 
+		-servlet.xml file) -->
 	<servlet>
 		<servlet-name>spring</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -19,7 +22,7 @@
 
 
 
-
+	<!-- Mapping For External Resources for web Pages -->
 
 	<servlet-mapping>
 		<servlet-name>default</servlet-name>
@@ -88,10 +91,13 @@
 		<url-pattern>*.pdf</url-pattern>
 	</servlet-mapping>
 
-	 <error-page>
-		<error-code>500</error-code>
+	<!-- Error Mappings -->
+
+	<error-page>
+		<error-code>java.lang.Exception</error-code>
 		<location>/error.jsp</location>
 	</error-page>
+
 	<error-page>
 		<error-code>400</error-code>
 		<location>/error.jsp</location>
@@ -99,5 +105,14 @@
 	<error-page>
 		<error-code>404</error-code>
 		<location>/error.jsp</location>
-	</error-page> 
+	</error-page>
+	<error-page>
+		<error-code>405</error-code>
+		<location>/error.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/error.jsp</location>
+	</error-page>
+
 </web-app>

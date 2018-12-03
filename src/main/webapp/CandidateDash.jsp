@@ -136,6 +136,7 @@
 							    <th>Start Date</th>
 							    <th>End Date</th>
 							    <th>Status</th>
+							    <th>Action</th>
 							</tr>
 						</thead>
 						</thead>
@@ -153,8 +154,8 @@
 								    <td>${drm.startId}</td>
 								    <td>${drm.endDate}</td>
 								    <td>${drm.status}</td>
-								<td><a href="accept/${drm.letterNo}">Accept</a></td>
-								<td><a href="reject/${drm.letterNo}">Reject</a></td>
+								<c:if test="${drm.status eq 'Offered' }"><td><a href="accept/${drm.letterNo}">Accept</a></td>
+								<td><a href="notaccepted/${drm.letterNo}">Reject</a></td></c:if> 
 								</tr>
 							</c:forEach>
 
@@ -212,12 +213,12 @@
 	<script src="Bootstrap/lib/lockfixed/lockfixed.min.js"></script>
 	<script src="Bootstrap/lib/jquery-ui/jquery-ui.js"></script>
 
-	<!-- Template Specisifc Custom Javascript File -->
+	<!-- Template Specific Custom Javascript File -->
 	<script src="Bootstrap/js/custom.js"></script>
 
 	<script src="Bootstrap/contactform/contactform.js"></script>
 
-
+	<!-- 
 	<script>
     updateList = function() {
       var input = document.getElementById('file');
@@ -240,7 +241,7 @@
 	    });
 	}, 4000);
       
-  </script>
+  </script> -->
 
 </body>
 </html>

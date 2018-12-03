@@ -34,6 +34,26 @@
 </head>
 
 <body>
+<%
+        	response.setHeader("Cache-Control", "no-cache"); //HTTP 1.1
+        	
+        	response.addHeader("Cache-Control", "no-store, must-revalidate");
+        	
+        	response.addHeader("Cache-Control", "must-revalidate");
+        
+        	response.addHeader("Pragma", "no-cache"); //HTTP 1.0
+        	
+        	  response.setDateHeader ("Expires", 0); //Proxies
+        
+        %>
+      
+        <%
+        if(session.getAttribute("est")!=null){
+        	response.sendRedirect("establishmentlogin");
+        }
+        %>
+       
+       
     <!-- Form Heading -->
       <center><h1><b><mark>Establishment Login</mark></b></h1></center><br>
 

@@ -1,12 +1,11 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="java.util.*"%>
-<%@ page import="java.lang.*" %>
-<%@ page import="com.si.model.Candidate"%>
+<%@ page import="java.lang.*"%>
+<%@ page import="com.si.model.Establishment"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" isELIgnored="false"%>
-	<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>    
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  
-<%@ page errorPage="error.jsp" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ page errorPage="error.jsp"%>
 
 
 <!DOCTYPE html>
@@ -38,8 +37,10 @@
 	rel="stylesheet">
 
 <link href="Bootstrap/lib/jquery-ui/jquery-ui.css" rel="stylesheet">
-<link href="Bootstrap/lib/jquery-ui/jquery-ui.structure.css" rel="stylesheet">
-<link href="Bootstrap/lib/jquery-ui/jquery-ui.theme.css" rel="stylesheet">
+<link href="Bootstrap/lib/jquery-ui/jquery-ui.structure.css"
+	rel="stylesheet">
+<link href="Bootstrap/lib/jquery-ui/jquery-ui.theme.css"
+	rel="stylesheet">
 
 <!-- Main Stylesheet File -->
 <link href="Bootstrap/css/style.css" rel="stylesheet">
@@ -48,33 +49,45 @@
 </head>
 
 <body>
-<%
-	if (session.getAttribute("est") == null)
-		throw new Exception("error logging in");
-%>
+	<%
+		response.setHeader("Cache-Control", "no-cache"); //HTTP 1.1
+
+		response.addHeader("Cache-Control", "no-store, must-revalidate");
+
+		response.addHeader("Cache-Control", "must-revalidate");
+
+		response.addHeader("Pragma", "no-cache"); //HTTP 1.0
+
+		response.setDateHeader("Expires", 0); //Proxies
+	%>
+	<%
+		if (session.getAttribute("est") == null)
+			response.sendRedirect("redirect:EstablishmentLogin.jsp");
+	%>
+
 	<!-- Form Heading -->
-	<div class="form-row" >	
+	<div class="form-row">
 		<div class="col-md-12">
-		<center>
-			<h2>
-				<b><mark>Establishment Dashboard</mark></b>
-			</h2>
-		</center>
+			<center>
+				<h2>
+					<b><mark>Establishment Dashboard</mark></b>
+				</h2>
+			</center>
 		</div>
-		<br>
-		<br>
-	</div>	
-	
-	 <!-- Header -->
-  <header id="header">
-    <div class="container">
+		<br> <br>
+	</div>
 
-      <div id="logo" class="pull-left">
-        <a href="index.jsp"><img src="Bootstrap/img/National.png" width="200" height="150" alt="" title="" /></img></a>
-        
-      </div>
+	<!-- Header -->
+	<header id="header">
+		<div class="container">
 
-     <!-- <nav id="nav-menu-container">
+			<div id="logo" class="pull-left">
+				<a href="index.jsp"><img src="Bootstrap/img/National.png"
+					width="200" height="150" alt="" title="" /></img></a>
+
+			</div>
+
+			<!-- <nav id="nav-menu-container">
         <ul class="nav-menu">
           <li><a href="#about">About Us</a></li>
         
@@ -99,60 +112,63 @@
           <ul class="nav-menu">
          <li><a href="courseApply.jsp">Course Form</a></li>
          </ul> -->
-         <ul class="nav-menu">
-         <li><a href="EnterCourse.jsp">Enter Course</a></li>
-         </ul>
-      </nav>
-     <!-- #nav-menu-container -->
-
-      <nav class="nav social-nav pull-right d-none d-lg-inline">
-        <ul class="nav navbar-nav navbar-right">
-		
-				<li><a href="logout">Logout</a></li>
+			<ul class="nav-menu">
+				<li><a href="EnterCourse.jsp">Enter Course</a></li>
 			</ul>
-      </nav>
-    </div>
-  </header>
-  <!-- #header -->
+			</nav>
+			<!-- #nav-menu-container -->
+
+			<nav class="nav social-nav pull-right d-none d-lg-inline">
+				<ul class="nav navbar-nav navbar-right">
+
+					<li><a href="logout">Logout</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<!-- #header -->
 
 	<!-- About -->
 
 	<section class="container" style="padding-top: 20px;">
-	<form class="container">
+		<form class="container">
 
-<br>
-<div class="form-group">
-        <label class="control-label" >${est.name}</label><br>
-        <label class="control-label" >Profile Status: ${est.status}</label><br>
-        <c:if test="${ est.estRegNo !=0}"><label class="control-label" >Registration Number: ${est.estRegNo}</label></c:if>
-      </div>
+			<br>
+			<div class="form-group">
+				<label class="control-label">${est.name}</label><br> <label
+					class="control-label">Profile Status: ${est.status}</label><br>
+				<c:if test="${ est.estRegNo !=0}">
+					<label class="control-label">Registration Number:
+						${est.estRegNo}</label>
+				</c:if>
+			</div>
 
-		<br />
-		<p>Application Status:</p>
-		<!-- TO BE FILLED BY DB VALUES -->
-		<div class="form-row" style="margin: 0 auto;">
-			<div class="form-group col-md-12" style="padding: 0;">
-				<label class="control-label"></label>
-				
+			<br />
+			<p>Application Status:</p>
+			<!-- TO BE FILLED BY DB VALUES -->
+			<div class="form-row" style="margin: 0 auto;">
+				<div class="form-group col-md-12" style="padding: 0;">
+					<label class="control-label"></label>
+
 					<table class="table table-striped table-bordered table-hover">
 						<thead>
 							<tr>
-							   <th>Contract Number</th>
-							   <th>Candidate Registration Number</th>
-							    <th>Candidate Name</th>
-							    <th>Candidate Gender</th>
-							    <th>Candidate DOB</th>
-							    <th>Candidate Contact Number</th>
-							    <th>Candidate Qualification</th>
-							    <th>Candidate Marks</th>
-							    <th>Course Id</th>
-							    <th>Course Name</th>
-							    <th>Stipend</th>
-							    <th>Start Date</th>
-							    <th>End Date</th>
-							    <th>Status</th>
-							    <th>Send Offer</th>
-							    <th>Reject Application</th>
+								<th>Contract Number</th>
+								<th>Candidate Registration Number</th>
+								<th>Candidate Name</th>
+								<th>Candidate Gender</th>
+								<th>Candidate DOB</th>
+								<th>Candidate Contact Number</th>
+								<th>Candidate Qualification</th>
+								<th>Candidate Marks</th>
+								<th>Course Id</th>
+								<th>Course Name</th>
+								<th>Stipend</th>
+								<th>Start Date</th>
+								<th>End Date</th>
+								<th>Status</th>
+								<th>Send Offer</th>
+								<th>Reject Application</th>
 							</tr>
 						</thead>
 						</thead>
@@ -171,51 +187,53 @@
 									<td>${drm.marks}</td>
 									<td>${drm.courseId}</td>
 									<td>${drm.courseName}</td>
-								    <td>${drm.stipend}</td>
-								    <td>${drm.startId}</td>
-								    <td>${drm.endDate}</td>
-								    <td>${drm.status}</td>
-								    
-							 	<td><a href="sendOffer.jsp">Fill Offer letter</a></td>
-							 	<td><a href="reject/${drm.letterNo}">Reject</a></td>
-							
+									<td>${drm.stipend}</td>
+									<td>${drm.startId}</td>
+									<td>${drm.endDate}</td>
+									<td>${drm.status}</td>
+
+									<c:if test="${drm.status eq 'Applied'}">
+										<td><a href="fillOffer/${drm.letterNo }">Fill Offer letter</a></td>
+										<td><a href="reject/${drm.letterNo}">Reject</a></td>
+									</c:if>
+
 								</tr>
 
 							</c:forEach>
 
 						</tbody>
 					</table>
-				
+
+				</div>
+				<br />
+
 			</div>
-			<br />
 
-		</div>
-
-	</form>
+		</form>
 	</section>
 
 	<footer class="site-footer">
-	<div class="bottom">
-		<div class="container">
-			<div class="row">
+		<div class="bottom">
+			<div class="container">
+				<div class="row">
 
-				<div class="col-lg-6 col-xs-12 text-lg-left text-center">
-					<p class="copyright-text">© Skill India</p>
-					<div class="credits">
-						<abbr title="National Apprenticeship Promotion Scheme">NAPS</abbr>
+					<div class="col-lg-6 col-xs-12 text-lg-left text-center">
+						<p class="copyright-text">© Skill India</p>
+						<div class="credits">
+							<abbr title="National Apprenticeship Promotion Scheme">NAPS</abbr>
+						</div>
 					</div>
-				</div>
 
-				<div class="col-lg-6 col-xs-12 text-lg-right text-center">
-					<ul class="list-inline">
-						<li class="list-inline-item"><a href="index.jsp">Home</a></li>
-						<li class="list-inline-item"><a href="#contact">Contact</a></li>
-					</ul>
-				</div>
+					<div class="col-lg-6 col-xs-12 text-lg-right text-center">
+						<ul class="list-inline">
+							<li class="list-inline-item"><a href="index.jsp">Home</a></li>
+							<li class="list-inline-item"><a href="#contact">Contact</a></li>
+						</ul>
+					</div>
 
+				</div>
 			</div>
 		</div>
-	</div>
 	</footer>
 	<a class="scrolltop" href="#"><span class="fa fa-angle-up"></span></a>
 
@@ -242,29 +260,28 @@
 	<script src="Bootstrap/contactform/contactform.js"></script>
 
 
-	<script>
-    updateList = function() {
-      var input = document.getElementById('file');
-      var output = document.getElementById('fileList');
+<!-- 	<script>
+		updateList = function() {
+			var input = document.getElementById('file');
+			var output = document.getElementById('fileList');
 
-      output.innerHTML = '<ul>';
-      for (var i = 0; i < input.files.length; ++i) {
-        output.innerHTML += '<li>' + input.files.item(i).name + '</li>';
-      }
-      output.innerHTML += '</ul>';
-    }
-    $( document ).ready(function() {
-        console.log( "document loaded" );
-         $( "#datepicker" ).datepicker();
-    });
-    
-    window.setTimeout(function() {
-	    $(".alert").fadeTo(500, 0).slideUp(500, function(){
-	        $(this).remove(); 
-	    });
-	}, 4000);
-      
-  </script>
+			output.innerHTML = '<ul>';
+			for (var i = 0; i < input.files.length; ++i) {
+				output.innerHTML += '<li>' + input.files.item(i).name + '</li>';
+			}
+			output.innerHTML += '</ul>';
+		}
+		$(document).ready(function() {
+			console.log("document loaded");
+			$("#datepicker").datepicker();
+		});
+
+		window.setTimeout(function() {
+			$(".alert").fadeTo(500, 0).slideUp(500, function() {
+				$(this).remove();
+			});
+		}, 4000);
+	</script> -->
 
 </body>
 </html>

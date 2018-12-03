@@ -11,7 +11,7 @@
 <body>
   
         <h3>Course Application Form</h3>  
-       <form modelAttribute="contract" action="applicationSave" method="POST">    
+       <form  action="applicationSave" method="POST">    
         <table >    
         <tr>  
         <td>Course Id: </td>    

@@ -5,6 +5,8 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
 
+	<!-- Bean to handle MultiPart Files in forms. Without this bean Spring doesn't 
+		understand the file data and full form returns null -->
 	<context:component-scan base-package="com.si"></context:component-scan>
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
@@ -12,6 +14,8 @@
 		<!-- setting maximum upload size -->
 		<property name="maxUploadSize" value="5242880" />
 	</bean>
+
+	<!-- Bean to handle jsp pages request mapping -->
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix">
@@ -21,6 +25,8 @@
 			<value>.jsp</value>
 		</property>
 	</bean>
+
+	<!-- JDBC bean to handle database connection -->
 	<bean id="ds"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="oracle.jdbc.OracleDriver" />
@@ -31,10 +37,12 @@
 	</bean>
 
 
+	<!-- JDBC bean that connects to database -->
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
 		<property name="dataSource" ref="ds"></property>
 	</bean>
 
+	<!-- Dao beans that perform Db operations -->
 	<bean id="cdao" class="com.si.dao.CandidateDao">
 		<property name="jdbcTemplate" ref="jdbcTemplate">
 		</property>
