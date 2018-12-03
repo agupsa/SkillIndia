@@ -67,11 +67,9 @@
         <ul class="nav-menu">
          <li><a href="search.jsp">Search</a></li>
          </ul>
-          <ul class="nav-menu">
-         <li><a href="courseApply.jsp">Course Form</a></li>
-         </ul>
+          
         <ul class="nav-menu"> <li><span class="icon help"></span>
-          <a id="hlnkFAQ" href="Bootstrap/img/Apprenticeship_FAQ.pdf" target="_blank">FAQ</a>
+          <a id="hlnkFAQ" href="Bootstrap/pdf/Apprenticeship_FAQ.pdf" target="_blank">FAQ</a>
                 </li>
          </ul>
       </nav>

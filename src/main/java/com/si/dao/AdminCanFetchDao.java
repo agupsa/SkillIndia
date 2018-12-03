@@ -12,13 +12,21 @@ import org.springframework.jdbc.core.ResultSetExtractor;
 import com.si.model.Address;
 import com.si.model.Candidate;
 
-public class AdminCanFetchDao {
+public class AdminCanFetchDao implements AdminCanFetchDaoInterface {
 	private JdbcTemplate jdbcTemplate;
 
+	/* (non-Javadoc)
+	 * @see com.si.dao.AdminCanFetchDaoInterface#getJdbcTemplate()
+	 */
+	@Override
 	public JdbcTemplate getJdbcTemplate() {
 		return jdbcTemplate;
 	}
 
+		/* (non-Javadoc)
+		 * @see com.si.dao.AdminCanFetchDaoInterface#setJdbcTemplate(org.springframework.jdbc.core.JdbcTemplate)
+		 */
+		@Override
 		public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
 	}
@@ -26,6 +34,10 @@ public class AdminCanFetchDao {
 		super();
 	}
 
+	/* (non-Javadoc)
+	 * @see com.si.dao.AdminCanFetchDaoInterface#getUnverifiedCan()
+	 */
+	@Override
 	public List<Candidate> getUnverifiedCan() {
 		String queryuCan = "select * from gr5_candidate left join gr5_address on gr5_candidate.gc_reg_no=gr5_address.ga_gc_reg_no  where gr5_candidate.gc_status='Awaiting Verification'";
 		List<Candidate> uclst = jdbcTemplate.query(queryuCan, new ResultSetExtractor<List<Candidate>>() {
@@ -68,6 +80,10 @@ public class AdminCanFetchDao {
 		return uclst;
 	}
 	
+	/* (non-Javadoc)
+	 * @see com.si.dao.AdminCanFetchDaoInterface#getFilePath(int, int)
+	 */
+	@Override
 	public String getFilePath(int canRegNo, int fileId) {
 		String colName = null;
 		switch(fileId) {

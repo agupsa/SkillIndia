@@ -46,6 +46,11 @@
         	  response.setDateHeader ("Expires", 0); //Proxies
         
         %>
+        <%
+        if(session.getAttribute("can")!=null){
+        	throw new RuntimeException(" Already Logged in as Candidate Loggout to Login as Establishment");
+        }
+        %>
       
         <%
         if(session.getAttribute("est")!=null){

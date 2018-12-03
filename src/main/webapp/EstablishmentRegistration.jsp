@@ -123,7 +123,7 @@
 					<span class="input-group-addon"><i
 						class="fa fa-paper-plane-o" aria-hidden="true"></i></span> <input
 						name="email" placeholder="e-Mail ID" class="form-control"
-						type="email" title="Enter correct e-Mail ID">
+						type="email" title="Enter correct e-Mail ID" required >
 				</div>
 			</div>
 
@@ -172,9 +172,9 @@
 						style="color: red;">*</font>
 					<div class="input-group" style="z-index: 0;">
 						<span class="input-group-addon"><i class="fa fa-id-card-o"
-							aria-hidden="true"></i></span> <input name="tin" maxlength="12"
+							aria-hidden="true"></i></span> <input name="tin" maxlength="9"
 							placeholder="Tax Identification Number" class="form-control"
-							required="required" type="text" pattern="[0-9]{09}"
+							required="required" type="text" pattern="[1-9][0-9]{08}"
 							title="Enter Tax Identification Number containing 09 digits.">
 					</div>
 				</div>
@@ -187,8 +187,8 @@
 					<div class="input-group" style="z-index: 0;">
 						<span class="input-group-addon"><i class="fa fa-users"
 							aria-hidden="true"></i></span> <input name="noOfEmp"
-							placeholder="Number of Employees" class="form-control" type="tel"
-							title="Enter value">
+							placeholder="Number of Employees" class="form-control" type="number"
+							title="Enter value" required min="0" max="9999999">
 					</div>
 				</div>
 			</div>
@@ -276,8 +276,8 @@
 					<div class="input-group" style="z-index: 0;">
 						<span class="input-group-addon"><i class="fa fa-id-card-o"
 							aria-hidden="true"></i></span> <input name="accountNo"
-							placeholder=" Account No." maxlength="10" class="form-control"
-							type="tel" title=" Account No.">
+							placeholder=" Account No." title="Account Number should be atleast 9 digits long" maxlength="20" class="form-control"
+							type="tel" title=" Account No." pattern="[1-9].{9,}" required>
 					</div>
 				</div>
 			</div>
@@ -290,7 +290,7 @@
 						class="fa fa-location-arrow" aria-hidden="true"></i></span> <input
 						name="addr.addr" maxlength="30"
 						placeholder="Establishment Address" class="form-control"
-						type="text" title="Enter Street Name with a minimum of 10 words.">
+						type="text" title="Enter Street Name with a minimum of 10 words." required>
 				</div>
 			</div>
 
@@ -304,7 +304,7 @@
 					<div class="input-group" style="z-index: 0;">
 						<span class="input-group-addon"><i class="fa fa-map-marker"
 							aria-hidden="true"></i></span> <select name="addr.state"
-							class="form-control" id="state-select">
+							class="form-control" id="state-select" required>
 
 						</select>
 					</div>
@@ -316,7 +316,7 @@
 					<div class="input-group" style="z-index: 0;">
 						<span class="input-group-addon"><i class="fa fa-building"
 							aria-hidden="true"></i></span> <select name="addr.city"
-							class="form-control" id="city-select">
+							class="form-control" id="city-select" required>
 
 						</select>
 					</div>
@@ -331,8 +331,8 @@
 						<span class="input-group-addon"><i
 							class="fa fa-envelope-open-o" aria-hidden="true"></i></span> <input
 							name="addr.pincode" maxlength="6" placeholder="Pincode"
-							class="form-control" type="text" required="required"
-							title="Pincode of 6 digits">
+							class="form-control" type="text" pattern="[1-9][0-9]{5}" required="required"
+							title="Pincode of 6 digits" required>
 					</div>
 				</div>
 			</div>
@@ -340,39 +340,7 @@
 
 			<hr style="margin: 50px 0px;">
 
-			<!-- Address Proof
-      <div class="form-group">
-          <label class="control-label">Address Proof</label> 
-          <div class="input-group">
-            <span class="input-group-addon"><i class="fa fa-files-o" aria-hidden="true"></i></span>
-            <input class="form-control" name="addressProof" type="file" id="file" onchange="javascript:updateList();">
-          </div>
-          <br/>Selected files:
-          <div id="fileList"></div>
-        </div>
-
-      <!-- Certificate of Incorporation
-            <div class="form-group">
-          <label class="control-label">Certificate of Incorporation</label> 
-          <div class="input-group">
-            <span class="input-group-addon"><i class="fa fa-files-o" aria-hidden="true"></i></span>
-            <input class="form-control" name="vDetails.cOfIncorporation" type="file" id="file" onchange="javascript:updateList();">
-          </div>
-          <br/>Selected files:
-          <div id="fileList"></div>
-        </div>
-
-      <!-- PAN Card Document
-             <div class="form-group">
-          <label class="control-label">PAN Card</label> 
-          <div class="input-group">
-            <span class="input-group-addon"><i class="fa fa-files-o" aria-hidden="true"></i></span>
-            <input class="form-control"  type="file" id="file" onchange="javascript:updateList();">
-          </div>
-          <br/>Selected files:
-          <div id="fileList"></div>
-        </div>-->
-
+			
 		<!--Document Upload -->
 		<div class="form-group">
           <label class="control-label">Upload Proof</label><font style= "color:red;">*</font>

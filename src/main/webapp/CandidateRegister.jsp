@@ -128,7 +128,7 @@
         <label class="control-label">Date of birth</label><font style= "color:red;">*</font>
         <div class="input-group" style="z-index: 0;">
           <span class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
-          <input id="dob" type="date" name="dob" title="The Age Limit Range is from 21Years to 35 Years.">
+          <input id="dob" type="date" name="dob" title="The Age Limit Range is from 21 Years to 35 Years." required>
           <p><font style= "color:red;">*Age Limit: 21 - 35 yrs.</font></p>
       </div>
       </div>
@@ -182,7 +182,7 @@
           <label class="control-label">Aadhar Number</label> <font style= "color:red;">*</font>
           <div class="input-group" style="z-index: 0;">
             <span class="input-group-addon"><i class="fa fa-id-card-o" aria-hidden="true"></i></span>
-            <input name="aadharNo" maxlength="12" placeholder="Aadhar Number" class="form-control" required="required" type="text" pattern="[0-9]{12}" title="Enter Aadhaar Number containing 12 digits.">
+            <input name="aadharNo" maxlength="12" placeholder="Aadhar Number" class="form-control" required="required" type="text" pattern="[1-9][0-9]{11}" title="Enter Aadhaar Number containing 12 digits.">
           </div>
         </div>
       </div>
@@ -203,7 +203,7 @@
           <label class="control-label">Highest Qualification</label> <font style= "color:red;">*</font>
           <div class="input-group" style="z-index: 0;">
             <span class="input-group-addon"><i class="fa fa-graduation-cap" aria-hidden="true"></i></span>
-            <select name="qualification" class="form-control">
+            <select name="qualification" class="form-control"  >
 		<option >High School Dropout</option>
               <option >10th(SSC)</option>
               <option >12th(HSC)</option>
@@ -217,14 +217,14 @@
           <label class="control-label" >Institute Name</label> <font style= "color:red;">*</font>
           <div class="input-group" style="z-index: 0;">
             <span class="input-group-addon"><i class="fa fa-university" aria-hidden="true"></i></span>
-            <input maxlength="50" name="collegeName" placeholder="Institute Name" class="form-control"  type="text">
+            <input maxlength="50" name="collegeName" placeholder="Institute Name" class="form-control"  type="text" required>
           </div>
         </div>
          <div class="form-group col-md-6">
           <label class="control-label" >Percentage</label> <font style= "color:red;">*</font>
           <div class="input-group" style="z-index: 0;">
             <span class="input-group-addon"><i class="fa fa-graduation-cap" aria-hidden="true"></i></span>
-            <input maxlength="4" name="marks" placeholder="Obtained Marks" class="form-control"  type="tel">
+            <input maxlength="4" name="marks" placeholder="Obtained Marks" class="form-control" min="0" type="number" step="0.1" required >
           </div>
         </div>
         
@@ -236,7 +236,7 @@
           <label class="control-label" >Street Name</label><font style= "color:red;">*</font>
           <div class="input-group" style="z-index: 0;">
             <span class="input-group-addon"><i class="fa fa-location-arrow" aria-hidden="true"></i></span>
-            <input name="addr.addr" maxlength="30" placeholder="Street Name" class="form-control"  type="text" title="Enter Street Name with a minimum of 10 words.">
+            <input name="addr.addr" maxlength="30" placeholder="Street Name" class="form-control"  type="text" title="Enter Street Name with a minimum of 10 words." required>
           </div>
         </div>
 
@@ -248,7 +248,7 @@
           <label class="control-label">State</label> <font style= "color:red;">*</font>
           <div class="input-group" style="z-index: 0;">
             <span class="input-group-addon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-            <select name="addr.state" class="form-control" id="state-select">
+            <select name="addr.state" class="form-control" id="state-select" required>
     			
             </select>
           </div>
@@ -259,7 +259,7 @@
           <label class="control-label">City</label> <font style= "color:red;">*</font>
           <div class="input-group" style="z-index: 0;">
             <span class="input-group-addon"><i class="fa fa-building" aria-hidden="true"></i></span>
-			<select name="addr.city" class="form-control" id="city-select">
+			<select name="addr.city" class="form-control" id="city-select" required>
     			
             </select>
           </div>
@@ -271,7 +271,7 @@
           <label class="control-label">Pincode</label> <font style= "color:red;">*</font>
           <div class="input-group" style="z-index: 0;">
             <span class="input-group-addon"><i class="fa fa-envelope-open-o" aria-hidden="true"></i></span>
-            <input name="addr.pincode" maxlength="6" placeholder="Pincode" class="form-control"  type="text" required="required" title="Pincode of 6 digits">
+            <input name="addr.pincode" maxlength="6" placeholder="Pincode" class="form-control" pattern="[1-9][0-9]{5}" type="tel" required="required" title="Pincode of 6 digits">
           </div>
         </div>
       </div>  
@@ -281,16 +281,15 @@
           <label class="control-label">Photo Upload</label> <font style= "color:red;">*</font>
           <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-files-o" aria-hidden="true"></i></span>
-            <input class="form-control" name="files" type="file" required="required" id="file">
+            <input class="form-control" name="files" type="file" required="required" id="file"  onchange="javascript:updateList();" >
           </div>
-          <div id="fileList"></div>
         </div>
 
 		<div class="form-group">
           <label class="control-label">Upload AadharCard</label><font style= "color:red;">*</font>
           <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-files-o" aria-hidden="true"></i></span>
-            <input class="form-control" name="files" type="file" required="required" onchange="javascript:updateList();">
+            <input class="form-control" name="files" type="file" required="required" id="file"  onchange="javascript:updateList();">
           </div>
         </div>
 
@@ -412,6 +411,22 @@
 
   <script src="Bootstrap/contactform/contactform.js"></script>
 
+<script>
+		updateList = function() {
+			var input = document.getElementById('file');
+			var output = document.getElementById('fileList');
+
+			output.innerHTML = '<ul>';
+			for (var i = 0; i < input.files.length; ++i) {
+				output.innerHTML += '<li>' + input.files.item(i).name + '</li>';
+			}
+			output.innerHTML += '</ul>';
+		}
+		$(document).ready(function() {
+			console.log("document loaded");
+			$("#datepicker").datepicker();
+		});
+	</script>
 
 </body>
 </html>

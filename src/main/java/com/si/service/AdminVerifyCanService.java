@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.si.dao.AdminCanFetchDaoInterface;
 import com.si.dao.AdminCanSetStatusDao;
-import com.si.dao.AdminCanFetchDao;
 import com.si.model.Candidate;
 
 @Service
@@ -15,7 +15,7 @@ import com.si.model.Candidate;
 public class AdminVerifyCanService {
 	
 	@Autowired
-	AdminCanFetchDao acfDao;
+	AdminCanFetchDaoInterface acfDao;
 	
 	@Autowired
 	AdminCanSetStatusDao acssDao;

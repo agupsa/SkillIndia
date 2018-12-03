@@ -47,6 +47,11 @@
         
         %>
         <%
+        if(session.getAttribute("est")!=null){
+        	throw new RuntimeException("Already Logged in as Establishment Loggout to login as Candidate");
+        }
+        %>
+        <%
         if(session.getAttribute("can")!=null){
         	response.sendRedirect("candidatelogin");
         }

@@ -177,28 +177,25 @@
 							<c:forEach items="${drm}" var="drm">
 
 								<tr>
-									<td>${drm.letterNo}</td>
-									<td>${drm.canRegNo}</td>
-									<td>${drm.name}</td>
-									<td>${drm.gender}</td>
-									<td>${drm.dob}</td>
-									<td>${drm.contactNo}</td>
-									<td>${drm.qualification}</td>
-									<td>${drm.marks}</td>
-									<td>${drm.courseId}</td>
-									<td>${drm.courseName}</td>
-									<td>${drm.stipend}</td>
-									<td>${drm.startId}</td>
-									<td>${drm.endDate}</td>
-									<td>${drm.status}</td>
-
-									<c:if test="${drm.status eq 'Applied'}">
-										<td><a href="fillOffer/${drm.letterNo }">Fill Offer letter</a></td>
-										<td><a href="reject/${drm.letterNo}">Reject</a></td>
+									<td>${drm.contract.letterNo}</td>
+									<td>${drm.contract.canRegNo}</td>
+									<td>${drm.candidate.name}</td>
+									<td>${drm.candidate.gender}</td>
+									<td>${drm.candidate.dob}</td>
+									<td>${drm.candidate.contactNo}</td>
+									<td>${drm.candidate.qualification}</td>
+									<td>${drm.candidate.marks}</td>
+									<td>${drm.contract.courseId}</td>
+									<td>${drm.course.courseName}</td>
+									<td>${drm.contract.stipend}</td>
+									<td>${drm.contract.startDate}</td>
+									<td>${drm.contract.endDate}</td>
+									<td>${drm.contract.status}</td>
+									<c:if test="${drm.contract.status eq 'Applied'}">
+										<td><a href="sendOffer.jsp">Fill Offer letter</a></td>
+										<td><a href="reject/${drm.contract.letterNo}">Reject</a></td>
 									</c:if>
-
 								</tr>
-
 							</c:forEach>
 
 						</tbody>
@@ -260,7 +257,7 @@
 	<script src="Bootstrap/contactform/contactform.js"></script>
 
 
-<!-- 	<script>
+	<!-- 	<script>
 		updateList = function() {
 			var input = document.getElementById('file');
 			var output = document.getElementById('fileList');

@@ -26,7 +26,7 @@ import com.si.service.EstablishmentLoginService;
 
 @Controller
 @SessionAttributes({ "est", "drm" })
-public class EstablishmentLogin {
+public class EstablishmentLoginController {
 	@Autowired
 	EstablishmentLoginService els;
 	@Autowired

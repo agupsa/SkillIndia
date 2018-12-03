@@ -1,12 +1,10 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="java.util.*"%>
-<%@ page import="java.lang.*" %>
+<%@ page import="java.lang.*"%>
 <%@ page import="com.si.model.Candidate"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" isELIgnored="false"%>
-	<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>    
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>  
-<%@ page errorPage="error.jsp" %>
+<%@ page errorPage="error.jsp"%>
 
 <!DOCTYPE html  >
 <html lang="en">
@@ -37,8 +35,10 @@
 	rel="stylesheet">
 
 <link href="Bootstrap/lib/jquery-ui/jquery-ui.css" rel="stylesheet">
-<link href="Bootstrap/lib/jquery-ui/jquery-ui.structure.css" rel="stylesheet">
-<link href="Bootstrap/lib/jquery-ui/jquery-ui.theme.css" rel="stylesheet">
+<link href="Bootstrap/lib/jquery-ui/jquery-ui.structure.css"
+	rel="stylesheet">
+<link href="Bootstrap/lib/jquery-ui/jquery-ui.theme.css"
+	rel="stylesheet">
 
 <!-- Main Stylesheet File -->
 <link href="Bootstrap/css/style.css" rel="stylesheet">
@@ -48,151 +48,171 @@
 
 <body>
 
- <%
-        	response.setHeader("Cache-Control", "no-cache"); //HTTP 1.1
-        	
-        	response.addHeader("Cache-Control", "no-store, must-revalidate");
-        	
-        	response.addHeader("Cache-Control", "must-revalidate");
-        
-        	response.addHeader("Pragma", "no-cache"); //HTTP 1.0
-        	
-        	  response.setDateHeader ("Expires", 0); //Proxies
-        
-        %>
-	 <%
-	if(session.getAttribute("can")==null)
-	response.sendRedirect("../CandidateLogin");
-	%> 
-	
+	<%
+		response.setHeader("Cache-Control", "no-cache"); //HTTP 1.1
+
+		response.addHeader("Cache-Control", "no-store, must-revalidate");
+
+		response.addHeader("Cache-Control", "must-revalidate");
+
+		response.addHeader("Pragma", "no-cache"); //HTTP 1.0
+
+		response.setDateHeader("Expires", 0); //Proxies
+	%>
+	<%
+		if (session.getAttribute("can") == null)
+			response.sendRedirect("../CandidateLogin");
+	%>
+
 
 	<!-- Form Heading -->
-	<div class="form-row" >	
+	<div class="form-row">
 		<div class="col-md-12">
-		<center><h2><b><mark>Candidate Dashboard</mark></b></h2></center>
+			<center>
+				<h2>
+					<b><mark>Candidate Dashboard</mark></b>
+				</h2>
+			</center>
 		</div>
-		<br><br>
-	</div>	
-	
-	 <!-- Header -->
-  <header id="header">
-    <div class="container">
+		<br> <br>
+	</div>
 
-      <div id="logo" class="pull-left">
-        <a href="index.jsp"><img src="Bootstrap/img/National.png" width="200" height="150" alt="" title="" /></img></a>
-        
-      </div>
+	<!-- Header -->
+	<header id="header">
+		<div class="container">
 
-     
-    <nav class="nav social-nav pull-right d-none d-lg-inline"> 
-			<ul class="nav navbar-nav navbar-right">
-		
-				<li><a href="logout">Logout</a></li>
-			</ul>
-		</nav>
-  </header>
-  <!-- #header -->
+			<div id="logo" class="pull-left">
+				<a href="index.jsp"><img src="Bootstrap/img/National.png"
+					width="200" height="150" alt="" title="" /></img></a>
+
+			</div>
+			<nav id="nav-menu-container">
+				<ul class="nav-menu">
+					<li><a href="search.jsp">Search</a></li>
+				</ul>
+			</nav>
+
+
+
+			<nav class="nav social-nav pull-right d-none d-lg-inline">
+
+				<ul class="nav navbar-nav navbar-right">
+
+					<li><a href="logout">Logout</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<!-- #header -->
 	<!-- About -->
 
 	<section class="container" style="padding-top: 20px;">
-	<form class="container">
-	
+		<form class="container">
 
-	
 
-	
- <!-- Profile Picture -->
- <div class="container">
-  <img src="img_avatar.png" alt="Avatar" class="image">
-  <div class="overlay">
-    <a href="#" class="icon" title="User Profile"> <i class="fa fa-user"></i>
-    </a>
-  </div>
-</div>
-<br>
-<div class="form-group">
-        <label class="control-label" >${can.name}</label><br>
-        <label class="control-label" >Profile Status: ${can.status }</label><br>
-        <c:if test="${ can.canRegNo !=0}"><label class="control-label" >Registration Number: ${can.canRegNo }</label></c:if>
-      </div>
-		
-		<br />
-		<p>Application Status:</p>
-		<!-- TO BE FILLED BY DB VALUES -->
-		<div class="form-row" style="margin: 0 auto;">
-			<div class="form-group col-md-12" style="padding: 0;">
-				<label class="control-label"></label>
-		
+
+
+
+			<!-- Profile Picture -->
+			<div class="container">
+				<img src="img_avatar.png" alt="Avatar" class="image">
+				<div class="overlay">
+					<a href="#" class="icon" title="User Profile"> <i
+						class="fa fa-user"></i>
+					</a>
+				</div>
+			</div>
+			<br>
+			<div class="form-group">
+				<label class="control-label">${can.name}</label><br> <label
+					class="control-label">Profile Status: ${can.status }</label><br>
+				<c:if test="${ can.canRegNo !=0}">
+					<label class="control-label">Registration Number:
+						${can.canRegNo }</label>
+				</c:if>
+			</div>
+
+			<br />
+			<p>Application Status:</p>
+			<!-- TO BE FILLED BY DB VALUES -->
+			<div class="form-row" style="margin: 0 auto;">
+				<div class="form-group col-md-12" style="padding: 0;">
+					<label class="control-label"></label>
+
 
 					<table class="table table-striped table-bordered table-hover">
 						<thead>
 							<tr>
-							    <th>Contract Number</th>
-							    <th>Establishment Registration Number</th>
-							    <th>Establishment Name</th>
-							    <th>Course Id</th>
-							    <th>Course Name</th>
-							    <th>Stipend</th>
-							    <th>Start Date</th>
-							    <th>End Date</th>
-							    <th>Status</th>
-							    <th>Action</th>
+								<th>Contract Number</th>
+								<th>Establishment Registration Number</th>
+								<th>Establishment Name</th>
+								<th>Course Id</th>
+								<th>Course Name</th>
+								<th>Stipend</th>
+								<th>Start Date</th>
+								<th>End Date</th>
+								<th>Status</th>
+								<th>Action</th>
 							</tr>
 						</thead>
 						</thead>
 						<tbody>
 
 							<c:forEach items="${drm}" var="drm">
-						
+
 								<tr>
-									<td>${drm.letterNo}</td>
-									<td>${drm.estRegno}</td>
-									<td>${drm.estName}</td>
-									<td>${drm.courseId}</td>
-									<td>${drm.courseName}</td>
-								    <td>${drm.stipend}</td>
-								    <td>${drm.startId}</td>
-								    <td>${drm.endDate}</td>
-								    <td>${drm.status}</td>
-								<c:if test="${drm.status eq 'Offered' }"><td><a href="accept/${drm.letterNo}">Accept</a></td>
-								<td><a href="notaccepted/${drm.letterNo}">Reject</a></td></c:if> 
+									<td>${drm.contract.letterNo}</td>
+									<td>${drm.contract.estRegno}</td>
+									<td>${drm.contract.estName}</td>
+									<td>${drm.contract.courseId}</td>
+									<td>${drm.course.courseName}</td>
+									<td>${drm.contract.stipend}</td>
+									<td>${drm.contract.startDate}</td>
+									<td>${drm.contract.endDate}</td>
+									<td>${drm.contract.status}</td>
+									<c:if test="${drm.contract.status eq 'Offered' }">
+										<td><a href="accept/${drm.contract.letterNo}">Accept</a></td>
+										<td><a href="reject/${drm.contract.letterNo}">Reject</a></td>
+									</c:if>
 								</tr>
+
+
 							</c:forEach>
 
 						</tbody>
 					</table>
-			
+
+				</div>
+				<br />
+
+
 			</div>
-			<br />
 
-
-		</div>
-
-	</form>
+		</form>
 	</section>
 
 	<footer class="site-footer">
-	<div class="bottom">
-		<div class="container">
-			<div class="row">
+		<div class="bottom">
+			<div class="container">
+				<div class="row">
 
-				<div class="col-lg-6 col-xs-12 text-lg-left text-center">
-					<p class="copyright-text">© Skill India</p>
-					<div class="credits">
-						<abbr title="National Apprenticeship Promotion Scheme">NAPS</abbr>
+					<div class="col-lg-6 col-xs-12 text-lg-left text-center">
+						<p class="copyright-text">© Skill India</p>
+						<div class="credits">
+							<abbr title="National Apprenticeship Promotion Scheme">NAPS</abbr>
+						</div>
 					</div>
-				</div>
 
-				<div class="col-lg-6 col-xs-12 text-lg-right text-center">
-					<ul class="list-inline">
-						<li class="list-inline-item"><a href="index.jsp">Home</a></li>
-						<li class="list-inline-item"><a href="#contact">Contact</a></li>
-					</ul>
-				</div>
+					<div class="col-lg-6 col-xs-12 text-lg-right text-center">
+						<ul class="list-inline">
+							<li class="list-inline-item"><a href="index.jsp">Home</a></li>
+							<li class="list-inline-item"><a href="#contact">Contact</a></li>
+						</ul>
+					</div>
 
+				</div>
 			</div>
 		</div>
-	</div>
 	</footer>
 	<a class="scrolltop" href="#"><span class="fa fa-angle-up"></span></a>
 

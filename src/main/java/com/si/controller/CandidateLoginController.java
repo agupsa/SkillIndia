@@ -19,7 +19,7 @@ import com.si.service.CandidateLoginService;
 import com.si.service.EnterCourseService;
 
 @Controller
-public class CandidateLogin {
+public class CandidateLoginController {
 	@Autowired
 	CandidateLoginService cls;
 	@Autowired
