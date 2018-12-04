@@ -16,6 +16,14 @@ import com.si.model.Course;
 import com.si.service.CourseApplicationService;
 import com.si.service.SearchCourseService;
 
+
+/**
+ * 
+ * @author GR5 LTI
+ * Controller that handles search and apply to course requests
+ *
+ */
+
 @Controller
 @SessionAttributes({"clst","course"})
 public class CourseApplyController {
@@ -29,27 +37,30 @@ public class CourseApplyController {
 	@RequestMapping("/searchCourse/{estRegNo}")
 	public ModelAndView viewCourseList(@PathVariable("estRegNo") int estRegNo) {
 
-		System.out.println(estRegNo);
 		ModelAndView mv = new ModelAndView("redirect:../courseDisplay.jsp");
 		List<Course> clst = scService.getCourseById(estRegNo);
-		System.out.println(clst);
 		mv.addObject("clst", clst);
 		return mv;
 	}
 
+	// opens application for course with autofilled details
 	@RequestMapping("/apply/{courseId}")
 	public ModelAndView applyCourse(@PathVariable("courseId") int courseId) {
-		System.out.println(courseId);
 		Course course = caService.getCourse(courseId);
-		System.out.println(course);
 		return new ModelAndView("redirect:../courseApplication.jsp", "course", course);
 	}
 
 	@RequestMapping(value = "/applicationSave", method = RequestMethod.POST)
 	public ModelAndView courseApplication(@ModelAttribute("cont") Contract contract) {
+		
+		
+		/*
+		 *Checks if candidate is registered already with the course or not
+		 *If registered he's not allowed to do so again
+		 *If not he can apply for the course
+		 */	
 		boolean check = caService.checkCourse(contract);
 		
-		System.out.println(check);
 		if (check==false) {
 			//if new registration
 			caService.saveApplication(contract);

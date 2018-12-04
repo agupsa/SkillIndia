@@ -18,27 +18,16 @@ import com.si.model.Login;
  *
  */
 
+//
 @Controller
 public class LogoutController {
 
+	//gets session object and destroys it
 	@RequestMapping(value = "/logout")
 	public ModelAndView logout(HttpServletRequest req, HttpServletResponse res, @ModelAttribute("login") Login login,
 			HttpSession ses) {
-
-		System.out.println("Logging out");
-		if (ses.getAttribute("can") != null || ses.getAttribute("est") != null) {
-			System.out.println("got object from session");
 			ses.invalidate();
-		}
-		else
-		{
-			ModelAndView mv = new ModelAndView("index","msg", "You have been successfully logged out");
-			ses.setAttribute("can", null);
-			ses.setAttribute("est", null);		
-			return mv;
-		}
-
-			return new ModelAndView("redirect:/logout", "msg", "You have been successfully logged out");
+		return new ModelAndView("index","msg", "You have been successfully logged out");
 		
 	}
 

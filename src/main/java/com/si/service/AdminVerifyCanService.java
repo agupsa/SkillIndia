@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.si.dao.AdminCanFetchDaoInterface;
-import com.si.dao.AdminCanSetStatusDao;
+import com.si.dao.AdminCanSetStatusInterface;
 import com.si.model.Candidate;
 
 @Service
@@ -18,7 +18,7 @@ public class AdminVerifyCanService {
 	AdminCanFetchDaoInterface acfDao;
 	
 	@Autowired
-	AdminCanSetStatusDao acssDao;
+	AdminCanSetStatusInterface acssDao;
 
 	public String getFilePath(int canRegNo, int fileId) {
 		

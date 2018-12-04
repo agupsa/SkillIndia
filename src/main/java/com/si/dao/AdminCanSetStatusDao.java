@@ -2,7 +2,14 @@ package com.si.dao;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 
-public class AdminCanSetStatusDao {
+/**
+ * 
+ * @author GR5 LTI
+ * Sets status of candidate on basis of admin click action
+ *
+ */
+
+public class AdminCanSetStatusDao implements AdminCanSetStatusInterface {
 	
 	JdbcTemplate jdbcTemplate;
 
@@ -18,12 +25,11 @@ public class AdminCanSetStatusDao {
 		super();
 	}
 
+	//Sets Status of candidate
+	@Override
 	public int setCanStatus(int canRegno, int action) {
 		String ac = (action==1)?"Verified":"Rejected";
-		
-		String updateq="UPDATE gr5_candidate SET gc_status='"+ac+"' WHERE gc_reg_no="+canRegno;
-		System.out.println("Updating");
-		return jdbcTemplate.update(updateq);
+		return jdbcTemplate.update("UPDATE gr5_candidate SET gc_status='"+ac+"' WHERE gc_reg_no="+canRegno);
 		
 	}
 	

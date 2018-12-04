@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.si.dao.EstablishmentDao;
+import com.si.dao.EstablishmentDaoInterface;
 import com.si.model.Candidate;
 import com.si.model.Establishment;
 
@@ -19,7 +19,7 @@ public class EstablishmentRegService {
 
 
 	@Autowired
-	EstablishmentDao esdao;
+	EstablishmentDaoInterface esdao;
 	
 
 	@Transactional

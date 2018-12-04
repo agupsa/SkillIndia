@@ -5,8 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.si.dao.CourseSearchDao;
-
+import com.si.dao.CourseSearchDaoInterface;
 import com.si.model.Course;
 
 
@@ -14,7 +13,7 @@ import com.si.model.Course;
 public class SearchCourseService {
 
 	@Autowired
-    CourseSearchDao csdao;
+    CourseSearchDaoInterface csdao;
 	
 	public List<Course> getCourseById(int estRegNo) {
 		return csdao.getCourseById(estRegNo);

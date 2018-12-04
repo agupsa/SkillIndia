@@ -12,7 +12,7 @@ import org.springframework.jdbc.core.ResultSetExtractor;
 import com.si.model.Address;
 import com.si.model.Establishment;
 
-public class AdminEstFetchDao {
+public class AdminEstFetchDao implements AdminEstFetchDaoInterface {
 	private JdbcTemplate jdbcTemplate;
 
 	public JdbcTemplate getJdbcTemplate() {
@@ -27,6 +27,8 @@ public class AdminEstFetchDao {
 		super();
 	}
 
+	// Returns list of establishment that have status set as 'Awaiting Verification' for verification by admin
+	@Override
 	public List<Establishment> getUnverifiedEst(){
 		String queryuEst = "select * from gr5_establishment left join gr5_address on gr5_establishment.ge_regno=gr5_address.ga_ge_regno  where gr5_establishment.ge_status='Awaiting Verification'";
 		List<Establishment> uelst = jdbcTemplate.query(queryuEst, new ResultSetExtractor<List<Establishment>>() {
@@ -36,7 +38,6 @@ public class AdminEstFetchDao {
 				while (rs.next()) {
 					Establishment e = new Establishment();
 					Address addr = new Address();
-					//String[] paths = new String[3];
 
 					e.setEstRegNo(rs.getInt(1));
 					e.setName(rs.getString(2));
@@ -50,10 +51,12 @@ public class AdminEstFetchDao {
 					e.setIFSC(rs.getString(11));
 					e.setAccountNo(rs.getLong(12));
 					e.setStatus(rs.getString(13));
-					addr.setAddr(rs.getString(15));
-					addr.setState(rs.getString(16));
-					addr.setCity(rs.getString(17));
-					addr.setPincode(rs.getString(18));
+					e.setTin(rs.getLong(14));
+					e.setFilePath(rs.getString(15));
+					addr.setAddr(rs.getString(17));
+					addr.setState(rs.getString(18));
+					addr.setCity(rs.getString(19));
+					addr.setPincode(rs.getString(20));
 					e.setAddr(addr);
 					lst.add(e);
 				}

@@ -6,18 +6,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.si.dao.AdminEstFetchDao;
-import com.si.dao.AdminEstSetStatusDao;
+import com.si.dao.AdminEstFetchDaoInterface;
+import com.si.dao.AdminEstSetStatusDaoInterface;
 import com.si.model.Establishment;
 
 @Service
 @Transactional
 public class AdminVerifyEstService {
 	@Autowired
-	AdminEstFetchDao aefDao;
+	AdminEstFetchDaoInterface aefDao;
 	
 	@Autowired
-	AdminEstSetStatusDao aessDao;
+	AdminEstSetStatusDaoInterface aessDao;
 
 	public List<Establishment> getUnverifiedEst() {
 		

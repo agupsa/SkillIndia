@@ -6,7 +6,7 @@ package com.si.model;
  *
  */
 
-//import java.sql.Date;
+
 
 //Entity object for gr5_contract
 public class Contract {

@@ -11,7 +11,7 @@ import org.springframework.jdbc.core.ResultSetExtractor;
 
 import com.si.model.Course;
 
-public class CourseSearchDao {
+public class CourseSearchDao implements CourseSearchDaoInterface {
 
 	JdbcTemplate jdbcTemplate;
 
@@ -24,6 +24,8 @@ public class CourseSearchDao {
 		this.jdbcTemplate = jdbcTemplate;
 	}
 
+	//list all courses for selected establishment
+	@Override
 	public List<Course> getCourseById(int estRegNo) {
 		String sql = "select * from gr5_courses where gco_ge_regno='" + estRegNo + "'";
 		List<Course> clst = jdbcTemplate.query(sql, new ResultSetExtractor<List<Course>>() {
@@ -45,7 +47,7 @@ public class CourseSearchDao {
 			}
 
 		});
-		System.out.println(clst);
+		
 		return clst;
 	}
 

@@ -12,31 +12,30 @@ import org.springframework.jdbc.core.ResultSetExtractor;
 import com.si.model.Address;
 import com.si.model.Candidate;
 
+/**
+ * 
+ * @author GR5 LTI
+ * Fetches Candidate data on Request of Admin
+ *
+ */
 public class AdminCanFetchDao implements AdminCanFetchDaoInterface {
 	private JdbcTemplate jdbcTemplate;
 
-	/* (non-Javadoc)
-	 * @see com.si.dao.AdminCanFetchDaoInterface#getJdbcTemplate()
-	 */
 	@Override
 	public JdbcTemplate getJdbcTemplate() {
 		return jdbcTemplate;
 	}
 
-		/* (non-Javadoc)
-		 * @see com.si.dao.AdminCanFetchDaoInterface#setJdbcTemplate(org.springframework.jdbc.core.JdbcTemplate)
-		 */
-		@Override
-		public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+	@Override
+	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
 	}
+
 	public AdminCanFetchDao() {
 		super();
 	}
 
-	/* (non-Javadoc)
-	 * @see com.si.dao.AdminCanFetchDaoInterface#getUnverifiedCan()
-	 */
+	// Returns list of candidates that have status set as 'Awaiting Verification' for verification by admin
 	@Override
 	public List<Candidate> getUnverifiedCan() {
 		String queryuCan = "select * from gr5_candidate left join gr5_address on gr5_candidate.gc_reg_no=gr5_address.ga_gc_reg_no  where gr5_candidate.gc_status='Awaiting Verification'";
@@ -60,9 +59,9 @@ public class AdminCanFetchDao implements AdminCanFetchDaoInterface {
 					c.setQualification(rs.getString(10));
 					c.setCollegeName(rs.getString(11));
 					c.setMarks(rs.getFloat(12));
-					paths[0]= rs.getString(13);
-					paths[1]= rs.getString(14);
-					paths[2]= rs.getString(15);
+					paths[0] = rs.getString(13);
+					paths[1] = rs.getString(14);
+					paths[2] = rs.getString(15);
 					c.setStatus(rs.getString(16));
 					c.setFilePath(paths);
 					addr.setAddr(rs.getString(18));
@@ -76,30 +75,32 @@ public class AdminCanFetchDao implements AdminCanFetchDaoInterface {
 				return lst;
 			}
 
-		});	
+		});
 		return uclst;
 	}
-	
-	/* (non-Javadoc)
-	 * @see com.si.dao.AdminCanFetchDaoInterface#getFilePath(int, int)
-	 */
+
+	// Return File path of Candidate document on bases of what file was clicked on the Jsp page
 	@Override
 	public String getFilePath(int canRegNo, int fileId) {
 		String colName = null;
-		switch(fileId) {
-		case 1: colName = "gc_photo";
-		break;
-		case 2: colName = "gc_aadhar_card";
-		break;
-		case 3: colName = "gc_edu_certi";
-		break;
-		default: return "Error Something is Wrong";
+		switch (fileId) {
+		case 1:
+			colName = "gc_photo";
+			break;
+		case 2:
+			colName = "gc_aadhar_card";
+			break;
+		case 3:
+			colName = "gc_edu_certi";
+			break;
+		default:
+			return "Error Something is Wrong";
 		}
-		String query = "Select "+colName+" from gr5_candidate where gc_reg_no="+canRegNo;
 		
-		String filePath = jdbcTemplate.queryForObject(query,String.class);
-		System.out.println(filePath);
-		
+		String query = "Select " + colName + " from gr5_candidate where gc_reg_no=" + canRegNo;
+
+		String filePath = jdbcTemplate.queryForObject(query, String.class);
+
 		return filePath;
 	}
 

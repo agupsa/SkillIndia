@@ -17,17 +17,6 @@ public class Address {
 	private int canRegNo;		//Foreign key references to Candidate
 	private int estRegNo;		//Foreign key references to Establishment
 	
-	/*
-	ga_id NUMBER(20) PRIMARY KEY,
-	ga_addr VARCHAR2(30),
-	ga_city VARCHAR2(30),
-	ga_state VARCHAR2(30),
-	ga_pincode NUMBER(20),
-	ga_gc_reg_no VARCHAR2(30),
-	foreign key (ga_gc_id) references GR5_candidate (gc_reg_no),
-	ga_ge_est_regno VARCHAR2(30),
-	foreign key (ga_ge_est_regno) references GR5_establishment (ge_est_regno)
-	*/
 	
 	public Address() {
 		super();

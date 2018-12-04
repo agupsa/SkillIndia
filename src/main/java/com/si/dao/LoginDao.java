@@ -32,8 +32,8 @@ public class LoginDao implements LoginDaoInterface {
 		this.jdbcTemplate = jdbcTemplate;
 	}
 
+	// Validates Candidates and returns only required data
 	public Object userLoginValidation(Login login) {
-		System.out.println("Inside User validate");
 		List<Map<String, Object>> lst;
 		lst = jdbcTemplate.queryForList("select * from gr5_candidate where gc_username='" + login.getUsername() + "'");
 		if (lst.size() > 0) {
@@ -41,17 +41,15 @@ public class LoginDao implements LoginDaoInterface {
 				String pass = (String) canMap.get("gc_pass");
 				if (login.getPass().equals(pass)) {
 					Candidate c = new Candidate();
-					System.out.println("Password is same");
 					c.setStatus((String) canMap.get("gc_status"));
 					c.setName((String) canMap.get("gc_name"));
 					c.setUsername((String) canMap.get("gc_username"));
-					/*
-					 * String[] str = {"gc_photo","gc_aadhar_card","gc_edu_certi"}; String[] paths=
-					 * new String[3]; for(int i=0;i<3;++i) { paths[i] =
-					 * canMap.get(str[i]).toString(); } c.setFilePath(paths);
-					 * System.out.println(paths);
-					 */
-					System.out.println(c.getStatus());
+					String[] str = { "gc_photo", "gc_aadhar_card", "gc_edu_certi" };
+					String[] paths = new String[3];
+					for (int i = 0; i < 3; ++i) {
+						paths[i] = canMap.get(str[i]).toString();
+					}
+					c.setFilePath(paths);
 					if (!(c.getStatus().equalsIgnoreCase("awaiting verification")
 							|| c.getStatus().equalsIgnoreCase("rejected"))) {
 
@@ -61,17 +59,6 @@ public class LoginDao implements LoginDaoInterface {
 
 					}
 
-					System.out.println("test1");
-					/*
-					 * switch (c.getStatus().toLowerCase()) { case "awaiting verification": break;
-					 * case "verified": c.setCanRegNo((Integer)canMap.get("gc_reg_no")); case
-					 * "apprenticeship confirm": case "awaiting contract verification": case
-					 * "accepted offer letter": case "offer recieved": case "applied":
-					 * 
-					 * 
-					 * }
-					 */
-					System.out.println("yay");
 					return c;
 				}
 
@@ -79,14 +66,13 @@ public class LoginDao implements LoginDaoInterface {
 
 		}
 
-		System.out.println("Why me?");
 		return null;
 	}
 
+	// Validates Establishment login and sets only required data
+
 	@Override
 	public Object estLoginValidation(Login login) {
-		// TODO Auto-generated method stub
-		System.out.println("Inside Establishment validate");
 		List<Map<String, Object>> lst;
 		lst = jdbcTemplate.queryForList("select * from gr5_establishment where ge_email='" + login.getUsername() + "'");
 		if (lst.size() > 0) {
@@ -94,7 +80,6 @@ public class LoginDao implements LoginDaoInterface {
 				Establishment e = new Establishment();
 				String pass = (String) estMap.get("ge_pass");
 				if (login.getPass().equals(pass)) {
-					System.out.println("Password is same");
 					e.setStatus((String) estMap.get("ge_status"));
 					e.setName((String) estMap.get("ge_est_name"));
 					e.setEmail((String) estMap.get("ge_email"));
@@ -110,47 +95,27 @@ public class LoginDao implements LoginDaoInterface {
 						e.setAccountNo(Long.parseLong(estMap.get("ge_account_no").toString()));
 
 					}
-
-					/*
-					 * switch (e.getStatus().toLowerCase()) { case "awaiting verification": break;
-					 * case "apprenticeship confirm": case "awaiting contract verification": case
-					 * "accepted offer letter": case "offer recieved": case "applied": case
-					 * "verified": e.setEstRegNo((Integer)estMap.get("ge_regno"));
-					 * e.setBankName((String) estMap.get("ge_bank_name")); e.setIFSC((String)
-					 * estMap.get("ge_IFSC_code")); e.setAccountNo((Long)
-					 * estMap.get("ge_account_no"));
-					 * 
-					 * }
-					 */
-					System.out.println("got est");
 					return e;
 				}
 
 			}
 
 		}
-		System.out.println("Not again");
 		return null;
 	}
 
 	// display all records of contract and candidate and courses
 	public List<DisplayRecordModel> getDrm(Establishment est) {
-		System.out.println(est.getEstRegNo());
 
 		String sql = "select * from gr5_contract inner join gr5_candidate on gr5_contract.GOF_GC_REG_NO= gr5_candidate.GC_REG_NO inner join gr5_courses ON gr5_contract.GOF_GCO_COURSE_ID=gr5_courses.GCO_COURSE_ID where \r\n"
 				+ "gr5_contract.GOF_GE_REGNO = '" + est.getEstRegNo() + "'";
 
-		List<DisplayRecordModel> drm = jdbcTemplate.query(sql, new Object[] {},
-				new BeanPropertyRowMapper<DisplayRecordModel>(DisplayRecordModel.class));
 
 		return jdbcTemplate.query(sql, new RowMapper<DisplayRecordModel>() {
 
 			public DisplayRecordModel mapRow(ResultSet rs, int rowNum) throws SQLException {
 
 				DisplayRecordModel drm = new DisplayRecordModel();
-
-				System.out.println("hi");
-
 				Contract contract = new Contract();
 				Candidate candidate = new Candidate();
 				Course course = new Course();
@@ -181,21 +146,14 @@ public class LoginDao implements LoginDaoInterface {
 
 	// display all records of contract
 	public List<DisplayRecordModel> getDrmForCan(Candidate can) {
-		System.out.println(can.getCanRegNo());
 
 		String sql = "select * from gr5_contract inner join gr5_candidate on gr5_contract.GOF_GC_REG_NO= gr5_candidate.GC_REG_NO inner join gr5_courses ON gr5_contract.GOF_GCO_COURSE_ID=gr5_courses.GCO_COURSE_ID where \r\n"
 				+ "gr5_contract.GOF_GC_REG_NO = '" + can.getCanRegNo() + "'";
-
-		List<DisplayRecordModel> drm = jdbcTemplate.query(sql, new Object[] {},
-				new BeanPropertyRowMapper<DisplayRecordModel>(DisplayRecordModel.class));
-
 		return jdbcTemplate.query(sql, new RowMapper<DisplayRecordModel>() {
 
 			public DisplayRecordModel mapRow(ResultSet rs, int rowNum) throws SQLException {
 
 				DisplayRecordModel drm = new DisplayRecordModel();
-
-				System.out.println("hi");
 
 				Contract contract = new Contract();
 				Course course = new Course();
@@ -212,8 +170,6 @@ public class LoginDao implements LoginDaoInterface {
 
 				drm.setContract(contract);
 				drm.setCourse(course);
-
-				System.out.println(drm);
 
 				return drm;
 			}

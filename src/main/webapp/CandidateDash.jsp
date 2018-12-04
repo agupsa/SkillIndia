@@ -4,7 +4,7 @@
 <%@ page import="com.si.model.Candidate"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" isELIgnored="false"%>
-<%@ page errorPage="error.jsp"%>
+<%-- <%@ page errorPage="error.jsp"%> --%>
 
 <!DOCTYPE html  >
 <html lang="en">
@@ -162,7 +162,7 @@
 
 								<tr>
 									<td>${drm.contract.letterNo}</td>
-									<td>${drm.contract.estRegno}</td>
+									<td>${drm.contract.estRegNo}</td>
 									<td>${drm.contract.estName}</td>
 									<td>${drm.contract.courseId}</td>
 									<td>${drm.course.courseName}</td>

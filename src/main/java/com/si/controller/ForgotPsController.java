@@ -11,35 +11,35 @@ import com.si.model.Candidate;
 import com.si.model.Establishment;
 import com.si.service.ForgotPsService;
 
+/**
+ * 
+ * @author GR5 LTI Controller Handling Forget Password Requests of candidates
+ *         and establishments
+ *
+ */
+
 @Controller
 public class ForgotPsController {
-	
+
 	@Autowired
 	ForgotPsService fps;
 
-	@RequestMapping(value="/forgotPsCan",method=RequestMethod.POST)
-	
-	public ModelAndView forgotPassword(@ModelAttribute("candidate") Candidate can)
-	{
+	// Method for Candidate Request of Forget password
+	@RequestMapping(value = "/forgotPsCan", method = RequestMethod.POST)
+	public ModelAndView forgotPassword(@ModelAttribute("candidate") Candidate can) {
 		fps.forgotPassword(can);
-				
-			return new ModelAndView("PswSet","msg","Password has changed successfully");		
-		
-	}	
-	
-@RequestMapping(value="/forgotPsEst",method=RequestMethod.POST)
-	
-	public ModelAndView forgotPasswordEst(@ModelAttribute("establishment")Establishment est)
-	{
-		fps.forgotPasswordEst(est);
-				
-			return new ModelAndView("PswSet","msg","Password has changed successfully");		
-		
-	}	
-	
-}
-	
-	
-	
-	
 
+		return new ModelAndView("PswSet", "msg", "Password has changed successfully");
+
+	}
+
+	// Method for Establishment Request of Forget password
+	@RequestMapping(value = "/forgotPsEst", method = RequestMethod.POST)
+	public ModelAndView forgotPasswordEst(@ModelAttribute("establishment") Establishment est) {
+		fps.forgotPasswordEst(est);
+
+		return new ModelAndView("PswSet", "msg", "Password has changed successfully");
+
+	}
+
+}

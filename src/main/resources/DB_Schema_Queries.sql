@@ -60,10 +60,7 @@ ga_state VARCHAR2(30),
 ga_city VARCHAR2(30),
 ga_pincode NUMBER(15),
 ga_gc_reg_no NUMBER(5),
-/*CONSTRAINT candidate_fk foreign key (ga_gc_reg_no) references GR5_candidate (gc_reg_no) ON DELETE CASCADE,*/
 ga_ge_regno NUMBER(5) ,
-/*CONSTRAINT establishment_fk foreign key (ga_ge_regno) references GR5_establishment (ge_regno)
-) ON DELETE CASCADE*/
 );
 ---------------------------------------------
 create sequence GR5_address_seq
@@ -72,39 +69,9 @@ increment by 1
 nocycle;
 
 ----------------------------------------------
-
-/*CREATE TABLE GR5_VERIFICATION_DETAILS
-(
-gvd_verification_id NUMBER(5) PRIMARY KEY,
-gvd_training_years NUMBER(5),
-gvd_trainee_no NUMBER(5),
-gvd_placed_no NUMBER(5),
-gvd_tin_no NUMBER(20),
-gvd_turnover NUMBER(5),
-gvd_networth NUMBER(20),
-gvd_ge_regno NUMBER(5),
-/*foreign key (gvd_ge_regno) references GR5_establishment (ge_regno)*/
-)ON DELETE CASCADE;
-----------------------------------------------------------------
-
-create sequence GR5_verification_details_seq
-start with 101
-increment by 1
-nocycle;
-------------------------------------------------
-CREATE TABLE GR5_DOMAIN
-(
-gd_domain_id NUMBER(5) PRIMARY KEY,
-gd_domain_name VARCHAR2(30)
-);
-----------------------------
-
-create sequence GR5_domain_seq
-start with 101
-increment by 1
-nocycle;
-*/
-----------------------------------------
+ALTER TABLE GR5_ADDRESS ADD CONSTRAINT GA_FKCAN FOREIGN KEY (GA_GC_REG_NO) REFERENCES GR5_CANDIDATE(GC_REG_NO) ON DELETE CASCADE; 
+ALTER TABLE GR5_ADDRESS ADD CONSTRAINT GA_FKEST FOREIGN KEY (GA_GE_REGNO) REFERENCES GR5_ESTABLISHMENT(GE_REGNO) ON DELETE CASCADE; 
+----------------------------------------------------------------------------------------------------------------------------------------
 
 CREATE TABLE GR5_COURSES
 (
@@ -115,19 +82,17 @@ gco_trainer_contact_no NUMBER(10),
 gco_domain_name VARCHAR2(30),
 gco_ge_regno NUMBER(5),
 gco_ge_name NUMBER(5)			//not null
-/*,				
-FOREIGN KEY (gco_domain_id)REFERENCES GR5_DOMAIN(gd_domain_id) ON DELETE CASCADE,
-FOREIGN KEY (gco_ge_regno)REFERENCES GR5_establishment(ge_regno) ON DELETE CASCADE,
-FOREIGN KEY (gco_ge_name)REFERENCES GR5_establishment(ge_est_name) ON DELETE CASCADE*/
 );
---------------------
+--------------------------------------------------------------------------------
 
+ALTER TABLE GR5_COURSES ADD CONSTRAINT GA_COURSEFKEST FOREIGN KEY (GCO_GE_REGNO) REFERENCES GR5_ESTABLISHMENT(GE_REGNO) ON DELETE CASCADE;  
 
+-------------------------------------------------------------------------------
 create sequence GR5_course_seq
 start with 101
 increment by 1
 nocycle;
-----------------------------------------
+----------------------------------------------------
 
 
 create table GR5_CONTRACT
@@ -142,43 +107,23 @@ gof_start_date DATE,
 gof_end_date DATE,
 gof_status VARCHAR2(30),
 gof_contract VARCHAR2(1000)
-/*,
-foreign key (gof_gc_reg_no) references GR5_candidate (gc_regno) ON DELETE CASCADE,
-foreign key (gof_ge_regno) references GR5_establishment (ge_ge_regno) ON DELETE CASCADE,
-foreign key (gof_ge_est_name) references GR5_establishment (ge_est_name) ON DELETE CASCADE,
-foreign key (gof_gco_course_id) references GR5_course (gco_course_id) ON DELETE CASCADE,
-foreign key (gof_gc_reg_no) references GR5_CANDIDATE (gc_regno) ON DELETE CASCADE*/
 );
 
---------------------------
+---------------------------------------------------------------------------------
 create sequence GR5_contract_seq
 start with 1
 increment by 1
 nocycle;
+---------------------------------------------------------------------------------
+
+ALTER TABLE GR5_CONTRACT ADD CONSTRAINT GA_CONFKCAN FOREIGN KEY (GOF_GC_REG_NO) REFERENCES GR5_CANDIDATE(GC_REG_NO) ON DELETE CASCADE;
+ALTER TABLE GR5_CONTRACT ADD CONSTRAINT GA_CONFKEST FOREIGN KEY (GOF_GE_REGNO) REFERENCES GR5_ESTABLISHMENT(GE_REGNO) ON DELETE CASCADE;  
+ALTER TABLE GR5_CONTRACT ADD CONSTRAINT GA_CONFKCOURSE FOREIGN KEY (GOF_GCO_COURSE_ID) REFERENCES GR5_COURSES(GCO_COURSE_ID) ON DELETE CASCADE;
+---------------------------------------------------------------------------------
 
 
-----------------------
 
 
-/*CREATE TABLE GR5_ENROLLED_USER
-(
-geu_ENROLL_ID NUMBER(20) PRIMARY KEY,
-geu_contract_id NUMBER(20),
-FOREIGN KEY(geu_contract_id) REFERENCES GR5_offerletter(gof_contract_id),
-gc_reg_no VARCHAR2(20),
-foreign key (geu_reg_no) references GR5_candidate (gc_reg_no),
-geu_STATUS VARCHAR2(30)
-);
--------------------------------------
-
-create sequence GR5_enrolled_user_seq
-start with 1
-increment by 1
-nocycle;*/
-
-insert into gr5_establishment values(gr5_establishment_seq.nextval,'abc','email','pass','it',500,5,'head',9876543210,'sbi','SBI0096',5566,'Awaiting verification');
-
-insert into gr5_establishment values(gr5_establishment_seq.nextval,'xyz','email1','pass','it',500,6,'head1',9976543210,'sbi','SBI0096',5567,'Awaiting verification');
 
 
 

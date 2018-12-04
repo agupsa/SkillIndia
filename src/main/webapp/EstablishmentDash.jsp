@@ -192,7 +192,7 @@
 									<td>${drm.contract.endDate}</td>
 									<td>${drm.contract.status}</td>
 									<c:if test="${drm.contract.status eq 'Applied'}">
-										<td><a href="sendOffer.jsp">Fill Offer letter</a></td>
+										<td><a href="fillOffer/${drm.contract.letterNo}">Fill Offer letter</a></td>
 										<td><a href="reject/${drm.contract.letterNo}">Reject</a></td>
 									</c:if>
 								</tr>

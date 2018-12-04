@@ -40,7 +40,7 @@ public class CandidateDao implements CandidateDaoInteface {
 	
 
 	/*
-	 * Method to save data
+	 * Method to save data of candidate
 	 */
 	@Override
 	public int registerCandidate(Candidate c) {
@@ -69,12 +69,8 @@ public class CandidateDao implements CandidateDaoInteface {
 				
 				
 				
-			}else {
-				//TODO rollback candidate save
 			}
-
 			//TODO replace with logger
-			System.out.println("INSERTED RECORD: "+ c.getCanRegNo()+ "\t" + c.getAadharNo() + " " + c.getContactNo());
 			
 			return x;
 

@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.si.dao.AdminContrFetchDao;
-import com.si.dao.AdminContrSetStatusDao;
+import com.si.dao.AdminContrFetchDaoInterface;
+import com.si.dao.AdminContrSetStatusDaoInterface;
 import com.si.model.Contract;
 
 @Service
@@ -15,10 +15,10 @@ import com.si.model.Contract;
 public class AdminVerifyContrService {
 
 	@Autowired
-	AdminContrFetchDao actrfDao;
+	AdminContrFetchDaoInterface actrfDao;
 	
 	@Autowired
-	AdminContrSetStatusDao actrssDao;
+	AdminContrSetStatusDaoInterface actrssDao;
 	
 	public List<Contract> getUnverifiedContr() {
 		return actrfDao.getUnverifiedContr();

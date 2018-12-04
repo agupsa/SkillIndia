@@ -28,15 +28,7 @@ public class Establishment {
 	
 	private String filePath;
 
-	/*
-	 * 
-	 * ge_est_regno VARCHAR2(30) PRIMARY KEY, ge_est_name VARCHAR2(30) UNIQUE,
-	 * ge_email VARCHAR2(30) UNIQUE, ge_pass VARCHAR2(30), ge_industry_type
-	 * VARCHAR2(30), ge_no_of_emp NUMBER(50), ge_workdays NUMBER, ge_name_of_head
-	 * VARCHAR2(30), ge_contact_no NUMBER(10) UNIQUE, ge_bank_name VARCHAR2(30),
-	 * ge_IFSC_code VARCHAR2(30), ge_account_no NUMBER(30) ge_status VARCHAR2(30)
-	 * 
-	 */
+	
 
 	public int getEstRegNo() {
 		return estRegNo;

@@ -3,7 +3,7 @@ package com.si.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.si.dao.EnterCourseDao;
+import com.si.dao.EnterCourseDaoInterface;
 import com.si.model.Contract;
 import com.si.model.Course;
 
@@ -11,7 +11,7 @@ import com.si.model.Course;
 public class EnterCourseService {
 
 	@Autowired
-	EnterCourseDao ecdao;
+	EnterCourseDaoInterface ecdao;
 
 	public void enterCourse(Course course) {
 		

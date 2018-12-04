@@ -43,7 +43,6 @@
 		</h2>
 	</center>
 	<br>
-	<c:if test="${est.status eq 'Verified' }">
 		<section class="bcg" class="container" style="padding-top: 20px;">
 
 		<form class="container" modelAttribute="contract"
@@ -113,13 +112,7 @@
 				</div>
 		</form>
 		</section>
-	</c:if>
-	<c:if test="${est.status eq 'Rejected'}">
-	<h2>Your Status is REJECTED, You cannot apply for courses</h2>
-	</c:if>
-	<c:if test="${est.status eq 'Awaiting Verification'}">
-	<h2>Your profile is under Review, you can only add courses after verification process is complete</h2>
-	</c:if>
+
 	
 
 

@@ -12,10 +12,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.si.service.SearchEstService;
 import com.si.model.Establishment;
+
 /**
  * 
- * @author GR5 LTI
- * Controller to search for Establishments to apply to.
+ * @author GR5 LTI Controller to search for Establishments to apply to.
  *
  */
 @Controller
@@ -23,7 +23,9 @@ public class SearchController {
 
 	@Autowired
 	private SearchEstService eService;
-@RequestMapping("/searchEst{establishmentName}")
+
+	// Returns list of Establishments on basis of search terms
+	@RequestMapping("/searchEst{establishmentName}")
 	public ModelAndView viewSingleList(HttpServletRequest request, HttpServletResponse response) {
 		String establishmentName = request.getParameter("establishmentName");
 		System.out.println(establishmentName);

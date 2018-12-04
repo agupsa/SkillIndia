@@ -4,7 +4,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.si.model.Login;
 
-public class AdminDao {
+public class AdminDao implements AdminDaoInterface {
 
 	private JdbcTemplate jdbcTemplate;
 
@@ -20,16 +20,16 @@ public class AdminDao {
 		super();
 	}
 
+	//checks username and password for admin login
+	@Override
 	public Boolean adminLogin(Login login) {
-		// TODO Add Logger
-		System.out.println("inside admin logindao: "+login);
 		if (login.getUsername().equals("admin")) {
 			if (login.getPass().equals("pass")) {
-				System.out.println("Dao logged in");
+				
 				return true;
 			}
 		}
-		System.out.println("Dao not logged in");
+	
 		return false;
 	}
 

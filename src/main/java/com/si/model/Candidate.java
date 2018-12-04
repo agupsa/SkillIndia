@@ -1,8 +1,5 @@
 package com.si.model;
 
-/*import java.util.Collection;
-import java.util.Date;*/
-
 /**
  * 
  * @author Group5
@@ -32,28 +29,6 @@ public class Candidate {
 	
 	
 	private String[] filePath;
-
-
-	
-
-	/* Column mappings
-	gc_reg_no VARCHAR2(20) PRIMARY KEY,
-	gc_name VARCHAR2(30),
-	gc_gender VARCHAR2(30),
-	gc_dob DATE(30),
-	gc_username VARCHAR2(30) UNIQUE,
-	gc_pass VARCHAR2(30),
-	gc_contact_no NUMBER(10) UNIQUE,
-	gc_aadhar_no NUMBER(12) UNIQUE,
-	gc_father_name VARCHAR2(30),
-	gc_qualification VARCHAR2(30),
-	gc_college_name VARCHAR2(30),
-	gc_marks NUMBER(30),
-	gc_photo VARCHAR2(100),
-	gc_aadhar_card VARCHAR2(100),
-	gc_edu_certi VARCHAR2(100),
-	gc_status VARCHAR2(30)*/
-	
 	
 
 	public Address getAddr() {

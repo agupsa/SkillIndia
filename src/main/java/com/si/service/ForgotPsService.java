@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.si.dao.ForgotPsDao;
+import com.si.dao.ForgotPsDaoInterface;
 import com.si.model.Candidate;
 import com.si.model.Establishment;
 
@@ -13,7 +13,7 @@ import com.si.model.Establishment;
 public class ForgotPsService {
 
 	@Autowired
-	ForgotPsDao fpd;
+	ForgotPsDaoInterface fpd;
 	
 	public void forgotPassword(Candidate can) {
 	

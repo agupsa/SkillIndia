@@ -9,7 +9,7 @@ import com.si.model.Establishment;
 //TODO exception and error handling
 
 
-public class EstablishmentDao {
+public class EstablishmentDao implements EstablishmentDaoInterface {
 
 	private JdbcTemplate jdbcTemplate;
 
@@ -25,12 +25,16 @@ public class EstablishmentDao {
 		super();
 	}
 
+	//This method fetches primary key for Table from sequence
+	@Override
 	public int getSeq(String fetchPK) {
 		int pk = (int) jdbcTemplate.queryForObject(fetchPK, Integer.class);
 		return pk;
 
 	}
 
+	//This method Saves Establishment data in establishment table and address table  
+	@Override
 	public void registerEstablishment(Establishment e) {
 		
 		String paths = e.getFilePath();		

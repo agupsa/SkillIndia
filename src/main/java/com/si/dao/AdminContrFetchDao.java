@@ -11,7 +11,13 @@ import org.springframework.jdbc.core.ResultSetExtractor;
 
 import com.si.model.Contract;
 
-public class AdminContrFetchDao {
+/**
+ * 
+ * @author GR5 LTI Fetches Contract list on Requests of Admin
+ *
+ */
+
+public class AdminContrFetchDao implements AdminContrFetchDaoInterface {
 	JdbcTemplate jdbcTemplate;
 
 	public JdbcTemplate getJdbcTemplate() {
@@ -24,9 +30,11 @@ public class AdminContrFetchDao {
 
 	public AdminContrFetchDao() {
 		super();
-		
+
 	}
 
+	// Returns Lists of Contracts that have been finalized by both candidate and Establishment for final approval by admin
+	@Override
 	public List<Contract> getUnverifiedContr() {
 		String queryuContr = "select * from gr5_contract  left join gr5_candidate  on gr5_candidate.gc_reg_no=gr5_Contract.gof_gc_reg_no left join gr5_courses on gr5_courses.gco_course_id=gr5_contract.gof_gco_course_id where gr5_contract.gof_status='Accepted'";
 		List<Contract> uclst = jdbcTemplate.query(queryuContr, new ResultSetExtractor<List<Contract>>() {
@@ -52,8 +60,7 @@ public class AdminContrFetchDao {
 				return lst;
 			}
 
-		});	
-		System.out.println("Got list");
+		});
 		return uclst;
 	}
 

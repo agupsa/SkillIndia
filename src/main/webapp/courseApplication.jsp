@@ -151,7 +151,7 @@
          </tr>   
          <tr>    
           <td>Candidate Registration Number:</td>    
-          <td><input type="number" name="canRegNo" value="${canRegNo}" placeholder="Candidate Reg No" name="canRegNo" required/></td>  
+          <td><input type="number" name="canRegNo" value="${canRegNo}" <c:if test="${ canRegNo!=0}">  <c:out value="required"/> </c:if> placeholder="Candidate Reg No" name="canRegNo" required/></td>  
          </tr>   
          <tr>    
           <td> </td>    

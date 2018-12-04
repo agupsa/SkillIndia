@@ -12,7 +12,7 @@ import org.springframework.jdbc.core.ResultSetExtractor;
 import com.si.model.Contract;
 import com.si.model.Course;
 
-public class CourseApplicationDao {
+public class CourseApplicationDao implements CourseApplicationDaoInterface {
 
 	JdbcTemplate jdbcTemplate;
 
@@ -24,16 +24,11 @@ public class CourseApplicationDao {
 		this.jdbcTemplate = jdbcTemplate;
 	}
 
-	/*
-	 * public Course getCourse(int courseId){ System.out.println(courseId); String
-	 * sql="select * from gr5_courses where gco_course_id='" +courseId+ "'"; Course
-	 * c=jdbcTemplate.queryForObject(sql, new Object[]{courseId},new
-	 * BeanPropertyRowMapper<Course>(Course.class));
-	 * System.out.println(c.getCourseId()); return c; }
-	 */
-
+	
+    //get course object by course id
+	@Override
 	public Course getCourse(int courseId) {
-		System.out.println(courseId);
+		
 		String SQL = "select * from gr5_courses where gco_course_id='" + courseId + "'";
 		Course c = jdbcTemplate.query(SQL, new ResultSetExtractor<Course>() {
 
@@ -48,26 +43,28 @@ public class CourseApplicationDao {
 					cou.setTrainerContact(rs.getLong(4));
 					cou.setEstRegno(rs.getInt(6));
 					cou.setEstName(rs.getString(7));
-					System.out.println(cou);
 					return cou;
 
 				}
 				return co;
 			}
 		});
-		System.out.println("last :" + c.getCourseId() + "\t" + c.getCourseName());
+	
 		return c;
 	}
 
+	//sequence for contract no(primary key)
 	private int getSeq(String fetchcPK) {
 		int pk = (int) jdbcTemplate.queryForObject(fetchcPK, Integer.class);
 		return pk;
 
 	}
 
+	//save data of course application in contract
+	@Override
 	public void saveApplication(Contract contract) {
 		String fetchcPK = "select gr5_contract_seq.nextval from dual";
-		System.out.println(fetchcPK);
+	
 		contract.setLetterNo(getSeq(fetchcPK));
 		String sql = "insert into gr5_contract(GOF_LETTER_NO,GOF_GC_REG_NO, GOF_GE_REGNO, GOF_GE_EST_NAME, GOF_GCO_COURSE_ID,GOF_STATUS) values('"+ contract.getLetterNo() + "','"+ contract.getCanRegNo()+"'," + contract.getEstRegNo() + ",'" + contract.getEstName() + "','"+ contract.getCourseId() + "','Applied')";
 		jdbcTemplate.update(sql);
@@ -75,8 +72,9 @@ public class CourseApplicationDao {
 
 
 	//check candidate has already applied or not
+	@Override
 	public boolean checkCourse(Contract contract) {
-		System.out.println("check dao");
+		
 		List<Map<String, Object>> lst;
 		lst = jdbcTemplate.queryForList("select * from gr5_contract where GOF_GC_REG_NO='" + contract.getCanRegNo()
 				+ "' and GOF_GCO_COURSE_ID='" + contract.getCourseId() + "'");

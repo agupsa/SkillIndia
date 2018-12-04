@@ -12,7 +12,7 @@ import org.springframework.jdbc.core.ResultSetExtractor;
 import com.si.model.Address;
 import com.si.model.Establishment;
 
-public class EstablishmentSearchDao {
+public class EstablishmentSearchDao implements EstablishmentSearchDaoInterface {
 
 
 	JdbcTemplate jdbcTemplate;
@@ -26,6 +26,8 @@ public class EstablishmentSearchDao {
 		this.jdbcTemplate = jdbcTemplate;
 	}
 	
+	//This method Fetches search result of establishment 
+	@Override
 	public List<Establishment> getEstByName(String establishmentName) {
 		String sql = "select * from gr5_establishment left join gr5_address on gr5_establishment.ge_regno=gr5_address.ga_ge_regno where ge_est_name='"+establishmentName+"'";
 	   List<Establishment> est=jdbcTemplate.query(sql, new ResultSetExtractor<List<Establishment>>() {
@@ -47,9 +49,9 @@ public class EstablishmentSearchDao {
 	                e.setWorkdays(rs.getInt(7));
 	                e.setNameOfHead(rs.getString(8));
 	                e.setContactNo(rs.getLong(9));
-	                addr.setAddr(rs.getString(15));
-	                addr.setCity(rs.getString(16));
-	                addr.setState(rs.getString(17));
+	                addr.setAddr(rs.getString(17));
+	                addr.setCity(rs.getString(18));
+	                addr.setState(rs.getString(19));
 	         
 	            	e.setAddr(addr);
 	                lst.add(e);
@@ -59,7 +61,7 @@ public class EstablishmentSearchDao {
 	        }
 	 
 	    });
-	   System.out.println(est);
+	
 	return est;
 	}
 

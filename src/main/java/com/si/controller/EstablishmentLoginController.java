@@ -24,6 +24,12 @@ import com.si.model.Login;
 import com.si.service.EnterCourseService;
 import com.si.service.EstablishmentLoginService;
 
+/**
+ * 
+ * @author GR5 LTI
+ * Controller That Handles Establishment details after logging in
+ *
+ */
 @Controller
 @SessionAttributes({ "est", "drm" })
 public class EstablishmentLoginController {
@@ -32,17 +38,15 @@ public class EstablishmentLoginController {
 	@Autowired
 	EnterCourseService ecservice;
 
+	//Method to validate Login and return lists of application of candidates
 	@RequestMapping(value = "/establishmentlogin", method = { RequestMethod.POST, RequestMethod.GET })
 	public ModelAndView login(@ModelAttribute("login") Login login, HttpSession ses) {
 		ModelAndView mv = new ModelAndView("EstablishmentDash");
 		Establishment est = (Establishment) ses.getAttribute("est");
 		if (est == null) {
 			try {
-				System.out.println(login.getPass());
 				Object o = els.EstablishmentLoginValidation(login);
-				est = (Establishment) o;
-				System.out.println("Inside controller");
-				
+				est = (Establishment) o;				
 				if (est == null) {
 					return new ModelAndView("EstablishmentLogin","msg", "UserName or Password is wrong");
 					
@@ -54,7 +58,6 @@ public class EstablishmentLoginController {
 		ses.setAttribute("est", est);
 		ses.setMaxInactiveInterval(300);
 		List<DisplayRecordModel> drm = els.getDrm(est);
-		System.out.println(drm);
 		ses.setAttribute("drm", drm);
 		return mv;
 	}
@@ -74,10 +77,7 @@ public class EstablishmentLoginController {
 		 * Checks if contract number is registered or not If registered enter details
 		 * and send to candidate If not error
 		 */
-		System.out.println(contract.getStartDate());
 		int i = ecservice.checkContractNo(contract);
-
-		System.out.println(i);
 		if (i == 1) {
 			// if contract present
 			ecservice.saveContractDetails(contract);
@@ -88,9 +88,9 @@ public class EstablishmentLoginController {
 		}
 	}
 	
+	//This method redirects the to new form page adding contract number to session so that user doesn't have to enter it manually
 	@RequestMapping(value="/fillOffer/{letterNo}", method = RequestMethod.GET)
 	public ModelAndView fillOffer(@PathVariable int letterNo, HttpSession ses) {
-		System.out.println(letterNo);
 		ses.setAttribute("letterNo", letterNo);
 		return new ModelAndView("redirect:../sendOffer.jsp");
 	}
