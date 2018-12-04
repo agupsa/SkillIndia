@@ -10,6 +10,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,17 +60,17 @@ public class AdminController {
 
 	// This method Validates Admin Login
 	@RequestMapping("/adminLogin")
-	public ModelAndView adminLogin(@ModelAttribute("login") Login login) {
-			ModelAndView mv = new ModelAndView("AdminDash");
-			boolean o = alService.adminLogin(login);
-			if(o==true) {
-				mv.addObject("admin", login);
-			return mv;}
-			else {
-				return new ModelAndView("admin","msg","Wrong Username or password");
-			}
+	public ModelAndView adminLogin(@ModelAttribute("login") Login login, HttpSession ses) {
+		ModelAndView mv = new ModelAndView("AdminDash");
+		boolean o = alService.adminLogin(login);
+			if(o)
+				ses.setAttribute("admin", login);
+			else
+				ses.setAttribute("msg", "Wrong Username or Password");
+			return mv;
 		
-
+			/*return new ModelAndView("admin", "msg", "Wrong Username or password");*/
+		
 	}
 
 	// This Controller returns the list of Unverified Candidates
@@ -81,7 +82,7 @@ public class AdminController {
 			uCan = avcService.getUnverifiedCan();
 		} catch (Exception e) {
 			// TODO logger
-			return new ModelAndView("error", "msg", "Error" + e.getMessage());
+			return new ModelAndView("error", "exception", e);
 		}
 		if (uCan != null) {
 			mv.addObject("uCan", uCan);
@@ -135,7 +136,7 @@ public class AdminController {
 			uEst = aveService.getUnverifiedEst();
 		} catch (Exception e) {
 			// TODO logger
-			return new ModelAndView("error", "msg", "Error: " + e.getMessage());
+			return new ModelAndView("error", "exception", e);
 		}
 		if (uEst != null) {
 			mv.addObject("uEst", uEst);
@@ -175,7 +176,7 @@ public class AdminController {
 			uContr = avctrService.getUnverifiedContr();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			return new ModelAndView("error", "msg", "Error: " + e.getMessage());
+			return new ModelAndView("error", "exception", e);
 		}
 		if (uContr != null) {
 			mv.addObject("uContr", uContr);

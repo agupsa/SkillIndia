@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" isELIgnored = "false"%>
     <%@ page errorPage="error.jsp" %>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -258,30 +259,13 @@
   <script src="Bootstrap/contactform/contactform.js"></script>
   
  <!-- State Drop Down List Scripts -->
-    <script type="text/JavaScript" src='js/state.js'></script>
-   <script>
-    updateList = function() {
-      var input = document.getElementById('file');
-      var output = document.getElementById('fileList');
-
-      output.innerHTML = '<ul>';
-      for (var i = 0; i < input.files.length; ++i) {
-        output.innerHTML += '<li>' + input.files.item(i).name + '</li>';
-      }
-      output.innerHTML += '</ul>';
-    }
-    $( document ).ready(function() {
-        console.log( "document loaded" );
-         $( "#datepicker" ).datepicker();
-    });
-    
-    window.setTimeout(function() {
-	    $(".alert").fadeTo(500, 0).slideUp(500, function(){
-	        $(this).remove(); 
-	    });
-	}, 4000);
-      
-  </script>
-
+    <c:if test="${not empty msg}">
+    <script>
+    window.addEventListener("load",function(){
+         alert("${msg}");
+    })
+    </script>
+        <c:set var="msg" value="null"></c:set>
+</c:if>
 </body>
 </html>

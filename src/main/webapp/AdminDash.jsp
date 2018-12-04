@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" isELIgnored="false"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,7 +44,7 @@
 	%>
 	<%
 		if (session.getAttribute("admin") == null)
-			response.sendRedirect("../admin");
+			response.sendRedirect("redirect:/admin.jsp");
 	%>
 
 	<!-- Form Heading -->
@@ -104,13 +105,12 @@
 	<!-- #header -->
 
 	<div class="bcg">
-		<br>
-		<br>
+		<br> <br>
 		<section>
 			<center>
 				<h1>Welcome TO Skill India</h1>
 			</center>
-			</section>
+		</section>
 	</div>
 	<br></br>
 
@@ -137,6 +137,15 @@
 	<script src="Bootstrap/js/candidate.js"></script>
 
 	<script src="Bootstrap/contactform/contactform.js"></script>
+
+	<c:if test="${not empty msg}">
+		<script>
+			window.addEventListener("load", function() {
+				alert("${msg}");
+			})
+		</script>
+		<c:set var="msg" value="null"></c:set>
+	</c:if>
 
 </body>
 </html>

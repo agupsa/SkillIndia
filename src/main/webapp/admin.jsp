@@ -111,14 +111,12 @@ Login<i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
 
 	<script src="Bootstrap/contactform/contactform.js"></script>
 	
-<%-- <c:if test="${not empty msg}"> --%>
+<c:if test="${not empty msg}">
     <script>
-
-    function checkmsg() {
-    	 alert("${msg}");
-    }
+    window.addEventListener("load",function(){
+         alert("${msg}");
+    })
     </script>
-<%--     </c:if> --%>
-
+</c:if>
 </body>
 </html>

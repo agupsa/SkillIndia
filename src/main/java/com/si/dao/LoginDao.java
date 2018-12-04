@@ -120,7 +120,7 @@ public class LoginDao implements LoginDaoInterface {
 				Course course = new Course();
 
 				contract.setLetterNo(rs.getInt(1));
-				contract.setCourseId(rs.getInt(27));
+				course.setCourseId(rs.getInt(27));
 				course.setCourseName(rs.getString(28));
 				contract.setCanRegNo(rs.getInt(2));
 				candidate.setName(rs.getString(12));

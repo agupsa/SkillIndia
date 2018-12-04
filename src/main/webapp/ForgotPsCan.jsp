@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" isELIgnored = "false"%>
       <%@ page errorPage="error.jsp" %>
 <!DOCTYPE html>
 
@@ -186,6 +186,7 @@
   <script src="Bootstrap/js/candidate.js"></script>
 
   <script src="Bootstrap/contactform/contactform.js"></script>
+
 
 </body>
 </html>

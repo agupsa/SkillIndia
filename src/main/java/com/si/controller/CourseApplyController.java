@@ -64,11 +64,11 @@ public class CourseApplyController {
 		if (check==false) {
 			//if new registration
 			caService.saveApplication(contract);
-			return new ModelAndView("courseRegister","message", "Course Application is Successful!");
+			return new ModelAndView("courseRegister","msg", "Course Application is Successful!");
 		} 
 		else
 		{   //if already registered
-			return new ModelAndView("courseRegister", "message", "Already registered for course..Cannot apply again");
+			return new ModelAndView("courseRegister", "msg", "Already registered for course..Cannot apply again");
 			
 		}
 	}

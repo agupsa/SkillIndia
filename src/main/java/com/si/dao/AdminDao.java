@@ -3,6 +3,7 @@ package com.si.dao;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.si.model.Login;
+import com.si.model.MD5;
 
 public class AdminDao implements AdminDaoInterface {
 
@@ -24,7 +25,7 @@ public class AdminDao implements AdminDaoInterface {
 	@Override
 	public Boolean adminLogin(Login login) {
 		if (login.getUsername().equals("admin")) {
-			if (login.getPass().equals("pass")) {
+			if (login.getPass().equals(MD5.getMd5("pass"))) {
 				
 				return true;
 			}

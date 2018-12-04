@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"  isELIgnored = "false"%>
-	    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	pageEncoding="ISO-8859-1" isELIgnored="false"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -78,9 +78,9 @@
 
 			<tr valign="top">
 				<td><b>Stack trace:</b></td>
-				<td><c:forEach items="${pageContext.exception.stackTrace}" var="trace">
-						<p>${trace}</p>
-					</c:forEach></td>
+				<td>
+					<p>${pageContext.exception.message}</p>
+				</td>
 			</tr>
 		</table>
 

@@ -209,7 +209,14 @@
 	<script src="Bootstrap/js/custom.js"></script>
 
 	<script src="Bootstrap/contactform/contactform.js"></script>
-
+    <c:if test="${not empty msg}">
+    <script>
+    window.addEventListener("load",function(){
+         alert("${msg}");
+    })
+    </script>
+        <c:set var="msg" value="null"></c:set>
+</c:if>
 
 </body>
 </html>

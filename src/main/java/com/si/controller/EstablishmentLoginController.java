@@ -85,7 +85,7 @@ public class EstablishmentLoginController {
 			ecService.saveContractDetails(contract);
 			return new ModelAndView("redirect:establishmentlogin", "message", "Contract Data saved successfully");
 		} else  { // if contract not present
-			return new ModelAndView("sendOffer", "message", "Check Contract Number");
+			return new ModelAndView("sendOffer", "msg", "Check Contract Number");
 
 		}
 	}

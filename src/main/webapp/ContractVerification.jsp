@@ -149,6 +149,10 @@
 		<br>
 		<br>
 
-
+    <script>
+    window.addEventListener("load",function(){
+         alert("${msg}");
+    })
+    </script>
 		</body>
 </html>

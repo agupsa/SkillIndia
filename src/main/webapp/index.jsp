@@ -115,6 +115,7 @@
          alert("${msg}");
     })
     </script>
+    <c:set var="msg" value="null"></c:set>
 </c:if>
 
 
@@ -142,29 +143,7 @@
   
  <!-- State Drop Down List Scripts -->
     <script type="text/JavaScript" src='js/state.js'></script>
-   <script>
-    updateList = function() {
-      var input = document.getElementById('file');
-      var output = document.getElementById('fileList');
 
-      output.innerHTML = '<ul>';
-      for (var i = 0; i < input.files.length; ++i) {
-        output.innerHTML += '<li>' + input.files.item(i).name + '</li>';
-      }
-      output.innerHTML += '</ul>';
-    }
-    $( document ).ready(function() {
-        console.log( "document loaded" );
-         $( "#datepicker" ).datepicker();
-    });
-    
-    window.setTimeout(function() {
-	    $(".alert").fadeTo(500, 0).slideUp(500, function(){
-	        $(this).remove(); 
-	    });
-	}, 4000);
-      
-  </script>
 
 
 </body>

@@ -147,6 +147,13 @@
 	</center>
     </div>
 
-
+      <c:if test="${not empty msg}">
+    <script>
+    window.addEventListener("load",function(){
+         alert("${msg}");
+    })
+    </script>
+        <c:set var="msg" value="null"></c:set>
+</c:if>
 </body>
 </html>
