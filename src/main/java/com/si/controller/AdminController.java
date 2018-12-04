@@ -3,7 +3,6 @@ package com.si.controller;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URLConnection;
@@ -14,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -41,27 +39,21 @@ import com.si.service.AdminVerifyEstServiceInterface;
 // Controller to handle admin request
 @Controller
 public class AdminController {
-	/*
-	 * Login Service
-	 */
+
+	// Login Service
+
 	@Autowired
 	AdminLoginServiceInterface alService;
 
-	/*
-	 * Service for handling Candidate data
-	 */
+	// Service for handling Candidate data
 	@Autowired
 	AdminVerifyCanServiceInterface avcService;
 
-	/*
-	 * Service to handle Establishment Data
-	 */
+	// Service to handle Establishment Data
 	@Autowired
 	AdminVerifyEstServiceInterface aveService;
 
-	/*
-	 * Service to handle Contract Data
-	 */
+	// Service to handle Contract Data
 	@Autowired
 	AdminVerifyContrServiceInterface avctrService;
 
@@ -69,15 +61,17 @@ public class AdminController {
 	@RequestMapping("/adminLogin")
 	public ModelAndView adminLogin(@ModelAttribute("login") Login login) {
 		try {
-			System.out.println(login);
 			ModelAndView mv = new ModelAndView("AdminDash");
 			boolean o = alService.adminLogin(login);
-			mv.addObject("admin", login);
+			if(o==true) {
+				mv.addObject("admin", login);
 
 			// TODO logger
-			return mv;
+			return mv;}
+			else {
+				return new ModelAndView("error","msg","Wrong Username or password");
+			}
 		} catch (Exception e) {
-			System.out.println("Exception");
 			// TODO logger
 			return new ModelAndView("error", "Exception", e);
 		}
@@ -97,7 +91,6 @@ public class AdminController {
 		}
 		if (uCan != null) {
 			mv.addObject("uCan", uCan);
-			System.out.println("got unverified Can list");
 			return mv;
 		}
 		mv.addObject("msg", "No More Requests to process");
@@ -139,7 +132,6 @@ public class AdminController {
 		IOUtils.copy(in, response.getOutputStream()); // sends file to view
 	}
 
-	
 	// This method returns the list of unverified Establishments
 	@RequestMapping("/estver")
 	public ModelAndView validateEstablishment() {
@@ -153,24 +145,23 @@ public class AdminController {
 		}
 		if (uEst != null) {
 			mv.addObject("uEst", uEst);
-		}else {
-			mv.addObject("msg",  "No Establishment for verification");
+		} else {
+			mv.addObject("msg", "No Establishment for verification");
 		}
 		return mv;
 	}
 
-	// Method to change status of Establishment based on admin action (Accept/Reject)
+	// Method to change status of Establishment based on admin action
+	// (Accept/Reject)
 	@RequestMapping(value = "/everify/{estRegNo}/{action}", method = RequestMethod.GET)
 	public ModelAndView verifyEstablishment(@PathVariable("estRegNo") int estRegno, @PathVariable("action") int action,
 			HttpServletRequest req) {
 		ModelAndView mv = new ModelAndView("redirect:../../estver");
-		System.out.println(estRegno + "\t" + action);
 		int i = 0;
 		try {
 			i = aveService.setEstVerification(estRegno, action);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 		if (i > 0) {
 			mv.addObject("msg", "Action Succesfull");
@@ -181,7 +172,7 @@ public class AdminController {
 	}
 
 	// This method returns the list of contracts for admin approval
-	
+
 	@RequestMapping("/contrver")
 	public ModelAndView verifyContract() {
 		ModelAndView mv = new ModelAndView("ContractVerification");
@@ -210,7 +201,6 @@ public class AdminController {
 			i = avctrService.setContrVerification(letterNo, action);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 		if (i > 0) {
 			mv.addObject("msg", "Action Succesfull");

@@ -17,7 +17,7 @@ import com.si.service.EstablishmentRegService;
 /**
  * 
  * @author GR5 LTI
- * Controller to Register users
+ * Controller to Register Candidates and Establishment
  *
  */
 @Controller

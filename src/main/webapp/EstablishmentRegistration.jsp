@@ -346,7 +346,7 @@
           <label class="control-label">Upload Proof</label><font style= "color:red;">*</font>
           <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-files-o" aria-hidden="true"></i></span>
-            <input class="form-control" name="files" type="file" required="required" onchange="javascript:updateList();">
+            <input class="form-control" name="files" type="file" required="required" onchange="validate_fileupload(this.value);">
           </div>
         </div>
 
@@ -455,20 +455,21 @@
 
 
 	<script>
-		updateList = function() {
-			var input = document.getElementById('file');
-			var output = document.getElementById('fileList');
+	function validate_fileupload(fileName)
+	{
+	    var allowed_extensions = new Array("jpg","png","gif");
+	    var file_extension = fileName.split('.').pop().toLowerCase(); // split function will split the filename by dot(.), and pop function will pop the last element from the array which will give you the extension as well. If there will be no extension then it will return the filename.
 
-			output.innerHTML = '<ul>';
-			for (var i = 0; i < input.files.length; ++i) {
-				output.innerHTML += '<li>' + input.files.item(i).name + '</li>';
-			}
-			output.innerHTML += '</ul>';
-		}
-		$(document).ready(function() {
-			console.log("document loaded");
-			$("#datepicker").datepicker();
-		});
+	    for(var i = 0; i <= allowed_extensions.length; i++)
+	    {
+	        if(allowed_extensions[i]==file_extension)
+	        {
+	            return true; // valid file extension
+	        }
+	    }
+
+	    return false;
+	}
 	</script>
 
 </body>

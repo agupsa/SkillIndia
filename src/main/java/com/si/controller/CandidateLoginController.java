@@ -44,7 +44,6 @@ public class CandidateLoginController {
 		if (can == null) {
 			try {
 
-				System.out.println(login.getPass());
 				can = (Candidate) cls.userLoginValidation(login);
 				if (can == null) {
 					return new ModelAndView("CandidateLogin", "msg", "UserName or Password is wrong");
