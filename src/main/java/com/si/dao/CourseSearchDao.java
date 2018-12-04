@@ -38,6 +38,8 @@ public class CourseSearchDao implements CourseSearchDaoInterface {
 					c.setCourseId(rs.getInt(1));
 					c.setCourseName(rs.getString(2));
 					c.setTrainerName(rs.getString(3));
+					c.setTrainerContact(rs.getLong(4));
+					c.setDomainName(rs.getString(5));
 					c.setEstRegno(rs.getInt(6));
 					c.setEstName(rs.getString(7));
 					lst.add(c);

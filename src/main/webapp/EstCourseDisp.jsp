@@ -88,30 +88,6 @@
 			</div>
 
 			<nav id="nav-menu-container">
-       <!--  <ul class="nav-menu">
-          <li><a href="#about">About Us</a></li>
-        
-         
-        <li class="menu-has-children"><a href="">Candidate</a>
-            <ul>
-              <li><a href="CandidateRegister.jsp">Candidate Register</a></li>
-              <li><a href="CandidateLogin.jsp">Candidate Login</a></li>
-             </ul>
-          </li>
-     
-      <li class="menu-has-children"><a href="">Establishment</a>
-            <ul>
-              <li><a href="EstablishmentRegistration.jsp">Establishment Register</a></li>
-              <li><a href="EstablishmentLogin.jsp">Establishment Login</a></li>
-             </ul>
-          </li>
-        </ul>
-        <ul class="nav-menu">
-         <li><a href="search.jsp">Search</a></li>
-         </ul>
-          <ul class="nav-menu">
-         <li><a href="courseApply.jsp">Course Form</a></li>
-         </ul> -->
 			<ul class="nav-menu">
 				<li><a href="EnterCourse.jsp">Enter Course</a></li>
 			</ul>
@@ -147,7 +123,7 @@
 			</div>
 
 			<br />
-			<p>Application Status:</p>
+			<p>Courses:</p>
 			<!-- TO BE FILLED BY DB VALUES -->
 			<div class="form-row" style="margin: 0 auto;">
 				<div class="form-group col-md-12" style="padding: 0;">
@@ -156,48 +132,23 @@
 					<table class="table table-striped table-bordered table-hover">
 						<thead>
 							<tr>
-								<th>Contract Number</th>
-								<th>Candidate Registration Number</th>
-								<th>Candidate Name</th>
-								<th>Candidate Gender</th>
-								<th>Candidate DOB</th>
-								<th>Candidate Contact Number</th>
-								<th>Candidate Qualification</th>
-								<th>Candidate Marks</th>
 								<th>Course Id</th>
 								<th>Course Name</th>
-								<th>Stipend</th>
-								<th>Start Date</th>
-								<th>End Date</th>
-								<th>Status</th>
-								<th>Send Offer</th>
-								<th>Reject Application</th>
-							</tr>
-						</thead>
+								<th>Trainer Name</th>
+								<th>Trainer Contact</th>
+								<th>Domain</th>
+								</tr>
 						</thead>
 						<tbody>
 
-							<c:forEach items="${drm}" var="drm">
+							<c:forEach items="${courses}" var="cou">
 
 								<tr>
-									<td>${drm.contract.letterNo}</td>
-									<td>${drm.contract.canRegNo}</td>
-									<td>${drm.candidate.name}</td>
-									<td>${drm.candidate.gender}</td>
-									<td>${drm.candidate.dob}</td>
-									<td>${drm.candidate.contactNo}</td>
-									<td>${drm.candidate.qualification}</td>
-									<td>${drm.candidate.marks}</td>
-									<td>${drm.contract.courseId}</td>
-									<td>${drm.course.courseName}</td>
-									<td>${drm.contract.stipend}</td>
-									<td>${drm.contract.startDate}</td>
-									<td>${drm.contract.endDate}</td>
-									<td>${drm.contract.status}</td>
-									<c:if test="${drm.contract.status eq 'Applied'}">
-										<td><a href="fillOffer/${drm.contract.letterNo}">Fill Offer letter</a></td>
-										<td><a href="reject/${drm.contract.letterNo}">Reject</a></td>
-									</c:if>
+									<td>${cou.courseId}</td>
+									<td>${cou.courseName}</td>
+									<td>${cou.trainerName}</td>
+									<td>${cou.trainerContact}</td>
+									<td>${cou.domainName}</td>
 								</tr>
 							</c:forEach>
 
@@ -259,29 +210,6 @@
 
 	<script src="Bootstrap/contactform/contactform.js"></script>
 
-
-	<!-- 	<script>
-		updateList = function() {
-			var input = document.getElementById('file');
-			var output = document.getElementById('fileList');
-
-			output.innerHTML = '<ul>';
-			for (var i = 0; i < input.files.length; ++i) {
-				output.innerHTML += '<li>' + input.files.item(i).name + '</li>';
-			}
-			output.innerHTML += '</ul>';
-		}
-		$(document).ready(function() {
-			console.log("document loaded");
-			$("#datepicker").datepicker();
-		});
-
-		window.setTimeout(function() {
-			$(".alert").fadeTo(500, 0).slideUp(500, function() {
-				$(this).remove();
-			});
-		}, 4000);
-	</script> -->
 
 </body>
 </html>

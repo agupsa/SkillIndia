@@ -133,6 +133,7 @@
 				<tr>
 					<th>Reg_no</th>
 					<th>Est Name</th>
+					<th>Domain Name</th>
 					<th>Course Id</th>
 					<th>Course Display</th>
 					<th>Trainer Name</th>
@@ -142,6 +143,7 @@
 					<tr>
 						<td>${temp.estRegno }</td>
 						<td>${temp.estName }</td>
+						<td>${temp.domainName }</td>
 						<td>${temp.courseId}</td>
 						<td>${temp.courseName}</td>
 						<td>${temp.trainerName}</td>

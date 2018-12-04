@@ -92,29 +92,9 @@
 		<br>
 		<section>
 			<center>
-				<!-- Displaying selected establishment information in table -->
-				<h2>Current Courses</h2>
-				<table border="2" width="70%" cellpadding="2">
-					<tr>
-						<th>Course Id</th>
-						<th>Course Name</th>
-						<th>Candidate</th>
-						<th>Establishment Name</th>
-						<th>Status</th>
-					</tr>
-					<c:forEach items="${contract}" var="con">
-						<tr>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td>
-								<%-- <a href="searchCourse/${temp.estRegNo}">Display</a> --%>
-							</td>
-						</tr>
-					</c:forEach>
-				</table>
+				<h1>Welcome TO Skill India</h1>
 			</center>
+			</section>
 	</div>
 	<br></br>
 

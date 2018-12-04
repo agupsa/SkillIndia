@@ -22,6 +22,8 @@ import com.si.model.Establishment;
 import com.si.model.Login;
 import com.si.service.EnterCourseServiceInterface;
 import com.si.service.EstablishmentLoginServiceInterface;
+import com.si.service.SearchCourseServiceInterface;
+import com.si.service.SearchEstServiceInterface;
 
 /**
  * 
@@ -33,9 +35,11 @@ import com.si.service.EstablishmentLoginServiceInterface;
 @SessionAttributes({ "est", "drm" })
 public class EstablishmentLoginController {
 	@Autowired
-	EstablishmentLoginServiceInterface els;
+	EstablishmentLoginServiceInterface elService;
 	@Autowired
-	EnterCourseServiceInterface ecservice;
+	EnterCourseServiceInterface ecService;
+	@Autowired
+	SearchCourseServiceInterface scService;
 
 	//Method to validate Login and return lists of application of candidates
 	@RequestMapping(value = "/establishmentlogin", method = { RequestMethod.POST, RequestMethod.GET })
@@ -44,7 +48,7 @@ public class EstablishmentLoginController {
 		Establishment est = (Establishment) ses.getAttribute("est");
 		if (est == null) {
 			try {
-				Object o = els.EstablishmentLoginValidation(login);
+				Object o = elService.EstablishmentLoginValidation(login);
 				est = (Establishment) o;				
 				if (est == null) {
 					return new ModelAndView("EstablishmentLogin","msg", "UserName or Password is wrong");
@@ -56,7 +60,7 @@ public class EstablishmentLoginController {
 		}
 		ses.setAttribute("est", est);
 		ses.setMaxInactiveInterval(300);
-		List<DisplayRecordModel> drm = els.getDrm(est);
+		List<DisplayRecordModel> drm = elService.getDrm(est);
 		ses.setAttribute("drm", drm);
 		return mv;
 	}
@@ -64,7 +68,7 @@ public class EstablishmentLoginController {
 	// Enter Course controller by establishment
 	@RequestMapping(value = "/enterCourse", method = RequestMethod.POST)
 	public ModelAndView EstablishmentRegister(@ModelAttribute("course") Course course) {
-		ecservice.enterCourse(course);
+		ecService.enterCourse(course);
 		return new ModelAndView("EstablishmentDash");
 	}
 
@@ -76,10 +80,10 @@ public class EstablishmentLoginController {
 		 * Checks if contract number is registered or not If registered enter details
 		 * and send to candidate If not error
 		 */
-		int i = ecservice.checkContractNo(contract);
+		int i = ecService.checkContractNo(contract);
 		if (i == 1) {
 			// if contract present
-			ecservice.saveContractDetails(contract);
+			ecService.saveContractDetails(contract);
 			return new ModelAndView("redirect:establishmentlogin", "message", "Contract Data saved successfully");
 		} else  { // if contract not present
 			return new ModelAndView("sendOffer", "message", "Check Contract Number");
@@ -97,8 +101,18 @@ public class EstablishmentLoginController {
 	/* It will reject the candidate application by establishment */
 	@RequestMapping(value = "/reject/{letterNo}", method = RequestMethod.GET)
 	public ModelAndView rejectApply(@PathVariable int letterNo) {
-		ecservice.rejectApply(letterNo);
+		ecService.rejectApply(letterNo);
 		return new ModelAndView("redirect:../establishmentlogin");
 	}
 
+	// List all courses of the establishment
+	@RequestMapping("/listcourses")
+	public ModelAndView showAllCourses(HttpSession ses) {
+		ModelAndView mv = new ModelAndView("EstCourseDisp");
+		Establishment est = (Establishment)ses.getAttribute("est");
+		List<Course> cou = scService.getCourseById(est.getEstRegNo());
+		ses.setAttribute("courses", cou);
+		return mv;
+		
+	}
 }
