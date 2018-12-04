@@ -12,18 +12,21 @@ import com.si.model.Establishment;
 
 @Service
 @Transactional
-public class AdminVerifyEstService {
+public class AdminVerifyEstService implements AdminVerifyEstServiceInterface {
 	@Autowired
 	AdminEstFetchDaoInterface aefDao;
 	
 	@Autowired
 	AdminEstSetStatusDaoInterface aessDao;
 
+	
+	@Override
 	public List<Establishment> getUnverifiedEst() {
 		
 		return aefDao.getUnverifiedEst();
 	}
 
+	@Override
 	public int setEstVerification(int estRegno, int action) {
 		
 		return aessDao.setEstStatus(estRegno, action);

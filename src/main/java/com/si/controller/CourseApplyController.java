@@ -13,8 +13,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.si.model.Contract;
 import com.si.model.Course;
-import com.si.service.CourseApplicationService;
-import com.si.service.SearchCourseService;
+import com.si.service.CourseApplicationServiceInterface;
+import com.si.service.SearchCourseServiceInterface;
 
 
 /**
@@ -29,9 +29,9 @@ import com.si.service.SearchCourseService;
 public class CourseApplyController {
 
 	@Autowired
-	SearchCourseService scService;
+	SearchCourseServiceInterface scService;
 	@Autowired
-	CourseApplicationService caService;
+	CourseApplicationServiceInterface caService;
 
 	// search course by establishment reg no
 	@RequestMapping("/searchCourse/{estRegNo}")

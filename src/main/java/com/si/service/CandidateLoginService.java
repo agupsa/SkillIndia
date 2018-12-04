@@ -14,14 +14,17 @@ import com.si.model.Login;
 
 @Service
 @Transactional
-public class CandidateLoginService {
+public class CandidateLoginService implements CandidateLoginServiceInterface {
 	@Autowired
 	LoginDaoInterface ldao;
 
+
+	@Override
 	public Object userLoginValidation(Login login) {
 		return ldao.userLoginValidation(login);
 	}
 
+	@Override
 	public List<DisplayRecordModel> getDrmForCan(Candidate can) {
 	
 		List<DisplayRecordModel> drm=ldao.getDrmForCan(can);

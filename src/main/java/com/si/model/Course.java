@@ -15,7 +15,7 @@ public class Course {
 	private String trainerName;
 	private long trainerContact;
 	private String domainName;
-	private int estRegno;		
+	private int estRegno;		//Foreign Key
 	private String estName;     
 	
 	

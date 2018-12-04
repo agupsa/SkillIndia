@@ -26,10 +26,10 @@ import com.si.model.Candidate;
 import com.si.model.Contract;
 import com.si.model.Establishment;
 import com.si.model.Login;
-import com.si.service.AdminVerifyCanService;
-import com.si.service.AdminVerifyContrService;
-import com.si.service.AdminVerifyEstService;
-import com.si.service.AdminloginService;
+import com.si.service.AdminLoginServiceInterface;
+import com.si.service.AdminVerifyCanServiceInterface;
+import com.si.service.AdminVerifyContrServiceInterface;
+import com.si.service.AdminVerifyEstServiceInterface;
 
 /**
  * 
@@ -45,25 +45,25 @@ public class AdminController {
 	 * Login Service
 	 */
 	@Autowired
-	AdminloginService alService;
+	AdminLoginServiceInterface alService;
 
 	/*
 	 * Service for handling Candidate data
 	 */
 	@Autowired
-	AdminVerifyCanService avcService;
+	AdminVerifyCanServiceInterface avcService;
 
 	/*
 	 * Service to handle Establishment Data
 	 */
 	@Autowired
-	AdminVerifyEstService aveService;
+	AdminVerifyEstServiceInterface aveService;
 
 	/*
 	 * Service to handle Contract Data
 	 */
 	@Autowired
-	AdminVerifyContrService avctrService;
+	AdminVerifyContrServiceInterface avctrService;
 
 	// This method logs in Admin
 	@RequestMapping("/adminLogin")

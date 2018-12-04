@@ -12,7 +12,7 @@ import com.si.model.Candidate;
 
 @Service
 @Transactional
-public class AdminVerifyCanService {
+public class AdminVerifyCanService implements AdminVerifyCanServiceInterface {
 	
 	@Autowired
 	AdminCanFetchDaoInterface acfDao;
@@ -20,16 +20,20 @@ public class AdminVerifyCanService {
 	@Autowired
 	AdminCanSetStatusInterface acssDao;
 
+
+	@Override
 	public String getFilePath(int canRegNo, int fileId) {
 		
 		return acfDao.getFilePath(canRegNo, fileId);
 	}
 	
+	@Override
 	public List<Candidate> getUnverifiedCan() {
 		List<Candidate> ucanlst = acfDao.getUnverifiedCan();
 		return ucanlst;
 	}
 
+	@Override
 	public int setCanVerification(int canRegno, int action) {
 		
 		

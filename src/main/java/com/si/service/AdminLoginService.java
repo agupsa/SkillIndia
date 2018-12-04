@@ -11,12 +11,13 @@ import com.si.model.Login;
 
 @Service
 @Transactional
-public class AdminloginService {
+public class AdminLoginService implements AdminLoginServiceInterface {
 	@Autowired
 	AdminDaoInterface adao;
 
+	
+	@Override
 	public Boolean adminLogin(Login login) {
-		System.out.println(login);
 		return adao.adminLogin(login);
 	}
 	

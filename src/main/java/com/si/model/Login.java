@@ -1,5 +1,7 @@
 package com.si.model;
 
+
+//Model class for login form
 public class Login {
 	private String username;
 	private String pass;

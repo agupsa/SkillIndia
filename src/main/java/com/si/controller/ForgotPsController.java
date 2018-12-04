@@ -9,7 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.si.model.Candidate;
 import com.si.model.Establishment;
-import com.si.service.ForgotPsService;
+import com.si.service.ForgotPsServiceInterface;
 
 /**
  * 
@@ -22,7 +22,7 @@ import com.si.service.ForgotPsService;
 public class ForgotPsController {
 
 	@Autowired
-	ForgotPsService fps;
+	ForgotPsServiceInterface fps;
 
 	// Method for Candidate Request of Forget password
 	@RequestMapping(value = "/forgotPsCan", method = RequestMethod.POST)

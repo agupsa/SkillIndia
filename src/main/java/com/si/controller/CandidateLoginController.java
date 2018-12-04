@@ -15,8 +15,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.si.model.Candidate;
 import com.si.model.DisplayRecordModel;
 import com.si.model.Login;
-import com.si.service.CandidateLoginService;
-import com.si.service.EnterCourseService;
+import com.si.service.CandidateLoginServiceInterface;
+import com.si.service.EnterCourseServiceInterface;
 
 /**
  * 
@@ -28,9 +28,9 @@ import com.si.service.EnterCourseService;
 @Controller
 public class CandidateLoginController {
 	@Autowired
-	CandidateLoginService cls;
+	CandidateLoginServiceInterface cls;
 	@Autowired
-	EnterCourseService ecservice;
+	EnterCourseServiceInterface ecservice;
 
 	/*
 	 * Method validates login requests and shows candidate application status if

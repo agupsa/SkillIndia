@@ -10,8 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.si.service.SearchEstService;
 import com.si.model.Establishment;
+import com.si.service.SearchEstServiceInterface;
 
 /**
  * 
@@ -22,7 +22,7 @@ import com.si.model.Establishment;
 public class SearchController {
 
 	@Autowired
-	private SearchEstService eService;
+	private SearchEstServiceInterface eService;
 
 	// Returns list of Establishments on basis of search terms
 	@RequestMapping("/searchEst{establishmentName}")

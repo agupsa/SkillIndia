@@ -9,11 +9,12 @@ import com.si.dao.EstablishmentSearchDaoInterface;
 import com.si.model.Establishment;
 
 @Service
-public class SearchEstService {
+public class SearchEstService implements SearchEstServiceInterface {
 
 	@Autowired
     EstablishmentSearchDaoInterface esdao;
 	
+	@Override
 	public List<Establishment> getEstByName(String establishmentName) {
 		return esdao.getEstByName(establishmentName);
 		
@@ -21,3 +22,4 @@ public class SearchEstService {
 	}
 
 }
+r

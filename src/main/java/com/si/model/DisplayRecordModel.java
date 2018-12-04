@@ -1,5 +1,7 @@
 package com.si.model;
 
+
+//Model Class for join table of candidate apprenticeship data
 public class DisplayRecordModel {
 
 	private Contract contract;

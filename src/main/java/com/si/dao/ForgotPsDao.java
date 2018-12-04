@@ -19,9 +19,6 @@ public class ForgotPsDao implements ForgotPsDaoInterface {
 
 
 	//This Method is for Candidate to reset password if they forget it
-	/* (non-Javadoc)
-	 * @see com.si.dao.ForgotPsDaoInterface#forgotPassword(com.si.model.Candidate)
-	 */
 	@Override
 	public void forgotPassword(Candidate can) {
 		

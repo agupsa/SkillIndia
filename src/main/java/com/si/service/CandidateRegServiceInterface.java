@@ -6,11 +6,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.si.model.Candidate;
 
 public interface CandidateRegServiceInterface {
-
-
-
-
-
-	void registerCandidate(Candidate c, MultipartFile... files);
+	public void registerCandidate(Candidate c, MultipartFile... files);
+	public String[] saveFiles(Candidate c, MultipartFile[] files);
 
 }

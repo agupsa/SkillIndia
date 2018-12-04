@@ -10,11 +10,12 @@ import com.si.model.Course;
 
 
 @Service
-public class SearchCourseService {
+public class SearchCourseService implements SearchCourseServiceInterface {
 
 	@Autowired
     CourseSearchDaoInterface csdao;
 	
+	@Override
 	public List<Course> getCourseById(int estRegNo) {
 		return csdao.getCourseById(estRegNo);
 		

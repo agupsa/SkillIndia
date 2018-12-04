@@ -10,17 +10,19 @@ import com.si.model.Establishment;
 
 @Service
 @Transactional
-public class ForgotPsService {
+public class ForgotPsService implements ForgotPsServiceInterface {
 
 	@Autowired
 	ForgotPsDaoInterface fpd;
 	
+	@Override
 	public void forgotPassword(Candidate can) {
 	
 		fpd.forgotPassword(can);
 			
 	}
 
+	@Override
 	public void forgotPasswordEst(Establishment est) {
 	
 		fpd.forgotPasswordEst(est);

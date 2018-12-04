@@ -21,8 +21,8 @@ import com.si.model.Course;
 import com.si.model.DisplayRecordModel;
 import com.si.model.Establishment;
 import com.si.model.Login;
-import com.si.service.EnterCourseService;
-import com.si.service.EstablishmentLoginService;
+import com.si.service.EnterCourseServiceInterface;
+import com.si.service.EstablishmentLoginServiceInterface;
 
 /**
  * 
@@ -34,9 +34,9 @@ import com.si.service.EstablishmentLoginService;
 @SessionAttributes({ "est", "drm" })
 public class EstablishmentLoginController {
 	@Autowired
-	EstablishmentLoginService els;
+	EstablishmentLoginServiceInterface els;
 	@Autowired
-	EnterCourseService ecservice;
+	EnterCourseServiceInterface ecservice;
 
 	//Method to validate Login and return lists of application of candidates
 	@RequestMapping(value = "/establishmentlogin", method = { RequestMethod.POST, RequestMethod.GET })

@@ -12,17 +12,16 @@ package com.si.model;
 public class Contract {
 	
 	private int letterNo;  //primary key Auto generated
-	private int canRegNo;
+	private int canRegNo;	//Foreign key
 	private String canName;
-	private int estRegNo;
+	private int estRegNo;	//Foreign key
 	private String estName;
-	private int courseId;
+	private int courseId;	//Foreign Key
 	private String courseName;
 	private float stipend;
 	private String startDate;
 	private String endDate;
 	private String status;
-	//private String contractPath;
 	public Contract() {}
 	
 	
