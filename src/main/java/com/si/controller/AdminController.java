@@ -57,24 +57,18 @@ public class AdminController {
 	@Autowired
 	AdminVerifyContrServiceInterface avctrService;
 
-	// This method logs in Admin
+	// This method Validates Admin Login
 	@RequestMapping("/adminLogin")
 	public ModelAndView adminLogin(@ModelAttribute("login") Login login) {
-		try {
 			ModelAndView mv = new ModelAndView("AdminDash");
 			boolean o = alService.adminLogin(login);
 			if(o==true) {
 				mv.addObject("admin", login);
-
-			// TODO logger
 			return mv;}
 			else {
-				return new ModelAndView("error","msg","Wrong Username or password");
+				return new ModelAndView("admin","msg","Wrong Username or password");
 			}
-		} catch (Exception e) {
-			// TODO logger
-			return new ModelAndView("error", "Exception", e);
-		}
+		
 
 	}
 

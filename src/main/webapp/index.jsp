@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" isELIgnored = "false"%>
 <%@page errorPage="error.jsp" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -108,7 +109,13 @@
     </div>
   </section>
   <!-- /About -->
-  
+   <c:if test="${not empty msg}">
+    <script>
+    window.addEventListener("load",function(){
+         alert("${msg}");
+    })
+    </script>
+</c:if>
 
 
   <!-- Required JavaScript Libraries -->
@@ -127,8 +134,9 @@
   <script src="Bootstrap/lib/lockfixed/lockfixed.min.js"></script>
   <script src="Bootstrap/lib/jquery-ui/jquery-ui.js"></script>
 
-  <!-- Template Specisifc Custom Javascript File -->
+  <!-- Template Specific Custom Javascript File -->
   <script src="Bootstrap/js/custom.js"></script>
+  <script src="Bootstrap/js/back.js"></script>
 
   <script src="Bootstrap/contactform/contactform.js"></script>
   

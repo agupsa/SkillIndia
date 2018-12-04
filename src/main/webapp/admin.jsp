@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,7 +30,8 @@
 <link href="Bootstrap/css/style.css" rel="stylesheet">
 </head>
 
-<body>
+<body onload="checkmsg()">
+   
 
 <!-- Form Heading -->
 	<center>
@@ -81,7 +83,10 @@ Login<i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
 </form>
 </section>
 
+
 <!-- Required JavaScript Libraries -->
+
+
 	<script src="Bootstrap/lib/jquery/jquery.min.js"></script>
 	<script src="Bootstrap/lib/jquery/jquery-migrate.min.js"></script>
 	<script src="Bootstrap/lib/superfish/hoverIntent.js"></script>
@@ -98,12 +103,22 @@ Login<i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
 	<script src="Bootstrap/lib/jquery-ui/jquery-ui.js"></script>
 	<script src="Bootstrap/JSON/script.js"></script>
 
-	<!-- Template Specisifc Custom Javascript File -->
+	<!-- Template Specific Custom Javascript File -->
 	<script src="Bootstrap/js/custom.js"></script>
 	<script src="Bootstrap/js/script.js"></script>
+	<script src="Bootstrap/js/back.js"></script>
 	<script src="Bootstrap/js/candidate.js"></script>
 
 	<script src="Bootstrap/contactform/contactform.js"></script>
+	
+<%-- <c:if test="${not empty msg}"> --%>
+    <script>
+
+    function checkmsg() {
+    	 alert("${msg}");
+    }
+    </script>
+<%--     </c:if> --%>
 
 </body>
 </html>

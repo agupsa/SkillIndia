@@ -88,7 +88,7 @@
 			</div>
 			<nav id="nav-menu-container">
 				<ul class="nav-menu">
-					<li><a href="search.jsp">Search</a></li>
+					<li><a href="search.jsp">Search Establishments</a></li>
 				</ul>
 			</nav>
 
@@ -155,7 +155,7 @@
 								<th>Action</th>
 							</tr>
 						</thead>
-						</thead>
+
 						<tbody>
 
 							<c:forEach items="${drm}" var="drm">
