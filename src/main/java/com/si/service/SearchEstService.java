@@ -22,4 +22,3 @@ public class SearchEstService implements SearchEstServiceInterface {
 	}
 
 }
-r
